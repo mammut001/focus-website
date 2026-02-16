@@ -6,8 +6,6 @@
   --color-study: hsl(217, 91%, 60%);
   --color-work: hsl(142, 71%, 45%);
   --color-custom: hsl(25, 95%, 53%);
-  --bg-dark: hsl(222, 47%, 5%);
-  --bg-card: hsl(222, 30%, 10%);
 }
 
 html {
@@ -15,7 +13,10 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: white;
+  overflow-x: hidden;
 }
 
 /* Custom scrollbar */
@@ -24,76 +25,153 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(222, 47%, 5%);
+  background: #0f172a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(222, 30%, 20%);
+  background: #334155;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(222, 30%, 30%);
+  background: #475569;
 }
 
-/* Gradient background */
-.gradient-bg {
-  background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+/* Selection */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: white;
 }
 
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Smooth animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Shimmer effect for buttons */
-.shimmer {
+/* Background patterns */
+.bg-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-grid {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, #fff 0%, #a5b4fc 50%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Button shine effect */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
   background: linear-gradient(
     90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.2) 50%,
-    transparent 100%
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
   );
-  background-size: 200% 100%;
-  animation: shimmer 2s linear infinite;
+  transform: skewX(-25deg);
+  transition: left 0.5s;
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+.btn-shine:hover::after {
+  left: 150%;
 }
 
 /* Glow effects */
-.glow-study {
-  box-shadow: 0 0 30px hsl(217, 91%, 60%, 0.3);
+.glow-blue {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
 }
 
-.glow-work {
-  box-shadow: 0 0 30px hsl(142, 71%, 45%, 0.3);
+.glow-purple {
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.3);
 }
 
-.glow-custom {
-  box-shadow: 0 0 30px hsl(25, 95%, 53%, 0.3);
+.glow-cyan {
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.3);
 }
 
-/* Light mode */
-.light {
-  --bg-dark: hsl(0, 0%, 98%);
-  --bg-card: hsl(0, 0%, 100%);
+/* Animation utilities */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-.light body {
-  background: hsl(0, 0%, 98%);
-  color: hsl(222, 47%, 11%);
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.5); }
 }
 
-.light .bg-bg-dark {
-  background: hsl(0, 0%, 98%);
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
-.light .bg-bg-card {
-  background: hsl(0, 0%, 100%);
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Text fade in */
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive container */
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding: 0 3rem;
+  }
 }

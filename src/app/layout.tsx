@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Focus — 极简专注计时器 | iPhone & Apple Watch",
@@ -22,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh" className="dark">
-      <body className={`${inter.className} ${jetbrainsMono.className} bg-bg-dark text-white`}>
+      <body className={inter.className}>
         {children}
       </body>
     </html>
