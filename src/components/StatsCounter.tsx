@@ -1,14 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-
-const stats = [
-  { value: 10000, suffix: '+', label: '活跃用户', icon: '👥' },
-  { value: 500000, suffix: '+', label: '专注会话', icon: '⏱️' },
-  { value: 1000000, suffix: 'h', label: '专注时长', icon: '📈' },
-  { value: 4.8, suffix: '⭐', label: 'App 评分', icon: '⭐' },
-];
+import { useEffect, useState, useRef } from 'react';
+import type { Dictionary } from '@/dictionaries/en';
 
 function useCountUp(end: number, duration: number = 2000, start: boolean = false) {
   const [count, setCount] = useState(0);
@@ -20,11 +14,9 @@ function useCountUp(end: number, duration: number = 2000, start: boolean = false
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-      
-      // Easing function
       const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * end));
-      
+      setCount(eased * end);
+
       if (progress < 1) {
         requestAnimationFrame(animate);
       }
@@ -35,70 +27,89 @@ function useCountUp(end: number, duration: number = 2000, start: boolean = false
   return count;
 }
 
-export default function StatsCounter() {
+function StatItem({ item, value, isVisible, index }: { item: { label: string; suffix: string }; value: number; isVisible: boolean; index: number }) {
+  const count = useCountUp(value, 2500, isVisible);
+
+  const formatNumber = (n: number) => {
+    // Basic formatting - adjust logic if needed for different locales
+    if (value >= 1000000) return (n / 1000000).toFixed(1) + 'M'; // Simplified for international
+    if (value >= 1000) return Math.floor(n).toLocaleString();
+    if (value % 1 === 0) return Math.floor(n).toString(); // Integer
+    return n.toFixed(1);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+      className="text-center px-4 md:px-8"
+    >
+      <div className="text-4xl md:text-5xl font-bold mb-2 tabular-nums">
+        <span className="text-gradient-hero">
+          {formatNumber(count)}
+        </span>
+        <span className="text-2xl md:text-3xl text-white/40 ml-0.5">{item.suffix}</span>
+      </div>
+      <div className="text-white/40 text-sm font-medium">{item.label}</div>
+    </motion.div>
+  );
+}
+
+export default function StatsCounter({ dict }: { dict: Dictionary['stats'] }) {
   const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const statsData = [
+    { value: 1, item: dict.items.users },
+    { value: 1, item: dict.items.sessions },
+    { value: 1, item: dict.items.hours },
+    { value: 5.0, item: dict.items.rating },
+  ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById('stats');
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.8) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
           setIsVisible(true);
         }
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="stats" className="py-32 px-4 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-blue-900/10 to-slate-900" />
-      
-      {/* Animated gradient orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+    <section ref={ref} className="py-24 md:py-32 px-6 relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] bg-indigo-500/[0.05] rounded-full blur-[100px]" />
+      </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-              数字证明
-            </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-5">
+            <span className="text-gradient-section">{dict.title}</span>
           </h2>
-          <p className="text-white/60 text-lg">
-            来自用户的真实数据
-          </p>
+          <p className="text-white/45 text-lg">{dict.subtitle}</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((stat, index) => {
-            const count = useCountUp(stat.value, 2500, isVisible);
-            return (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
-                className="relative p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300 group"
-              >
-                <div className="text-4xl mb-4">{stat.icon}</div>
-                <div className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  {stat.value >= 1000 ? count.toLocaleString() : count.toFixed(1)}
-                  <span className="text-2xl">{stat.suffix}</span>
-                </div>
-                <div className="text-white/60">{stat.label}</div>
-              </motion.div>
-            );
-          })}
+        {/* Stats row */}
+        <div className="glass-card rounded-2xl py-10 md:py-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x md:divide-white/[0.06]">
+            {statsData.map((stat, index) => (
+              <StatItem key={index} item={stat.item} value={stat.value} isVisible={isVisible} index={index} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
