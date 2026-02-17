@@ -169,3 +169,18 @@ body {
 @media (min-width: 1024px) {
   .container-custom { padding: 0 4rem; }
 }
+
+/* ── Mobile Touch Optimizations ─────────────────────── */
+@media (max-width: 640px) {
+  /* Larger touch targets */
+  button, a { 
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Reduce section padding */
+  section { 
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
