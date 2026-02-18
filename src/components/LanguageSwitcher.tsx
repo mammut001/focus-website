@@ -5,9 +5,9 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 
 const languages = [
-    { code: 'en', label: 'EN' },
-    { code: 'zh', label: '中' },
-    { code: 'fr', label: 'FR' },
+    { code: 'zh', label: '中文', flag: '🇨🇳' },
+    { code: 'en', label: 'EN', flag: '🇨🇦' },
+    { code: 'fr', label: 'FR', flag: '🇫🇷' },
 ];
 
 interface LanguageSwitcherProps {
@@ -21,7 +21,7 @@ export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherP
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     // Current language code from pathname (e.g. /en/...)
-    const currentLang = pathname.split('/')[1] || 'en';
+    const currentLang = pathname?.split('/')[1] || 'zh';
 
     // Close dropdown when clicking outside
     useEffect(() => {
@@ -41,10 +41,20 @@ export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherP
     }, []);
 
     const switchLanguage = (langCode: string) => {
-        if (!pathname) return;
-        const segments = pathname.split('/');
-        segments[1] = langCode;
-        const newPath = segments.join('/');
+        let newPath: string;
+
+        if (!pathname || pathname === '/' || pathname === '') {
+            newPath = `/${langCode}`;
+        } else if (['en', 'zh', 'fr'].includes(pathname.split('/')[1])) {
+            // Replace existing language prefix
+            const segments = pathname.split('/');
+            segments[1] = langCode;
+            newPath = segments.join('/');
+        } else {
+            // Add language prefix
+            newPath = `/${langCode}${pathname}`;
+        }
+
         router.push(newPath);
         setIsOpen(false);
         // Notify parent to close mobile menu
@@ -53,13 +63,17 @@ export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherP
         }
     };
 
+    // Find current language info
+    const currentLangInfo = languages.find(l => l.code === currentLang) || languages[0];
+
     return (
         <div className="relative" ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white/70 hover:text-white rounded-lg hover:bg-white/[0.06] transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-300 hover:text-white rounded-lg hover:bg-white/10 transition-colors min-h-[44px]"
             >
-                <span>{languages.find(l => l.code === currentLang)?.label || 'EN'}</span>
+                <span>{currentLangInfo.flag}</span>
+                <span>{currentLangInfo.label}</span>
                 <svg
                     className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
                     fill="none"
@@ -82,16 +96,17 @@ export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherP
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute right-0 top-full mt-2 w-20 py-1 rounded-xl bg-[hsl(225,25%,12%)] border border-white/[0.08] shadow-xl z-50 overflow-hidden"
+                        className="absolute right-0 top-full mt-2 w-24 py-1 rounded-xl bg-[hsl(225,25%,12%)] border border-white/[0.08] shadow-xl z-50 overflow-hidden"
                     >
                         {languages.map((lang) => (
                             <button
                                 key={lang.code}
                                 onClick={() => switchLanguage(lang.code)}
-                                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/[0.08] transition-colors ${currentLang === lang.code ? 'text-white font-semibold bg-white/[0.04]' : 'text-white/60'
+                                className={`w-full px-4 py-2 text-sm text-left hover:bg-white/10 transition-colors flex items-center gap-2 ${currentLang === lang.code ? 'text-white font-semibold bg-white/10' : 'text-gray-400'
                                     }`}
                             >
-                                {lang.label}
+                                <span>{lang.flag}</span>
+                                <span>{lang.label}</span>
                             </button>
                         ))}
                     </motion.div>
