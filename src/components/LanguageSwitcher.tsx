@@ -96,7 +96,7 @@ export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherP
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute right-0 top-full mt-2 w-24 py-1 rounded-xl bg-[hsl(225,25%,12%)] border border-white/[0.08] shadow-xl z-50 overflow-hidden"
+                        className="absolute right-0 top-full mt-2 w-24 py-1 rounded-xl bg-[hsl(225,25%,15%)]/95 border border-white/10 shadow-xl z-50 overflow-hidden backdrop-blur-sm"
                     >
                         {languages.map((lang) => (
                             <button
