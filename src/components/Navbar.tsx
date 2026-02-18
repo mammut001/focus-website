@@ -63,7 +63,7 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
             ))}
 
             <div className="mx-2">
-              <LanguageSwitcher />
+              <LanguageSwitcher onLanguageChange={() => {}} />
             </div>
 
             <button
@@ -92,9 +92,10 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
         {/* Mobile Menu */}
         <motion.div
           initial={false}
-          animate={mobileOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
-          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-          className="md:hidden overflow-hidden"
+          animate={mobileOpen ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="md:hidden overflow-visible"
+          style={{ display: mobileOpen ? 'block' : 'none' }}
         >
           <div className="pb-4 pt-2 flex flex-col gap-1">
             {[
@@ -111,7 +112,7 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
               </button>
             ))}
             <div className="px-4 py-2">
-              <LanguageSwitcher />
+              <LanguageSwitcher onLanguageChange={() => setMobileOpen(false)} />
             </div>
           </div>
         </motion.div>

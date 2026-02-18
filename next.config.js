@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
-  output: 'export',
-  basePath: '/focus-website',
+  output: isProd ? 'export' : undefined,
+  basePath: isProd ? '/focus-website' : '',
   images: {
     unoptimized: true,
   },

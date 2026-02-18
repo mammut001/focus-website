@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const languages = [
     { code: 'en', label: 'EN' },
@@ -10,13 +10,35 @@ const languages = [
     { code: 'fr', label: 'FR' },
 ];
 
-export default function LanguageSwitcher() {
+interface LanguageSwitcherProps {
+    onLanguageChange?: () => void;
+}
+
+export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherProps) {
     const pathname = usePathname();
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
     // Current language code from pathname (e.g. /en/...)
     const currentLang = pathname.split('/')[1] || 'en';
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('touchstart', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('touchstart', handleClickOutside);
+        };
+    }, []);
 
     const switchLanguage = (langCode: string) => {
         if (!pathname) return;
@@ -25,10 +47,14 @@ export default function LanguageSwitcher() {
         const newPath = segments.join('/');
         router.push(newPath);
         setIsOpen(false);
+        // Notify parent to close mobile menu
+        if (onLanguageChange) {
+            onLanguageChange();
+        }
     };
 
     return (
-        <div className="relative">
+        <div className="relative" ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white/70 hover:text-white rounded-lg hover:bg-white/[0.06] transition-colors"
@@ -48,7 +74,7 @@ export default function LanguageSwitcher() {
             {isOpen && (
                 <>
                     <div
-                        className="fixed inset-0 z-10"
+                        className="fixed inset-0 z-40"
                         onClick={() => setIsOpen(false)}
                     />
                     <motion.div
@@ -56,7 +82,7 @@ export default function LanguageSwitcher() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute right-0 top-full mt-2 w-20 py-1 rounded-xl bg-[hsl(225,25%,12%)] border border-white/[0.08] shadow-xl z-20 overflow-hidden"
+                        className="absolute right-0 top-full mt-2 w-20 py-1 rounded-xl bg-[hsl(225,25%,12%)] border border-white/[0.08] shadow-xl z-50 overflow-hidden"
                     >
                         {languages.map((lang) => (
                             <button
