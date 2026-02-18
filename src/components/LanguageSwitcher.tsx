@@ -7,7 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 const languages = [
     { code: 'zh', label: '中文', flag: '🇨🇳' },
     { code: 'en', label: 'EN', flag: '🇨🇦' },
-    { code: 'fr', label: 'FR', flag: '🇫🇷' },
+    { code: 'fr', label: 'FR', flag: '🇨🇦' },
 ];
 
 interface LanguageSwitcherProps {
