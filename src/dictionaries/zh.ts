@@ -2,20 +2,20 @@ import { Dictionary } from './en';
 
 export const zh: Dictionary = {
     metadata: {
-        title: "Focus — 极简专注计时器 | iPhone & Apple Watch",
-        description: "Focus 是一款为 iPhone 和 Apple Watch 设计的专注计时应用。支持正/倒计时、智能统计、收入追踪，助你高效工作学习。",
-        ogTitle: "Focus — 极简专注计时器",
+        title: "FocusMint — 极简专注计时器 | iPhone & Apple Watch",
+        description: "FocusMint 是一款为 iPhone 和 Apple Watch 设计的专注计时应用。支持正/倒计时、智能统计、收入追踪，助你高效工作学习。",
+        ogTitle: "FocusMint — 极简专注计时器",
         ogDescription: "iPhone + Apple Watch 专注计时，统计分析，收入追踪",
     },
     navbar: {
-        focus: "Focus",
+        focus: "FocusMint",
         features: "功能",
         howItWorks: "使用方法",
         download: "下载",
     },
     hero: {
         badge: "iPhone + Apple Watch",
-        title: "Focus",
+        title: "FocusMint",
         tagline: "专注力，从此不同",
         description: "为 iPhone 和 Apple Watch 精心打造的极简专注计时器，\n助你高效工作学习",
         appStore: "App Store",
@@ -38,7 +38,7 @@ export const zh: Dictionary = {
             },
             stats: {
                 title: "智能统计",
-                desc: "周视图仪表盘，柱状图直观展示专注趋势，数据一目了然",
+                desc: "周视图仪表盘，柱状图和模式分布，数据一目了然",
             },
             income: {
                 title: "收入追踪",
@@ -46,15 +46,23 @@ export const zh: Dictionary = {
             },
             watch: {
                 title: "Apple Watch",
-                desc: "手腕上的专注力，Digital Crown 精确调节，抬腕即操作",
+                desc: "手腕上的专注力，Digital Crown 精确调节，触感反馈",
             },
             goals: {
                 title: "每日目标",
                 desc: "设定每日专注目标，养成高效习惯，让进步可视化",
             },
             bilingual: {
-                title: "中英双语",
-                desc: "无缝切换中英文界面，跨国使用无障碍",
+                title: "多语言",
+                desc: "中文、英文、法语无缝切换，跨国使用无障碍",
+            },
+            notifications: {
+                title: "通知提醒",
+                desc: "倒计时完成通知，最后 1 分钟/30 秒触感警告",
+            },
+            export: {
+                title: "数据导出",
+                desc: "导出专注数据到 CSV，完全掌控你的数据",
             },
         },
     },
@@ -135,6 +143,6 @@ export const zh: Dictionary = {
     footer: {
         privacy: "隐私政策",
         terms: "服务条款",
-        copyright: "© 2026 Focus. All rights reserved.",
+        copyright: "© 2026 FocusMint. All rights reserved.",
     },
 };

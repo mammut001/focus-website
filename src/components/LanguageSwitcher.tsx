@@ -12,9 +12,10 @@ const languages = [
 
 interface LanguageSwitcherProps {
     onLanguageChange?: () => void;
+    isMobile?: boolean; // Add isMobile prop
 }
 
-export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({ onLanguageChange, isMobile = false }: LanguageSwitcherProps) {
     const pathname = usePathname();
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
@@ -66,6 +67,11 @@ export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherP
     // Find current language info
     const currentLangInfo = languages.find(l => l.code === currentLang) || languages[0];
 
+    // Dynamic background opacity based on isMobile
+    const dropdownBgClass = isMobile
+        ? 'bg-[hsl(225,25%,15%)]/60'
+        : 'bg-[hsl(225,25%,15%)]/95';
+
     return (
         <div className="relative" ref={dropdownRef}>
             <button
@@ -96,7 +102,7 @@ export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherP
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute right-0 top-full mt-2 w-24 py-1 rounded-xl bg-[hsl(225,25%,15%)]/95 border border-white/10 shadow-xl z-50 overflow-hidden backdrop-blur-sm"
+                        className={`absolute right-0 top-full mt-2 w-24 py-1 rounded-xl ${dropdownBgClass} border border-white/10 shadow-xl z-50 overflow-hidden backdrop-blur-sm`}
                     >
                         {languages.map((lang) => (
                             <button
