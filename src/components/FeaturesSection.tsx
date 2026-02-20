@@ -71,6 +71,28 @@ export default function FeaturesSection({ dict }: { dict: Dictionary['features']
       gradient: 'from-indigo-500 to-blue-400',
       glow: 'group-hover:shadow-indigo-500/20',
     },
+    {
+      icon: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+      ),
+      title: dict.items.notifications.title,
+      description: dict.items.notifications.desc,
+      gradient: 'from-pink-500 to-rose-400',
+      glow: 'group-hover:shadow-pink-500/20',
+    },
+    {
+      icon: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+      ),
+      title: dict.items.export.title,
+      description: dict.items.export.desc,
+      gradient: 'from-cyan-500 to-blue-400',
+      glow: 'group-hover:shadow-cyan-500/20',
+    },
   ];
 
   const containerVariants = {

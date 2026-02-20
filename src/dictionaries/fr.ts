@@ -2,20 +2,20 @@ import { Dictionary } from './en';
 
 export const fr: Dictionary = {
     metadata: {
-        title: "Focus — Minuteur Minimaliste pour iPhone & Apple Watch",
-        description: "Focus est une application de chronométrage minimaliste pour iPhone et Apple Watch. Supporte le chronométrage/compte à rebours, statistiques intelligentes.",
-        ogTitle: "Focus — Minuteur de Concentration",
+        title: "FocusMint — Minuteur Minimaliste pour iPhone & Apple Watch",
+        description: "FocusMint est une application de chronométrage minimaliste pour iPhone et Apple Watch. Supporte le chronométrage/compte à rebours, statistiques intelligentes et suivi des revenus.",
+        ogTitle: "FocusMint — Minuteur de Concentration",
         ogDescription: "Minuteur de focus iPhone + Apple Watch, statistiques, suivi des revenus",
     },
     navbar: {
-        focus: "Focus",
+        focus: "FocusMint",
         features: "Fonctions",
         howItWorks: "Comment ça marche",
         download: "Télécharger",
     },
     hero: {
         badge: "iPhone + Apple Watch",
-        title: "Focus",
+        title: "FocusMint",
         tagline: "La Productivité, Réimaginée",
         description: "Un minuteur de concentration minimaliste conçu pour iPhone et Apple Watch,\ncréé pour vous aider à travailler et étudier efficacement.",
         appStore: "App Store",
@@ -34,27 +34,35 @@ export const fr: Dictionary = {
         items: {
             dualMode: {
                 title: "Double Mode",
-                desc: "Basculement flexible entre chronomètre et compte à rebours pour différents scénarios",
+                desc: "Chronomètre et compte à rebours. Choisissez votre rythme selon le scénario",
             },
             stats: {
                 title: "Stats Intelligentes",
-                desc: "Tableau de bord hebdomadaire et graphiques pour visualiser vos tendances",
+                desc: "Tableau de bord hebdomadaire, graphiques et distribution des modes",
             },
             income: {
                 title: "Suivi des Revenus",
-                desc: "Définissez votre taux horaire et calculez automatiquement la valeur de votre temps",
+                desc: "Définissez votre taux horaire. Calculez automatiquement la valeur",
             },
             watch: {
                 title: "Apple Watch",
-                desc: "Concentration au poignet. Contrôle précis avec la Digital Crown",
+                desc: "Concentration au poignet. Digital Crown, retour haptique, complications",
             },
             goals: {
                 title: "Objectifs Quotidiens",
-                desc: "Définissez des objectifs quotidiens pour créer des habitudes efficaces",
+                desc: "Définissez des objectifs quotidiens. Créez des habitudes efficaces",
             },
             bilingual: {
                 title: "Multilingue",
-                desc: "Basculement transparent entre les interfaces anglais, chinois et français",
+                desc: "Anglais, français et chinois. Basculement transparent entre les interfaces",
+            },
+            notifications: {
+                title: "Notifications",
+                desc: "Alertes de fin de compte à rebours. Avertissements haptiques à 1 min / 30 sec",
+            },
+            export: {
+                title: "Exportation",
+                desc: "Exportez vos données en CSV. Contrôle total sur vos données",
             },
         },
     },
@@ -135,6 +143,6 @@ export const fr: Dictionary = {
     footer: {
         privacy: "Confidentialité",
         terms: "Conditions",
-        copyright: "© 2026 Focus. Tous droits réservés.",
+        copyright: "© 2026 FocusMint. Tous droits réservés.",
     },
 };

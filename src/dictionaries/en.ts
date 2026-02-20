@@ -36,6 +36,8 @@ export type Dictionary = {
             watch: { title: string; desc: string };
             goals: { title: string; desc: string };
             bilingual: { title: string; desc: string };
+            notifications: { title: string; desc: string };
+            export: { title: string; desc: string };
         };
     };
     howItWorks: {
@@ -112,20 +114,20 @@ export type Dictionary = {
 
 export const en: Dictionary = {
     metadata: {
-        title: "Focus — Minimalist Timer for iPhone & Apple Watch",
-        description: "Focus is a minimalist timer app for iPhone & Apple Watch. Supports count-up/countdown, smart stats, and income tracking to boost your productivity.",
-        ogTitle: "Focus — Minimalist Focus Timer",
+        title: "FocusMint — Minimalist Timer for iPhone & Apple Watch",
+        description: "FocusMint is a minimalist timer app for iPhone & Apple Watch. Supports count-up/countdown, smart stats, and income tracking to boost your productivity.",
+        ogTitle: "FocusMint — Minimalist Focus Timer",
         ogDescription: "iPhone + Apple Watch Focus Timer, Stats Analysis, Income Tracking",
     },
     navbar: {
-        focus: "Focus",
+        focus: "FocusMint",
         features: "Features",
         howItWorks: "How it Works",
         download: "Download",
     },
     hero: {
         badge: "iPhone + Apple Watch",
-        title: "Focus",
+        title: "FocusMint",
         tagline: "Productivity, Reimagined",
         description: "A minimalist focus timer crafted for iPhone and Apple Watch,\ndesigned to help you work and study efficiently.",
         appStore: "App Store",
@@ -144,27 +146,35 @@ export const en: Dictionary = {
         items: {
             dualMode: {
                 title: "Dual Mode",
-                desc: "Flexible switching between Count-up and Countdown modes for different scenarios",
+                desc: "Stopwatch and Countdown modes. Choose your rhythm for different scenarios",
             },
             stats: {
                 title: "Smart Stats",
-                desc: "Weekly dashboard and bar charts to visualize your focus trends at a glance",
+                desc: "Weekly dashboard, bar charts, and mode distribution at a glance",
             },
             income: {
                 title: "Income Tracking",
-                desc: "Set your hourly rate and automatically calculate the value of your focus time",
+                desc: "Set hourly rate. Automatically calculate your focus value",
             },
             watch: {
                 title: "Apple Watch",
-                desc: "Focus on your wrist. Precise control with Digital Crown, raise to wake",
+                desc: "Focus on your wrist. Digital Crown control, haptic feedback, complications",
             },
             goals: {
                 title: "Daily Goals",
-                desc: "Set daily focus targets to build efficient habits and visualize progress",
+                desc: "Set daily focus targets. Build efficient habits and track progress",
             },
             bilingual: {
-                title: "Bilingual",
-                desc: "Seamless switching between English and Chinese interfaces",
+                title: "Multilingual",
+                desc: "English, French, and Chinese. Seamless switching between interfaces",
+            },
+            notifications: {
+                title: "Notifications",
+                desc: "Countdown completion alerts. Haptic warnings at 1 min / 30 sec",
+            },
+            export: {
+                title: "Data Export",
+                desc: "Export your focus data to CSV. Full control over your data",
             },
         },
     },
@@ -245,6 +255,6 @@ export const en: Dictionary = {
     footer: {
         privacy: "Privacy Policy",
         terms: "Terms of Service",
-        copyright: "© 2026 Focus. All rights reserved.",
+        copyright: "© 2026 FocusMint. All rights reserved.",
     },
 };

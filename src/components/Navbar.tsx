@@ -112,7 +112,7 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
               </button>
             ))}
             <div className="px-4 py-2">
-              <LanguageSwitcher onLanguageChange={() => setMobileOpen(false)} />
+              <LanguageSwitcher onLanguageChange={() => setMobileOpen(false)} isMobile={true} />
             </div>
           </div>
         </motion.div>
