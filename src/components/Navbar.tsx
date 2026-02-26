@@ -4,20 +4,40 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import type { Dictionary } from '@/dictionaries/en';
+import { useParams, useRouter, usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollY } = useScroll();
+  const params = useParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const lang = (params.lang as string) || 'en';
+
+  const isHomePage = pathname === `/${lang}` || pathname === `/${lang}/`;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
   });
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (isHomePage) {
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      router.push(`/${lang}/#${id}`);
+    }
     setMobileOpen(false);
+  };
+
+  const handleLogoClick = () => {
+    if (isHomePage) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+        router.push(`/${lang}`);
+    }
   };
 
   return (
@@ -37,7 +57,7 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="flex items-center gap-3 cursor-pointer"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={handleLogoClick}
           >
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
               <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -61,6 +81,13 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
                 {item.label}
               </button>
             ))}
+
+            <Link
+                href={`/${lang}/changelog`}
+                className="px-4 py-2 text-sm text-white/60 hover:text-white rounded-lg hover:bg-white/[0.06] transition-all duration-200"
+            >
+                {dict.changelog}
+            </Link>
 
             <div className="mx-2">
               <LanguageSwitcher onLanguageChange={() => {}} />
@@ -111,6 +138,15 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
                 {item.label}
               </button>
             ))}
+
+            <Link
+                href={`/${lang}/changelog`}
+                onClick={() => setMobileOpen(false)}
+                className="text-left text-white/70 hover:text-white hover:bg-white/[0.06] px-4 py-3 rounded-xl transition-all"
+            >
+                {dict.changelog}
+            </Link>
+
             <div className="px-4 py-2">
               <LanguageSwitcher onLanguageChange={() => setMobileOpen(false)} isMobile={true} />
             </div>
