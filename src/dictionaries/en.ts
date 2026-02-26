@@ -10,6 +10,19 @@ export type Dictionary = {
         features: string;
         howItWorks: string;
         download: string;
+        changelog: string;
+    };
+    changelogPage: {
+        title: string;
+        description: string;
+        repoLabel: string;
+        placeholder: string;
+        loading: string;
+        error: string;
+        noReleases: string;
+        releases: string;
+        commits: string;
+        viewOnGitHub: string;
     };
     hero: {
         badge: string;
@@ -124,6 +137,19 @@ export const en: Dictionary = {
         features: "Features",
         howItWorks: "How it Works",
         download: "Download",
+        changelog: "Changelog",
+    },
+    changelogPage: {
+        title: "Changelog",
+        description: "Follow the latest updates and improvements.",
+        repoLabel: "Repository:",
+        placeholder: "owner/repo",
+        loading: "Loading...",
+        error: "Failed to load data. Please check the repository name.",
+        noReleases: "No releases found.",
+        releases: "Releases",
+        commits: "Commits",
+        viewOnGitHub: "View on GitHub",
     },
     hero: {
         badge: "iPhone + Apple Watch",
