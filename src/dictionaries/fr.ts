@@ -17,10 +17,8 @@ export const fr: Dictionary = {
     changelogPage: {
         title: "Journal des modifications",
         description: "Suivez les dernières mises à jour et améliorations.",
-        repoLabel: "Dépôt :",
-        placeholder: "propriétaire/dépôt",
         loading: "Chargement...",
-        error: "Échec du chargement. Vérifiez le nom du dépôt.",
+        error: "Échec du chargement. Veuillez réessayer plus tard.",
         noReleases: "Aucune version trouvée.",
         releases: "Versions",
         commits: "Commits",

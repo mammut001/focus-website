@@ -30,55 +30,56 @@ type Commit = {
 };
 
 export default function ChangelogViewer({ dict }: ChangelogViewerProps) {
-    const [repoInput, setRepoInput] = useState('mammut001/FocusApp');
-    const [repoName, setRepoName] = useState('mammut001/FocusApp');
     const [data, setData] = useState<(Release | Commit)[]>([]);
     const [type, setType] = useState<'releases' | 'commits'>('releases');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
     useEffect(() => {
-        fetchData(repoName);
-    }, [repoName]);
+        fetchData();
+    }, []);
 
-    const fetchData = async (repo: string) => {
+    const fetchData = async () => {
         setLoading(true);
         setError('');
         setData([]);
 
         try {
-            // Try fetching releases first
-            const releasesRes = await fetch(`https://api.github.com/repos/${repo}/releases`);
-            if (releasesRes.ok) {
-                const releases = await releasesRes.json();
-                if (releases.length > 0) {
-                    setData(releases);
-                    setType('releases');
-                    setLoading(false);
-                    return;
-                }
+            // Determine basePath based on environment
+            // In production export, we expect the base path to be /focus-website
+            // But we should try to detect it or use a relative path that works for both.
+            // Since the file is in public/data/changelog.json, a relative fetch from current page might be tricky if routes are nested.
+            // However, /data/changelog.json (absolute path relative to domain root) works if deployed at root.
+            // If deployed at /focus-website/, we need /focus-website/data/changelog.json.
+
+            let dataUrl = '/data/changelog.json';
+            if (process.env.NODE_ENV === 'production') {
+                dataUrl = '/focus-website/data/changelog.json';
             }
 
-            // If no releases or 404, try commits
-            const commitsRes = await fetch(`https://api.github.com/repos/${repo}/commits`);
-            if (commitsRes.ok) {
-                const commits = await commitsRes.json();
-                setData(commits);
-                setType('commits');
+            const res = await fetch(dataUrl);
+            if (!res.ok) {
+                 throw new Error('Failed to load changelog');
+            }
+            const jsonData = await res.json();
+
+            if (Array.isArray(jsonData) && jsonData.length > 0) {
+                setData(jsonData);
+                // Simple heuristic to guess type: releases have 'tag_name', commits have 'sha'
+                if ('tag_name' in jsonData[0]) {
+                    setType('releases');
+                } else {
+                    setType('commits');
+                }
             } else {
-                setError(dict.error);
+                // Empty array or invalid data
+                setData([]);
             }
         } catch (err) {
+            console.error(err);
             setError(dict.error);
         } finally {
             setLoading(false);
-        }
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (repoInput.trim()) {
-            setRepoName(repoInput.trim());
         }
     };
 
@@ -98,7 +99,7 @@ export default function ChangelogViewer({ dict }: ChangelogViewerProps) {
                 transition={{ duration: 0.5 }}
                 className="space-y-8"
             >
-                {/* Header & Input */}
+                {/* Header */}
                 <div className="flex flex-col md:flex-row gap-6 items-end md:items-center justify-between">
                     <div>
                         <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">
@@ -106,25 +107,6 @@ export default function ChangelogViewer({ dict }: ChangelogViewerProps) {
                         </h1>
                         <p className="text-white/60 mt-2">{dict.description}</p>
                     </div>
-
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full md:w-auto">
-                        <label className="text-sm font-medium text-white/70">{dict.repoLabel}</label>
-                        <div className="flex gap-2">
-                            <input
-                                type="text"
-                                value={repoInput}
-                                onChange={(e) => setRepoInput(e.target.value)}
-                                placeholder={dict.placeholder}
-                                className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full md:w-64"
-                            />
-                            <button
-                                type="submit"
-                                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors"
-                            >
-                                Go
-                            </button>
-                        </div>
-                    </form>
                 </div>
 
                 {/* Content */}
@@ -137,12 +119,6 @@ export default function ChangelogViewer({ dict }: ChangelogViewerProps) {
                     ) : error ? (
                         <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-6 text-center text-red-200">
                             <p>{error}</p>
-                            {/* Suggestion if the repo name looks like it might have a typo or if it's the default one */}
-                            {repoName === 'mammut001/FocusApp' && (
-                                <p className="mt-2 text-sm text-red-200/60">
-                                    Tip: Try <strong>mammut001/Focus</strong> if the default doesn't work.
-                                </p>
-                            )}
                         </div>
                     ) : data.length === 0 ? (
                         <div className="text-center text-white/40 py-12">
@@ -152,14 +128,6 @@ export default function ChangelogViewer({ dict }: ChangelogViewerProps) {
                         <div className="space-y-6">
                             <div className="flex items-center justify-between text-sm text-white/40 pb-4 border-b border-white/10">
                                 <span>{type === 'releases' ? dict.releases : dict.commits}</span>
-                                <a
-                                    href={`https://github.com/${repoName}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:text-indigo-400 transition-colors"
-                                >
-                                    {dict.viewOnGitHub} &rarr;
-                                </a>
                             </div>
 
                             {data.map((item, index) => {

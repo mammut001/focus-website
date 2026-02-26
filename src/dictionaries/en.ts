@@ -15,8 +15,6 @@ export type Dictionary = {
     changelogPage: {
         title: string;
         description: string;
-        repoLabel: string;
-        placeholder: string;
         loading: string;
         error: string;
         noReleases: string;
@@ -142,10 +140,8 @@ export const en: Dictionary = {
     changelogPage: {
         title: "Changelog",
         description: "Follow the latest updates and improvements.",
-        repoLabel: "Repository:",
-        placeholder: "owner/repo",
         loading: "Loading...",
-        error: "Failed to load data. Please check the repository name.",
+        error: "Failed to load data. Please try again later.",
         noReleases: "No releases found.",
         releases: "Releases",
         commits: "Commits",

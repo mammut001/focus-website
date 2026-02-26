@@ -17,10 +17,8 @@ export const zh: Dictionary = {
     changelogPage: {
         title: "更新日志",
         description: "关注最新更新和改进。",
-        repoLabel: "仓库：",
-        placeholder: "所有者/仓库",
         loading: "加载中...",
-        error: "加载失败。请检查仓库名称。",
+        error: "加载失败。请稍后再试。",
         noReleases: "未找到版本。",
         releases: "版本",
         commits: "提交",
