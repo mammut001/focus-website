@@ -73,7 +73,7 @@ export default function LanguageSwitcher({ onLanguageChange, isMobile = false }:
         : 'bg-[hsl(225,25%,15%)]/95';
 
     return (
-        <div className="relative" ref={dropdownRef}>
+        <div className="relative inline-block text-left" ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-300 hover:text-white rounded-lg hover:bg-white/10 transition-colors min-h-[44px]"
@@ -102,7 +102,7 @@ export default function LanguageSwitcher({ onLanguageChange, isMobile = false }:
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className={`absolute right-0 top-full mt-2 w-24 py-1 rounded-xl ${dropdownBgClass} border border-white/10 shadow-xl z-50 overflow-hidden backdrop-blur-sm`}
+                    className={`absolute ${isMobile ? 'left-0' : 'right-0'} top-full mt-2 w-24 py-1 rounded-xl ${dropdownBgClass} border border-white/10 shadow-xl z-50 overflow-hidden backdrop-blur-sm`}
                     >
                         {languages.map((lang) => (
                             <button
