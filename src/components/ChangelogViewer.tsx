@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import type { Dictionary } from '@/dictionaries/en';
 
@@ -83,12 +83,14 @@ export default function ChangelogViewer({ dict }: ChangelogViewerProps) {
         }
     };
 
+    const dateFormatter = useMemo(() => new Intl.DateTimeFormat(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    }), []);
+
     const formatDate = (dateString: string) => {
-        return new Date(dateString).toLocaleDateString(undefined, {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-        });
+        return dateFormatter.format(new Date(dateString));
     };
 
     return (
