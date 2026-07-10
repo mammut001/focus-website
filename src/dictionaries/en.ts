@@ -158,8 +158,8 @@ export const en: Dictionary = {
         badge: "Focus timer for iPhone and Apple Watch",
         title: "Make your time\nvisible.",
         description: "FocusMint brings focus sessions, goals, earnings, widgets, and Apple Watch together in one calm place.",
-        appStore: "Coming soon on the App Store",
-        appStoreUrl: "#",
+        appStore: "Download on the App Store",
+        appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         learnMore: "Try the 30-second timer",
         seeCapabilities: "See what FocusMint can do",
         tags: ["Focus sessions", "Goals & earnings", "iPhone + Apple Watch"],
@@ -295,8 +295,8 @@ export const en: Dictionary = {
     download: {
         title: "Ready when you are.",
         subtitle: "A calmer way to begin, focus, and understand your time.",
-        appStore: "Coming soon on the App Store",
-        appStoreUrl: "#",
+        appStore: "Download on the App Store",
+        appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         footnote: "iPhone and Apple Watch required.",
     },
     footer: {
