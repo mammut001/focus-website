@@ -2,13 +2,12 @@ import { Dictionary } from './en';
 
 export const zh: Dictionary = {
     metadata: {
-        title: "FocusMint — 专注计时、目标追踪与收入分析 | iPhone & Apple Watch",
-        description: "FocusMint 是一款为 iPhone 和 Apple Watch 设计的专注计时应用，支持目标生命周期追踪、收入分析、小费记录、打卡模式和背景白噪音。",
-        ogTitle: "FocusMint — 专注计时、目标与收入",
-        ogDescription: "iPhone + Apple Watch 专注计时，目标生命周期，收入分析，小费追踪，打卡",
+        title: "FocusMint — 专注计时器 | iPhone & Apple Watch",
+        description: "一款安静、简单的专注计时器，适用于 iPhone 和 Apple Watch。记录每次投入，追踪进展，看清时间的去向。",
+        ogTitle: "FocusMint — 专注计时器",
+        ogDescription: "iPhone + Apple Watch 专注计时器，记录专注时间，追踪习惯与进展。",
     },
     navbar: {
-        focus: "FocusMint",
         features: "功能",
         howItWorks: "使用方法",
         download: "下载",
@@ -25,99 +24,106 @@ export const zh: Dictionary = {
         viewOnGitHub: "在 GitHub 上查看",
     },
     hero: {
-        badge: "iPhone + Apple Watch",
-        title: "FocusMint",
-        tagline: "专注力，从此不同",
-        description: "为 iPhone 和 Apple Watch 打造的强大专注计时器，\n支持目标追踪、收入分析、小费记录和打卡模式",
-        appStore: "App Store",
-        learnMore: "了解更多",
+        badge: "为 iPhone 和 Apple Watch 打造的专注计时器",
+        title: "专注于当下，\n时间交给我们。",
+        description: "一款安静、简单的专注计时器，帮助你记录每次投入，看清时间去向，不被多余功能打扰。",
+        appStore: "即将登陆 App Store",
+        appStoreUrl: "#",
+        learnMore: "了解详情",
         mockup: {
             timer: "25:00",
             status: "专注中",
             mode: "工作模式",
-            watchTime: "15:00",
-            watchMode: "学习",
+            watchTime: "25:00",
+            watchMode: "专注",
         },
+    },
+    productStatement: {
+        line: "FocusMint 的目的，是帮助你{brand}，而不是让你维护另一套复杂系统。",
+        brandWord: "开始",
     },
     features: {
-        title: "功能亮点",
-        subtitle: "专为高效人士打造的专注工具，让每一次专注都有价值",
-        items: {
-            dualMode: {
-                title: "双模计时",
-                desc: "正计时和倒计时两种模式，灵活切换，适配不同专注场景",
+        title: "你需要的一切，仅此而已",
+        subtitle: "每个功能只有一个目标：帮你专注，不添乱。",
+        main: [
+            {
+                title: "无需复杂设置，立即开始。",
+                description: "选择模式，点击一下，开始工作。需要结构感时用倒计时，只想开始计时就用正计时。",
+                points: [
+                    "正计时与倒计时两种模式",
+                    "一键开启专注",
+                    "专注于任务，而非应用本身",
+                ],
+                mockupIcon: "timer",
+                bg: "default",
             },
-            stats: {
-                title: "智能统计",
-                desc: "周视图仪表盘，柱状图和模式分布，数据一目了然",
+            {
+                title: "计时器就在你手腕上。",
+                description: "无需拿起手机，在 Apple Watch 上即可开始、暂停和查看专注进度，数据自动同步。",
+                points: [
+                    "手表端开始与停止",
+                    "专注结束触感提醒",
+                    "目标进度一目了然",
+                ],
+                mockupIcon: "watch",
+                bg: "brand",
             },
-            earnings: {
-                title: "收入分析",
-                desc: "基础收入与小费明细，有效时薪，最佳日/周表现，月度对比",
+            {
+                title: "看清你的时间去向。",
+                description: "回顾每次专注，了解你的习惯，看到时间的价值。周统计、收入分析、目标进度，一个地方全部呈现。",
+                points: [
+                    "每周专注概览",
+                    "收入与小费记录",
+                    "目标进展与历史",
+                ],
+                mockupIcon: "stats",
+                bg: "default",
             },
-            watch: {
-                title: "Apple Watch",
-                desc: "手腕上的专注力，打卡控制、目标快照、Digital Crown、触感反馈",
-            },
-            goalsLifecycle: {
-                title: "目标生命周期",
-                desc: "追踪进行中、已完成和已失败的目标。智能优先级排序，时间与收入目标",
-            },
-            bilingual: {
-                title: "多语言",
-                desc: "中文、英文、法语无缝切换，跨国使用无障碍",
-            },
-            notifications: {
-                title: "通知提醒",
-                desc: "倒计时完成通知。最后 1 分钟/30 秒触感警告。背景白噪音",
-            },
-            tips: {
-                title: "小费记录",
-                desc: "按天、周或发薪周期记录小费。按会话分配或按日期归整",
-            },
-            clockIn: {
-                title: "打卡模式",
-                desc: "实时工作时间记录器，即时收入计数器。支持灵动岛实时活动，完成时提示小费录入",
-            },
-            sounds: {
-                title: "背景白噪音",
-                desc: "雨声、海浪、咖啡馆、森林和壁炉等环境音效，提升专注力",
-            },
-            export: {
-                title: "数据导出",
-                desc: "导出专注数据到 CSV，完全掌控你的数据",
-            },
-        },
+        ],
+        grid: [
+            { icon: "clock", title: "双模计时", desc: "正计时和倒计时，切换自如。" },
+            { icon: "check", title: "目标追踪", desc: "设定时间或收入目标，随时查看进展。" },
+            { icon: "dollar", title: "收入记录", desc: "追踪每小时收入和每次小费。" },
+            { icon: "chart", title: "数据统计", desc: "周视图图表、模式分布和趋势。" },
+            { icon: "bell", title: "通知提醒", desc: "结束时提醒和触感警告。" },
+            { icon: "play", title: "打卡模式", desc: "实时计时，即时收入计算。" },
+            { icon: "sound", title: "背景白噪音", desc: "雨声、海浪、咖啡馆、森林。" },
+            { icon: "globe", title: "多语言", desc: "中文、英文、法文界面。" },
+            { icon: "download", title: "数据导出", desc: "导出专注数据到 CSV。" },
+        ],
     },
     howItWorks: {
-        title: "简单三步",
-        subtitle: "立即开始你的专注之旅",
+        title: "简单设计，三步上手",
+        subtitle: "没有多余步骤，开始就这么简单。",
         steps: {
             step1: {
-                title: "选择模式",
-                desc: "从学习、工作、自定义模式中选择，或使用打卡模式",
+                title: "选择适合的方式",
+                desc: "用倒计时给自己节奏感，或用正计时随意开始。",
             },
             step2: {
-                title: "开始专注",
-                desc: "使用正计时、倒计时或打卡模式追踪时间",
+                title: "进入专注状态",
+                desc: "FocusMint 安静记录，不打扰你的工作或学习。",
             },
             step3: {
-                title: "设定目标",
-                desc: "创建时间或收入目标，追踪进行中、已完成和已失败的进度",
-            },
-            step4: {
-                title: "查看洞察",
-                desc: "在仪表盘查看收入分析、小费明细和智能统计",
+                title: "清晰回顾",
+                desc: "查看专注记录，了解你的时间如何变化。",
             },
         },
     },
     gallery: {
-        title: "截图展示",
-        subtitle: "精美的界面设计",
+        title: "应用预览",
+        subtitle: "来自应用的真实截图。",
+        tabLabels: {
+            timer: "计时器",
+            watch: "手表",
+            stats: "统计",
+            goals: "目标",
+            earnings: "收入",
+        },
         items: {
-            main: {
-                title: "主界面",
-                desc: "简洁优雅的计时器",
+            timer: {
+                title: "计时器",
+                desc: "干净、简洁、一目了然。",
                 ui: {
                     time: "25:00",
                     status: "专注中",
@@ -127,31 +133,21 @@ export const zh: Dictionary = {
             },
             watch: {
                 title: "Apple Watch",
-                desc: "手腕上的专注力",
-                ui: { time: "15:00", mode: "学习模式" },
+                desc: "手腕上的专注伴侣。",
+                ui: { time: "25:00", mode: "专注" },
             },
             stats: {
-                title: "数据仪表盘",
-                desc: "周视图和统计",
+                title: "数据概览",
+                desc: "每周专注时间一目了然。",
                 ui: {
-                    period: "本周专注",
+                    period: "本周",
                     total: "12.5h",
                     trend: "+15% vs 上周",
                 },
             },
-            income: {
-                title: "收入追踪",
-                desc: "时薪自动计算",
-                ui: {
-                    period: "本月收入",
-                    rate: "¥80/h × 41h",
-                    work: "工作",
-                    study: "学习",
-                },
-            },
             goals: {
-                title: "目标生命周期",
-                desc: "追踪进行中、已完成和已失败的目标",
+                title: "目标追踪",
+                desc: "进行中、已完成和已失败的目标。",
                 ui: {
                     active: "进行中",
                     completed: "已完成",
@@ -159,37 +155,34 @@ export const zh: Dictionary = {
                     deadline: "3天后截止",
                 },
             },
-            tips: {
-                title: "小费记录",
-                desc: "按灵活周期记录小费",
+            earnings: {
+                title: "收入记录",
+                desc: "追踪你的时间价值。",
                 ui: {
-                    period: "本发薪周期",
-                    today: "今天",
-                    thisWeek: "本周",
-                    allocation: "按会话分配",
+                    period: "本月",
+                    rate: "¥80/h × 41h",
+                    work: "工作",
+                    study: "学习",
                 },
             },
         },
     },
-    stats: {
-        title: "数字证明",
-        subtitle: "来自用户的真实数据",
-        items: {
-            users: { label: "活跃用户", suffix: "+" },
-            sessions: { label: "专注会话", suffix: "+" },
-            hours: { label: "专注时长", suffix: "h+" },
-            rating: { label: "App 评分", suffix: "" },
-        },
-    },
     download: {
-        title: "立即下载",
-        subtitle: "开启你的专注之旅，让每一分钟都有价值",
-        appStore: "App Store",
-        comingSoon: "即将上线 App Store · 敬请期待",
+        title: "准备好了？",
+        subtitle: "一种更安静的方式，开始专注，了解你的时间。",
+        appStore: "即将登陆 App Store",
+        appStoreUrl: "#",
+        footnote: "需配备 iPhone 和 Apple Watch。",
     },
     footer: {
+        description: "一款安静、简单的专注计时器，适用于 iPhone 和 Apple Watch。",
+        product: "产品",
+        support: "支持",
+        features: "功能",
+        howItWorks: "使用方法",
+        changelog: "更新日志",
         privacy: "隐私政策",
         terms: "服务条款",
-        copyright: "© 2026 FocusMint. All rights reserved.",
+        copyright: "© 2026 FocusMint. 保留所有权利。",
     },
 };

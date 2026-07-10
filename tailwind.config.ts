@@ -5,43 +5,48 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        study: 'hsl(217, 91%, 60%)',
-        work: 'hsl(142, 71%, 45%)',
-        custom: 'hsl(25, 95%, 53%)',
-        'bg-dark': 'hsl(222, 47%, 5%)',
-        'bg-card': 'hsl(222, 30%, 10%)',
+        brand: {
+          DEFAULT: '#32b978',
+          hover: '#279b63',
+          dark: '#145c3b',
+          deep: '#0f3324',
+          soft: '#def3e7',
+          softer: '#edf8f2',
+        },
+        bg: {
+          DEFAULT: '#f7f8f5',
+          warm: '#f3f4ef',
+        },
+        surface: {
+          DEFAULT: '#ffffff',
+          muted: '#eef1eb',
+        },
+        text: {
+          primary: '#172019',
+          secondary: '#626c65',
+          tertiary: '#919a93',
+        },
+        border: {
+          DEFAULT: 'rgba(23, 32, 25, 0.09)',
+          strong: 'rgba(23, 32, 25, 0.15)',
+        },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"SF Pro Display"',
+          '"SF Pro Text"',
+          '"Helvetica Neue"',
+          'Arial',
+          'sans-serif',
+        ],
       },
-      animation: {
-        'gradient': 'gradient 8s ease infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'shimmer': 'shimmer 2s linear infinite',
-        'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
-      },
-      keyframes: {
-        gradient: {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
-        },
-        pulseSoft: {
-          '0%, 100%': { opacity: '0.4' },
-          '50%': { opacity: '0.8' },
-        },
+      maxWidth: {
+        'content': '1280px',
       },
     },
   },
