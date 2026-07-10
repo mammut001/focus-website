@@ -28,6 +28,7 @@ export type Dictionary = {
         appStore: string;
         appStoreUrl: string;
         learnMore: string;
+        seeCapabilities: string;
         tags: string[];
         mockup: {
             timer: string;
@@ -60,6 +61,46 @@ export type Dictionary = {
             title: string;
             desc: string;
         }[];
+    };
+    timerDemo: {
+        eyebrow: string;
+        title: string;
+        description: string;
+        start: string;
+        pause: string;
+        resume: string;
+        reset: string;
+        done: string;
+        countdown: string;
+        countUp: string;
+        work: string;
+        study: string;
+    };
+    productGallery: {
+        title: string;
+        subtitle: string;
+        tabs: {
+            focus: {
+                label: string;
+                title: string;
+                description: string;
+            };
+            history: {
+                label: string;
+                title: string;
+                description: string;
+            };
+            goals: {
+                label: string;
+                title: string;
+                description: string;
+            };
+            insights: {
+                label: string;
+                title: string;
+                description: string;
+            };
+        };
     };
     supporting: {
         title: string;
@@ -119,7 +160,8 @@ export const en: Dictionary = {
         description: "FocusMint brings focus sessions, goals, earnings, widgets, and Apple Watch together in one calm place.",
         appStore: "Coming soon on the App Store",
         appStoreUrl: "#",
-        learnMore: "Explore the app",
+        learnMore: "Try the 30-second timer",
+        seeCapabilities: "See what FocusMint can do",
         tags: ["Focus sessions", "Goals & earnings", "iPhone + Apple Watch"],
         mockup: {
             timer: "00:30",
@@ -197,6 +239,46 @@ export const en: Dictionary = {
             { title: "Insights", desc: "Weekly charts and heatmaps reveal your focus patterns over time." },
             { title: "Watch", desc: "Your timer and goals on Apple Watch. Start, pause, and check progress from your wrist." },
         ],
+    },
+    timerDemo: {
+        eyebrow: "Try FocusMint",
+        title: "A small session, right in your browser.",
+        description: "Start the 30-second demo to experience the basic timer flow.",
+        start: "Start",
+        pause: "Pause",
+        resume: "Resume",
+        reset: "Reset",
+        done: "Done",
+        countdown: "Countdown",
+        countUp: "Count Up",
+        work: "Work",
+        study: "Study",
+    },
+    productGallery: {
+        title: "Your time, from every angle.",
+        subtitle: "Start a session, review your day, follow a goal, and see the patterns behind your time.",
+        tabs: {
+            focus: {
+                label: "Focus",
+                title: "Focus with structure or flexibility",
+                description: "Use countdown or count-up timers with work profiles suited for study, work, or other activities.",
+            },
+            history: {
+                label: "History",
+                title: "Every session logged",
+                description: "Look back at what you worked on, when, and for how long. Keep an accurate log of your effort.",
+            },
+            goals: {
+                label: "Goals",
+                title: "Turn time into progress",
+                description: "Set hourly or income-based goals to stay motivated and realize the value of your focus.",
+            },
+            insights: {
+                label: "Insights",
+                title: "Discover your patterns",
+                description: "Activity heatmaps and weekly charts make it easy to spot when you are most productive.",
+            },
+        },
     },
     supporting: {
         title: "Everything else you need",
