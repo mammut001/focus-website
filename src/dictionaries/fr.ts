@@ -2,10 +2,10 @@ import { Dictionary } from './en';
 
 export const fr: Dictionary = {
     metadata: {
-        title: "FocusMint — Minuteur Minimaliste pour iPhone & Apple Watch",
-        description: "FocusMint est une application de chronométrage minimaliste pour iPhone et Apple Watch. Supporte le chronométrage/compte à rebours, statistiques intelligentes et suivi des revenus.",
-        ogTitle: "FocusMint — Minuteur de Concentration",
-        ogDescription: "Minuteur de focus iPhone + Apple Watch, statistiques, suivi des revenus",
+        title: "FocusMint — Minuteur, Objectifs et Analyse de Revenus pour iPhone & Apple Watch",
+        description: "FocusMint est un minuteur de concentration pour iPhone et Apple Watch avec suivi du cycle de vie des objectifs, analyse des revenus, suivi des pourboires, mode horloge et sons d'ambiance.",
+        ogTitle: "FocusMint — Minuteur, Objectifs et Revenus",
+        ogDescription: "Minuteur iPhone + Apple Watch, cycle de vie des objectifs, analyse des revenus, suivi des pourboires, horloge",
     },
     navbar: {
         focus: "FocusMint",
@@ -28,7 +28,7 @@ export const fr: Dictionary = {
         badge: "iPhone + Apple Watch",
         title: "FocusMint",
         tagline: "La Productivité, Réimaginée",
-        description: "Un minuteur de concentration minimaliste conçu pour iPhone et Apple Watch,\ncréé pour vous aider à travailler et étudier efficacement.",
+        description: "Un puissant minuteur de concentration conçu pour iPhone et Apple Watch,\navec suivi des objectifs, analyse des revenus, pourboires et horloge.",
         appStore: "App Store",
         learnMore: "En savoir plus",
         mockup: {
@@ -51,17 +51,17 @@ export const fr: Dictionary = {
                 title: "Stats Intelligentes",
                 desc: "Tableau de bord hebdomadaire, graphiques et distribution des modes",
             },
-            income: {
-                title: "Suivi des Revenus",
-                desc: "Définissez votre taux horaire. Calculez automatiquement la valeur",
+            earnings: {
+                title: "Analyse des Revenus",
+                desc: "Salaire de base vs pourboires, taux horaire effectif, meilleur jour/semaine, comparaisons mensuelles",
             },
             watch: {
                 title: "Apple Watch",
-                desc: "Concentration au poignet. Digital Crown, retour haptique, complications",
+                desc: "Concentration au poignet. Contrôle de l'horloge, instantanés d'objectifs, Digital Crown, retours haptiques, complications",
             },
-            goals: {
-                title: "Objectifs Quotidiens",
-                desc: "Définissez des objectifs quotidiens. Créez des habitudes efficaces",
+            goalsLifecycle: {
+                title: "Cycle de Vie des Objectifs",
+                desc: "Suivez les objectifs actifs, terminés et manqués. Priorisation intelligente, objectifs de temps et de revenus",
             },
             bilingual: {
                 title: "Multilingue",
@@ -69,7 +69,19 @@ export const fr: Dictionary = {
             },
             notifications: {
                 title: "Notifications",
-                desc: "Alertes de fin de compte à rebours. Avertissements haptiques à 1 min / 30 sec",
+                desc: "Alertes de fin de compte à rebours. Avertissements haptiques. Sons d'ambiance",
+            },
+            tips: {
+                title: "Suivi des Pourboires",
+                desc: "Enregistrez les pourboires par jour, semaine ou période de paie. Répartissez entre les sessions ou par date",
+            },
+            clockIn: {
+                title: "Horloge",
+                desc: "Minuteur de travail en temps réel avec compteur de gains. Live Activity sur Dynamic Island",
+            },
+            sounds: {
+                title: "Sons d'Ambiance",
+                desc: "Pluie, Océan, Café, Forêt et Cheminée pour améliorer votre concentration",
             },
             export: {
                 title: "Exportation",
@@ -87,11 +99,15 @@ export const fr: Dictionary = {
             },
             step2: {
                 title: "Commencer",
-                desc: "Utilisez le chronomètre ou le compte à rebours pour vous concentrer",
+                desc: "Utilisez le chronomètre, le compte à rebours ou l'horloge",
             },
             step3: {
-                title: "Voir les Résultats",
-                desc: "Vérifiez vos statistiques et votre analyse de revenus",
+                title: "Définir des Objectifs",
+                desc: "Créez des objectifs de temps ou de revenus. Suivez les progrès actifs, terminés et manqués",
+            },
+            step4: {
+                title: "Voir les Insights",
+                desc: "Consultez l'analyse des revenus, la répartition des pourboires et les statistiques",
             },
         },
     },
@@ -131,6 +147,26 @@ export const fr: Dictionary = {
                     rate: "80€/h × 41h",
                     work: "Travail",
                     study: "Étude",
+                },
+            },
+            goals: {
+                title: "Cycle des Objectifs",
+                desc: "Suivez les objectifs actifs, terminés et manqués",
+                ui: {
+                    active: "Actif",
+                    completed: "Terminé",
+                    missed: "Manqué",
+                    deadline: "Échéance dans 3 jours",
+                },
+            },
+            tips: {
+                title: "Pourboires",
+                desc: "Enregistrez les pourboires par période",
+                ui: {
+                    period: "Cette Période de Paie",
+                    today: "Aujourd'hui",
+                    thisWeek: "Cette Semaine",
+                    allocation: "Répartir sur les sessions",
                 },
             },
         },
