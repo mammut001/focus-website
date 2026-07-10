@@ -13,7 +13,8 @@ function useCountUp(end: number, duration: number = 2000, start: boolean = false
     let startTime: number;
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(eased * end);
 
@@ -31,10 +32,9 @@ function StatItem({ item, value, isVisible, index }: { item: { label: string; su
   const count = useCountUp(value, 2500, isVisible);
 
   const formatNumber = (n: number) => {
-    // Basic formatting - adjust logic if needed for different locales
-    if (value >= 1000000) return (n / 1000000).toFixed(1) + 'M'; // Simplified for international
+    if (value >= 1000000) return (n / 1000000).toFixed(1) + 'M';
     if (value >= 1000) return Math.floor(n).toLocaleString();
-    if (value % 1 === 0) return Math.floor(n).toString(); // Integer
+    if (value % 1 === 0) return Math.floor(n).toString();
     return n.toFixed(1);
   };
 
@@ -43,16 +43,35 @@ function StatItem({ item, value, isVisible, index }: { item: { label: string; su
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
+      transition={{ delay: index * 0.12, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
       className="text-center px-4 md:px-8"
     >
-      <div className="text-4xl md:text-5xl font-bold mb-2 tabular-nums">
+      <motion.div
+        animate={isVisible ? { scale: [1, 1.08, 1] } : {}}
+        transition={{ duration: 0.5, delay: 0.3 + index * 0.12 }}
+        className="text-4xl md:text-5xl font-bold mb-2 tabular-nums"
+      >
         <span className="text-gradient-hero">
           {formatNumber(count)}
         </span>
         <span className="text-2xl md:text-3xl text-white/40 ml-0.5">{item.suffix}</span>
-      </div>
-      <div className="text-white/40 text-sm font-medium">{item.label}</div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isVisible ? { opacity: 1 } : {}}
+        transition={{ delay: 0.5 + index * 0.12 }}
+        className="text-white/40 text-sm font-medium"
+      >
+        {item.label}
+      </motion.div>
+      {isVisible && (
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: '60%' }}
+          transition={{ duration: 0.8, delay: 0.4 + index * 0.12, ease: [0.4, 0, 0.2, 1] }}
+          className="h-px bg-gradient-to-r from-transparent via-indigo-400/30 to-transparent mx-auto mt-3"
+        />
+      )}
     </motion.div>
   );
 }
@@ -85,16 +104,20 @@ export default function StatsCounter({ dict }: { dict: Dictionary['stats'] }) {
   return (
     <section ref={ref} className="py-24 md:py-32 px-6 relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] bg-indigo-500/[0.05] rounded-full blur-[100px]" />
-      </div>
+      <motion.div
+        animate={isVisible ? { opacity: [0.05, 0.1, 0.05] } : {}}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0"
+      >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] bg-indigo-500 rounded-full blur-[100px]" />
+      </motion.div>
 
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           className="text-center mb-14"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-5">
@@ -104,13 +127,19 @@ export default function StatsCounter({ dict }: { dict: Dictionary['stats'] }) {
         </motion.div>
 
         {/* Stats row */}
-        <div className="glass-card rounded-2xl py-10 md:py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="glass-card rounded-2xl py-10 md:py-12"
+        >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x md:divide-white/[0.06]">
             {statsData.map((stat, index) => (
               <StatItem key={index} item={stat.item} value={stat.value} isVisible={isVisible} index={index} />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

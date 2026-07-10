@@ -2,10 +2,10 @@ import { Dictionary } from './en';
 
 export const zh: Dictionary = {
     metadata: {
-        title: "FocusMint — 极简专注计时器 | iPhone & Apple Watch",
-        description: "FocusMint 是一款为 iPhone 和 Apple Watch 设计的专注计时应用。支持正/倒计时、智能统计、收入追踪，助你高效工作学习。",
-        ogTitle: "FocusMint — 极简专注计时器",
-        ogDescription: "iPhone + Apple Watch 专注计时，统计分析，收入追踪",
+        title: "FocusMint — 专注计时、目标追踪与收入分析 | iPhone & Apple Watch",
+        description: "FocusMint 是一款为 iPhone 和 Apple Watch 设计的专注计时应用，支持目标生命周期追踪、收入分析、小费记录、打卡模式和背景白噪音。",
+        ogTitle: "FocusMint — 专注计时、目标与收入",
+        ogDescription: "iPhone + Apple Watch 专注计时，目标生命周期，收入分析，小费追踪，打卡",
     },
     navbar: {
         focus: "FocusMint",
@@ -28,7 +28,7 @@ export const zh: Dictionary = {
         badge: "iPhone + Apple Watch",
         title: "FocusMint",
         tagline: "专注力，从此不同",
-        description: "为 iPhone 和 Apple Watch 精心打造的极简专注计时器，\n助你高效工作学习",
+        description: "为 iPhone 和 Apple Watch 打造的强大专注计时器，\n支持目标追踪、收入分析、小费记录和打卡模式",
         appStore: "App Store",
         learnMore: "了解更多",
         mockup: {
@@ -51,17 +51,17 @@ export const zh: Dictionary = {
                 title: "智能统计",
                 desc: "周视图仪表盘，柱状图和模式分布，数据一目了然",
             },
-            income: {
-                title: "收入追踪",
-                desc: "设置时薪，自动计算专注价值，让时间更有价值",
+            earnings: {
+                title: "收入分析",
+                desc: "基础收入与小费明细，有效时薪，最佳日/周表现，月度对比",
             },
             watch: {
                 title: "Apple Watch",
-                desc: "手腕上的专注力，Digital Crown 精确调节，触感反馈",
+                desc: "手腕上的专注力，打卡控制、目标快照、Digital Crown、触感反馈",
             },
-            goals: {
-                title: "每日目标",
-                desc: "设定每日专注目标，养成高效习惯，让进步可视化",
+            goalsLifecycle: {
+                title: "目标生命周期",
+                desc: "追踪进行中、已完成和已失败的目标。智能优先级排序，时间与收入目标",
             },
             bilingual: {
                 title: "多语言",
@@ -69,7 +69,19 @@ export const zh: Dictionary = {
             },
             notifications: {
                 title: "通知提醒",
-                desc: "倒计时完成通知，最后 1 分钟/30 秒触感警告",
+                desc: "倒计时完成通知。最后 1 分钟/30 秒触感警告。背景白噪音",
+            },
+            tips: {
+                title: "小费记录",
+                desc: "按天、周或发薪周期记录小费。按会话分配或按日期归整",
+            },
+            clockIn: {
+                title: "打卡模式",
+                desc: "实时工作时间记录器，即时收入计数器。支持灵动岛实时活动，完成时提示小费录入",
+            },
+            sounds: {
+                title: "背景白噪音",
+                desc: "雨声、海浪、咖啡馆、森林和壁炉等环境音效，提升专注力",
             },
             export: {
                 title: "数据导出",
@@ -83,15 +95,19 @@ export const zh: Dictionary = {
         steps: {
             step1: {
                 title: "选择模式",
-                desc: "从学习、工作、自定义三种模式中选择",
+                desc: "从学习、工作、自定义模式中选择，或使用打卡模式",
             },
             step2: {
                 title: "开始专注",
-                desc: "使用正计时或倒计时，专注每一分钟",
+                desc: "使用正计时、倒计时或打卡模式追踪时间",
             },
             step3: {
-                title: "查看成果",
-                desc: "在仪表盘查看统计和收入分析",
+                title: "设定目标",
+                desc: "创建时间或收入目标，追踪进行中、已完成和已失败的进度",
+            },
+            step4: {
+                title: "查看洞察",
+                desc: "在仪表盘查看收入分析、小费明细和智能统计",
             },
         },
     },
@@ -131,6 +147,26 @@ export const zh: Dictionary = {
                     rate: "¥80/h × 41h",
                     work: "工作",
                     study: "学习",
+                },
+            },
+            goals: {
+                title: "目标生命周期",
+                desc: "追踪进行中、已完成和已失败的目标",
+                ui: {
+                    active: "进行中",
+                    completed: "已完成",
+                    missed: "已失败",
+                    deadline: "3天后截止",
+                },
+            },
+            tips: {
+                title: "小费记录",
+                desc: "按灵活周期记录小费",
+                ui: {
+                    period: "本发薪周期",
+                    today: "今天",
+                    thisWeek: "本周",
+                    allocation: "按会话分配",
                 },
             },
         },

@@ -43,12 +43,15 @@ export type Dictionary = {
         items: {
             dualMode: { title: string; desc: string };
             stats: { title: string; desc: string };
-            income: { title: string; desc: string };
+            earnings: { title: string; desc: string };
             watch: { title: string; desc: string };
-            goals: { title: string; desc: string };
+            goalsLifecycle: { title: string; desc: string };
             bilingual: { title: string; desc: string };
             notifications: { title: string; desc: string };
             export: { title: string; desc: string };
+            tips: { title: string; desc: string };
+            clockIn: { title: string; desc: string };
+            sounds: { title: string; desc: string };
         };
     };
     howItWorks: {
@@ -58,6 +61,7 @@ export type Dictionary = {
             step1: { title: string; desc: string };
             step2: { title: string; desc: string };
             step3: { title: string; desc: string };
+            step4: { title: string; desc: string };
         };
     };
     gallery: {
@@ -98,6 +102,26 @@ export type Dictionary = {
                     study: string;
                 };
             };
+            goals: {
+                title: string;
+                desc: string;
+                ui: {
+                    active: string;
+                    completed: string;
+                    missed: string;
+                    deadline: string;
+                };
+            };
+            tips: {
+                title: string;
+                desc: string;
+                ui: {
+                    period: string;
+                    today: string;
+                    thisWeek: string;
+                    allocation: string;
+                };
+            };
         };
     };
     stats: {
@@ -125,10 +149,10 @@ export type Dictionary = {
 
 export const en: Dictionary = {
     metadata: {
-        title: "FocusMint — Minimalist Timer for iPhone & Apple Watch",
-        description: "FocusMint is a minimalist timer app for iPhone & Apple Watch. Supports count-up/countdown, smart stats, and income tracking to boost your productivity.",
-        ogTitle: "FocusMint — Minimalist Focus Timer",
-        ogDescription: "iPhone + Apple Watch Focus Timer, Stats Analysis, Income Tracking",
+        title: "FocusMint — Focus Timer, Goal Tracking & Earnings Analytics for iPhone & Apple Watch",
+        description: "FocusMint is a focus timer for iPhone & Apple Watch with goal lifecycle tracking, earnings analytics, tips tracking, clock-in mode, and ambient sounds.",
+        ogTitle: "FocusMint — Focus Timer, Goals & Earnings",
+        ogDescription: "iPhone + Apple Watch Focus Timer, Goal Lifecycle, Earnings Analytics, Tips Tracking, Clock In",
     },
     navbar: {
         focus: "FocusMint",
@@ -151,7 +175,7 @@ export const en: Dictionary = {
         badge: "iPhone + Apple Watch",
         title: "FocusMint",
         tagline: "Productivity, Reimagined",
-        description: "A minimalist focus timer crafted for iPhone and Apple Watch,\ndesigned to help you work and study efficiently.",
+        description: "A powerful focus timer crafted for iPhone and Apple Watch,\nfeaturing goal lifecycle tracking, earnings analytics, tips, and clock-in.",
         appStore: "App Store",
         learnMore: "Learn More",
         mockup: {
@@ -174,17 +198,17 @@ export const en: Dictionary = {
                 title: "Smart Stats",
                 desc: "Weekly dashboard, bar charts, and mode distribution at a glance",
             },
-            income: {
-                title: "Income Tracking",
-                desc: "Set hourly rate. Automatically calculate your focus value",
+            earnings: {
+                title: "Earnings Analytics",
+                desc: "Base pay vs tips breakdown, effective hourly rate, best day/week, month-over-month comparisons",
             },
             watch: {
                 title: "Apple Watch",
-                desc: "Focus on your wrist. Digital Crown control, haptic feedback, complications",
+                desc: "Focus on your wrist. Live Work controls, goal snapshots, Digital Crown, haptics, complications",
             },
-            goals: {
-                title: "Daily Goals",
-                desc: "Set daily focus targets. Build efficient habits and track progress",
+            goalsLifecycle: {
+                title: "Goal Lifecycle",
+                desc: "Track active, completed, and missed goals. Smart prioritization, time and income goals with saving rates",
             },
             bilingual: {
                 title: "Multilingual",
@@ -192,7 +216,19 @@ export const en: Dictionary = {
             },
             notifications: {
                 title: "Notifications",
-                desc: "Countdown completion alerts. Haptic warnings at 1 min / 30 sec",
+                desc: "Countdown completion alerts. Haptic warnings at 1 min / 30 sec. Background ambient sounds",
+            },
+            tips: {
+                title: "Tips Tracker",
+                desc: "Record tips with daily, weekly, or pay-period presets. Allocate across sessions or by date",
+            },
+            clockIn: {
+                title: "Clock In",
+                desc: "Real-time work timer with live earnings counter. Live Activity on Dynamic Island. Tip prompt on completion",
+            },
+            sounds: {
+                title: "Background Sounds",
+                desc: "Rain, Ocean, Cafe, Forest, and Fireplace ambient sounds to improve focus during sessions",
             },
             export: {
                 title: "Data Export",
@@ -210,11 +246,15 @@ export const en: Dictionary = {
             },
             step2: {
                 title: "Start Focus",
-                desc: "Use count-up or countdown to focus on what matters most",
+                desc: "Use count-up, countdown, or Clock In to track your time",
             },
             step3: {
-                title: "View Results",
-                desc: "Check your stats and income analysis in the dashboard",
+                title: "Set Goals",
+                desc: "Create time or income goals. Track active, completed, and missed progress",
+            },
+            step4: {
+                title: "View Insights",
+                desc: "Check earnings analytics, tips breakdown, and smart stats in the dashboard",
             },
         },
     },
@@ -254,6 +294,26 @@ export const en: Dictionary = {
                     rate: "$80/h × 41h",
                     work: "Work",
                     study: "Study",
+                },
+            },
+            goals: {
+                title: "Goal Lifecycle",
+                desc: "Track active, completed, and missed goals",
+                ui: {
+                    active: "Active",
+                    completed: "Completed",
+                    missed: "Missed",
+                    deadline: "Due in 3 days",
+                },
+            },
+            tips: {
+                title: "Tips Tracker",
+                desc: "Record tips with flexible periods",
+                ui: {
+                    period: "This Pay Period",
+                    today: "Today",
+                    thisWeek: "This Week",
+                    allocation: "Spread across sessions",
                 },
             },
         },

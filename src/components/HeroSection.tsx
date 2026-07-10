@@ -1,22 +1,52 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import type { Dictionary } from '@/dictionaries/en';
 
 export default function HeroSection({ dict }: { dict: Dictionary['hero'] }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
+
+  const springX = useSpring(mouseX, { stiffness: 60, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 60, damping: 20 });
+
+  const phoneRotateX = useTransform(springY, [0, 1], [6, -6]);
+  const phoneRotateY = useTransform(springX, [0, 1], [-6, 6]);
+  const watchX = useTransform(springX, [0, 1], [-15, 15]);
+  const watchY = useTransform(springY, [0, 1], [-10, 10]);
+  const blob1X = useTransform(springX, [0, 1], [-40, 40]);
+  const blob1Y = useTransform(springY, [0, 1], [-30, 30]);
+  const blob2X = useTransform(springX, [0, 1], [30, -30]);
+  const blob2Y = useTransform(springY, [0, 1], [40, -40]);
+
+  const handleMouse = (e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    const x = clientX / window.innerWidth;
+    const y = clientY / window.innerHeight;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 pb-16 relative overflow-hidden">
+    <section
+      onMouseMove={handleMouse}
+      className="min-h-screen flex items-center justify-center pt-20 pb-16 relative overflow-hidden"
+    >
       {/* ── Layered Background ──────────────────────────── */}
       <div className="absolute inset-0 gradient-mesh" />
 
-      {/* Animated orbs */}
+      {/* Animated orbs with mouse parallax */}
       <motion.div
-        animate={{ x: [0, 80, 0], y: [0, -40, 0], scale: [1, 1.15, 1] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-[15%] w-[500px] h-[500px] bg-indigo-500/[0.12] rounded-full blur-[100px]"
+        style={{ x: blob1X, y: blob1Y }}
+        className="absolute top-1/4 left-[15%] w-[500px] h-[500px] bg-indigo-500/[0.12] rounded-full blur-[100px] animate-breathe"
       />
       <motion.div
-        animate={{ x: [0, -60, 0], y: [0, 60, 0], scale: [1, 1.2, 1] }}
+        style={{ x: blob2X, y: blob2Y }}
+        animate={{ scale: [1, 1.2, 1] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 3 }}
         className="absolute bottom-1/3 right-[10%] w-[400px] h-[400px] bg-purple-500/[0.12] rounded-full blur-[100px]"
       />
@@ -35,7 +65,7 @@ export default function HeroSection({ dict }: { dict: Dictionary['hero'] }) {
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            animate={mounted ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/[0.08] mb-8"
           >
@@ -49,7 +79,7 @@ export default function HeroSection({ dict }: { dict: Dictionary['hero'] }) {
           {/* Title */}
           <motion.h1
             initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            animate={mounted ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-7xl sm:text-8xl md:text-9xl font-extrabold tracking-tight mb-6"
           >
@@ -59,7 +89,7 @@ export default function HeroSection({ dict }: { dict: Dictionary['hero'] }) {
           {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            animate={mounted ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-2xl md:text-3xl text-white/85 font-light tracking-wide mb-4"
           >
@@ -68,7 +98,7 @@ export default function HeroSection({ dict }: { dict: Dictionary['hero'] }) {
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-base md:text-lg text-white/50 mb-12 max-w-lg mx-auto leading-relaxed whitespace-pre-line"
           >
@@ -78,41 +108,51 @@ export default function HeroSection({ dict }: { dict: Dictionary['hero'] }) {
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <a
+            <motion.a
               href="#"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
               className="btn-primary inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-white font-semibold text-base"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
               </svg>
               {dict.appStore}
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
               href="#features"
+              whileHover={{ x: 3 }}
               className="group inline-flex items-center gap-2 px-6 py-4 text-white/60 hover:text-white transition-colors duration-300"
             >
               {dict.learnMore}
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <motion.svg
+                animate={{ y: [0, 4, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </a>
+              </motion.svg>
+            </motion.a>
           </motion.div>
 
           {/* ── Device Mockups ──────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.7, ease: [0.4, 0, 0.2, 1] }}
             className="mt-20 relative"
           >
             <div className="inline-flex items-end gap-6 md:gap-10">
               {/* iPhone Mockup */}
-              <div className="relative">
+              <motion.div
+                style={{ rotateX: phoneRotateX, rotateY: phoneRotateY }}
+                className="relative"
+              >
                 <div className="w-52 h-[420px] md:w-64 md:h-[520px] bg-[hsl(225,25%,8%)] rounded-[3rem] border-[3px] border-white/[0.08] shadow-2xl shadow-black/40 overflow-hidden">
                   {/* Notch */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-7 bg-[hsl(225,25%,8%)] rounded-b-2xl z-10" />
@@ -124,13 +164,16 @@ export default function HeroSection({ dict }: { dict: Dictionary['hero'] }) {
                       <div className="relative w-36 h-36 md:w-40 md:h-40 mx-auto mb-6">
                         <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
                           <circle cx="60" cy="60" r="52" fill="none" stroke="hsla(225,20%,25%,0.4)" strokeWidth="6" />
-                          <circle
+                          <motion.circle
                             cx="60" cy="60" r="52" fill="none"
                             stroke="url(#timerGradient)"
                             strokeWidth="6"
                             strokeLinecap="round"
                             strokeDasharray="327"
                             strokeDashoffset="82"
+                            initial={{ strokeDashoffset: 327 }}
+                            animate={mounted ? { strokeDashoffset: 82 } : {}}
+                            transition={{ duration: 2, delay: 1.2, ease: [0.4, 0, 0.2, 1] }}
                           />
                           <defs>
                             <linearGradient id="timerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -140,11 +183,32 @@ export default function HeroSection({ dict }: { dict: Dictionary['hero'] }) {
                           </defs>
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-4xl md:text-5xl font-bold text-white tabular-nums">{dict.mockup.timer}</span>
+                          <motion.span
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={mounted ? { opacity: 1, scale: 1 } : {}}
+                            transition={{ duration: 0.5, delay: 1.4 }}
+                            className="text-4xl md:text-5xl font-bold text-white tabular-nums"
+                          >
+                            {dict.mockup.timer}
+                          </motion.span>
                         </div>
                       </div>
-                      <div className="text-emerald-400 font-medium text-sm tracking-wide">{dict.mockup.status}</div>
-                      <div className="text-white/30 text-xs mt-1.5">{dict.mockup.mode}</div>
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={mounted ? { opacity: 1 } : {}}
+                        transition={{ delay: 1.8 }}
+                        className="text-emerald-400 font-medium text-sm tracking-wide"
+                      >
+                        {dict.mockup.status}
+                      </motion.div>
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={mounted ? { opacity: 1 } : {}}
+                        transition={{ delay: 2 }}
+                        className="text-white/30 text-xs mt-1.5"
+                      >
+                        {dict.mockup.mode}
+                      </motion.div>
                     </div>
                   </div>
 
@@ -153,11 +217,16 @@ export default function HeroSection({ dict }: { dict: Dictionary['hero'] }) {
                 </div>
 
                 {/* Phone glow */}
-                <div className="absolute -inset-4 bg-indigo-500/[0.06] rounded-[4rem] blur-2xl -z-10" />
-              </div>
+                <motion.div
+                  animate={{ opacity: [0.06, 0.12, 0.06] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -inset-4 bg-indigo-500 rounded-[4rem] blur-2xl -z-10"
+                />
+              </motion.div>
 
               {/* Apple Watch Mockup */}
               <motion.div
+                style={{ x: watchX, y: watchY }}
                 animate={{ y: [0, -12, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 className="relative mb-4 md:mb-8"
@@ -174,13 +243,27 @@ export default function HeroSection({ dict }: { dict: Dictionary['hero'] }) {
                       <div className="relative w-14 h-14 md:w-16 md:h-16 mx-auto">
                         <svg className="w-full h-full -rotate-90" viewBox="0 0 60 60">
                           <circle cx="30" cy="30" r="25" fill="none" stroke="hsla(225,20%,25%,0.3)" strokeWidth="4" />
-                          <circle cx="30" cy="30" r="25" fill="none" stroke="#818cf8" strokeWidth="4" strokeLinecap="round" strokeDasharray="157" strokeDashoffset="40" />
+                          <motion.circle
+                            cx="30" cy="30" r="25" fill="none"
+                            stroke="#818cf8" strokeWidth="4" strokeLinecap="round"
+                            strokeDasharray="157" strokeDashoffset="40"
+                            initial={{ strokeDashoffset: 157 }}
+                            animate={mounted ? { strokeDashoffset: 40 } : {}}
+                            transition={{ duration: 1.5, delay: 1.5, ease: [0.4, 0, 0.2, 1] }}
+                          />
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center">
                           <span className="text-xs md:text-sm font-bold text-white tabular-nums">{dict.mockup.watchTime}</span>
                         </div>
                       </div>
-                      <div className="text-indigo-300 text-[10px] mt-1.5 font-medium">{dict.mockup.watchMode}</div>
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={mounted ? { opacity: 1 } : {}}
+                        transition={{ delay: 2.2 }}
+                        className="text-indigo-300 text-[10px] mt-1.5 font-medium"
+                      >
+                        {dict.mockup.watchMode}
+                      </motion.div>
                     </div>
                   </div>
                 </div>
