@@ -2,13 +2,12 @@ import { Dictionary } from './en';
 
 export const fr: Dictionary = {
     metadata: {
-        title: "FocusMint — Minuteur, Objectifs et Analyse de Revenus pour iPhone & Apple Watch",
-        description: "FocusMint est un minuteur de concentration pour iPhone et Apple Watch avec suivi du cycle de vie des objectifs, analyse des revenus, suivi des pourboires, mode horloge et sons d'ambiance.",
-        ogTitle: "FocusMint — Minuteur, Objectifs et Revenus",
-        ogDescription: "Minuteur iPhone + Apple Watch, cycle de vie des objectifs, analyse des revenus, suivi des pourboires, horloge",
+        title: "FocusMint — Minuteur de concentration pour iPhone et Apple Watch",
+        description: "Un minuteur de concentration calme pour iPhone et Apple Watch. Suivez vos sessions, révisez vos progrès et comprenez où va votre temps.",
+        ogTitle: "FocusMint — Minuteur pour iPhone et Apple Watch",
+        ogDescription: "Un minuteur de concentration calme avec suivi des sessions et analyse du temps.",
     },
     navbar: {
-        focus: "FocusMint",
         features: "Fonctions",
         howItWorks: "Comment ça marche",
         download: "Télécharger",
@@ -25,99 +24,106 @@ export const fr: Dictionary = {
         viewOnGitHub: "Voir sur GitHub",
     },
     hero: {
-        badge: "iPhone + Apple Watch",
-        title: "FocusMint",
-        tagline: "La Productivité, Réimaginée",
-        description: "Un puissant minuteur de concentration conçu pour iPhone et Apple Watch,\navec suivi des objectifs, analyse des revenus, pourboires et horloge.",
-        appStore: "App Store",
-        learnMore: "En savoir plus",
+        badge: "Minuteur pour iPhone et Apple Watch",
+        title: "Concentrez-vous.\nOn garde le temps.",
+        description: "Un minuteur de concentration calme pour iPhone et Apple Watch, avec des sessions simples, un suivi clair, et aucune distraction superflue.",
+        appStore: "Bientôt sur l'App Store",
+        appStoreUrl: "#",
+        learnMore: "Voir comment ça marche",
         mockup: {
             timer: "25:00",
             status: "Concentration",
             mode: "Travail",
-            watchTime: "15:00",
-            watchMode: "Étude",
+            watchTime: "25:00",
+            watchMode: "Focus",
         },
+    },
+    productStatement: {
+        line: "FocusMint est conçu pour vous aider à {brand}, pas pour vous imposer un système complexe de plus.",
+        brandWord: "commencer",
     },
     features: {
-        title: "Points Forts",
-        subtitle: "Conçu pour les plus performants, chaque minute compte",
-        items: {
-            dualMode: {
-                title: "Double Mode",
-                desc: "Chronomètre et compte à rebours. Choisissez votre rythme selon le scénario",
+        title: "Tout ce qu'il vous faut, rien de superflu",
+        subtitle: "Chaque fonction a un seul objectif : vous aider à vous concentrer sans vous gêner.",
+        main: [
+            {
+                title: "Commencez sans tout paramétrer.",
+                description: "Choisissez un mode, tapez une fois, et lancez-vous. Utilisez le compte à rebours quand vous avez besoin de structure, ou le chronomètre quand vous voulez simplement commencer.",
+                points: [
+                    "Modes chronomètre et compte à rebours",
+                    "Sessions en un seul tap",
+                    "Conçu pour rester discret",
+                ],
+                mockupIcon: "timer",
+                bg: "default",
             },
-            stats: {
-                title: "Stats Intelligentes",
-                desc: "Tableau de bord hebdomadaire, graphiques et distribution des modes",
+            {
+                title: "Votre minuteur, directement au poignet.",
+                description: "Lancez, mettez en pause et consultez votre session sans toucher à votre iPhone. Les données restent synchronisées.",
+                points: [
+                    "Contrôle depuis la montre",
+                    "Retour haptique en fin de session",
+                    "Aperçu des objectifs",
+                ],
+                mockupIcon: "watch",
+                bg: "brand",
             },
-            earnings: {
-                title: "Analyse des Revenus",
-                desc: "Salaire de base vs pourboires, taux horaire effectif, meilleur jour/semaine, comparaisons mensuelles",
+            {
+                title: "Sachez où va votre temps.",
+                description: "Consultez vos sessions, comprenez vos habitudes et voyez la valeur de votre investissement. Statistiques, revenus et objectifs en un seul endroit.",
+                points: [
+                    "Aperçu hebdomadaire",
+                    "Suivi des revenus et pourboires",
+                    "Progrès et historique des objectifs",
+                ],
+                mockupIcon: "stats",
+                bg: "default",
             },
-            watch: {
-                title: "Apple Watch",
-                desc: "Concentration au poignet. Contrôle de l'horloge, instantanés d'objectifs, Digital Crown, retours haptiques, complications",
-            },
-            goalsLifecycle: {
-                title: "Cycle de Vie des Objectifs",
-                desc: "Suivez les objectifs actifs, terminés et manqués. Priorisation intelligente, objectifs de temps et de revenus",
-            },
-            bilingual: {
-                title: "Multilingue",
-                desc: "Anglais, français et chinois. Basculement transparent entre les interfaces",
-            },
-            notifications: {
-                title: "Notifications",
-                desc: "Alertes de fin de compte à rebours. Avertissements haptiques. Sons d'ambiance",
-            },
-            tips: {
-                title: "Suivi des Pourboires",
-                desc: "Enregistrez les pourboires par jour, semaine ou période de paie. Répartissez entre les sessions ou par date",
-            },
-            clockIn: {
-                title: "Horloge",
-                desc: "Minuteur de travail en temps réel avec compteur de gains. Live Activity sur Dynamic Island",
-            },
-            sounds: {
-                title: "Sons d'Ambiance",
-                desc: "Pluie, Océan, Café, Forêt et Cheminée pour améliorer votre concentration",
-            },
-            export: {
-                title: "Exportation",
-                desc: "Exportez vos données en CSV. Contrôle total sur vos données",
-            },
-        },
+        ],
+        grid: [
+            { icon: "clock", title: "Double Mode", desc: "Chronomètre ou compte à rebours." },
+            { icon: "check", title: "Objectifs", desc: "Objectifs de temps ou de revenus." },
+            { icon: "dollar", title: "Revenus", desc: "Gains horaires et pourboires." },
+            { icon: "chart", title: "Statistiques", desc: "Graphiques hebdomadaires et tendances." },
+            { icon: "bell", title: "Notifications", desc: "Alertes et retours haptiques." },
+            { icon: "play", title: "Horloge", desc: "Minuteur en temps réel avec gains." },
+            { icon: "sound", title: "Sons d'ambiance", desc: "Pluie, océan, café, forêt." },
+            { icon: "globe", title: "Multilingue", desc: "Anglais, français, chinois." },
+            { icon: "download", title: "Export CSV", desc: "Exportez vos données." },
+        ],
     },
     howItWorks: {
-        title: "Étapes Simples",
-        subtitle: "Commencez votre voyage de concentration immédiatement",
+        title: "Simple par conception",
+        subtitle: "Trois étapes pour commencer, rien de plus.",
         steps: {
             step1: {
-                title: "Choisir le Mode",
-                desc: "Choisissez parmi Travail, Étude ou Personnalisé selon vos besoins",
+                title: "Choisissez votre rythme",
+                desc: "Utilisez un compte à rebours pour la structure, ou le chronomètre pour commencer simplement.",
             },
             step2: {
-                title: "Commencer",
-                desc: "Utilisez le chronomètre, le compte à rebours ou l'horloge",
+                title: "Restez dans la session",
+                desc: "FocusMint garde le temps discrètement pendant que vous travaillez.",
             },
             step3: {
-                title: "Définir des Objectifs",
-                desc: "Créez des objectifs de temps ou de revenus. Suivez les progrès actifs, terminés et manqués",
-            },
-            step4: {
-                title: "Voir les Insights",
-                desc: "Consultez l'analyse des revenus, la répartition des pourboires et les statistiques",
+                title: "Regardez avec clarté",
+                desc: "Revoyez vos sessions et comprenez l'évolution de votre concentration.",
             },
         },
     },
     gallery: {
-        title: "Aperçus",
-        subtitle: "Interface conçue au pixel près",
+        title: "Voir en action",
+        subtitle: "Captures d'écran réelles de l'application.",
+        tabLabels: {
+            timer: "Minuteur",
+            watch: "Montre",
+            stats: "Stats",
+            goals: "Objectifs",
+            earnings: "Revenus",
+        },
         items: {
-            main: {
-                title: "Interface Principale",
-                desc: "Minuteur circulaire élégant, clair d'un coup d'œil",
+            timer: {
+                title: "Minuteur",
+                desc: "Propre, simple et facile à lire.",
                 ui: {
                     time: "25:00",
                     status: "Concentration",
@@ -127,31 +133,21 @@ export const fr: Dictionary = {
             },
             watch: {
                 title: "Apple Watch",
-                desc: "Votre compagnon au poignet",
-                ui: { time: "15:00", mode: "Étude" },
+                desc: "Votre compagnon au poignet.",
+                ui: { time: "25:00", mode: "Focus" },
             },
             stats: {
                 title: "Tableau de Bord",
-                desc: "Vues hebdomadaires et analyse",
+                desc: "Aperçu hebdomadaire de vos sessions.",
                 ui: {
                     period: "Cette Semaine",
                     total: "12.5h",
-                    trend: "+15% vs Der. Sem.",
-                },
-            },
-            income: {
-                title: "Revenus",
-                desc: "Calcul automatique de la valeur",
-                ui: {
-                    period: "Ce Mois",
-                    rate: "80€/h × 41h",
-                    work: "Travail",
-                    study: "Étude",
+                    trend: "+15% vs Sem. Der.",
                 },
             },
             goals: {
-                title: "Cycle des Objectifs",
-                desc: "Suivez les objectifs actifs, terminés et manqués",
+                title: "Objectifs",
+                desc: "Objectifs actifs, terminés et manqués.",
                 ui: {
                     active: "Actif",
                     completed: "Terminé",
@@ -159,35 +155,32 @@ export const fr: Dictionary = {
                     deadline: "Échéance dans 3 jours",
                 },
             },
-            tips: {
-                title: "Pourboires",
-                desc: "Enregistrez les pourboires par période",
+            earnings: {
+                title: "Revenus",
+                desc: "Suivez la valeur de votre temps.",
                 ui: {
-                    period: "Cette Période de Paie",
-                    today: "Aujourd'hui",
-                    thisWeek: "Cette Semaine",
-                    allocation: "Répartir sur les sessions",
+                    period: "Ce Mois",
+                    rate: "80€/h × 41h",
+                    work: "Travail",
+                    study: "Étude",
                 },
             },
         },
     },
-    stats: {
-        title: "En Chiffres",
-        subtitle: "Données réelles de nos utilisateurs",
-        items: {
-            users: { label: "Utilisateurs Actifs", suffix: "+" },
-            sessions: { label: "Sessions", suffix: "+" },
-            hours: { label: "Heures de Focus", suffix: "h+" },
-            rating: { label: "Note App Store", suffix: "" },
-        },
-    },
     download: {
-        title: "Télécharger",
-        subtitle: "Commencez votre voyage et rendez chaque minute précieuse",
-        appStore: "App Store",
-        comingSoon: "Bientôt sur l'App Store · Restez à l'écoute",
+        title: "Prêt quand vous l'êtes.",
+        subtitle: "Une façon plus calme de commencer, vous concentrer et comprendre votre temps.",
+        appStore: "Bientôt sur l'App Store",
+        appStoreUrl: "#",
+        footnote: "iPhone et Apple Watch requis.",
     },
     footer: {
+        description: "Un minuteur de concentration calme pour iPhone et Apple Watch.",
+        product: "Produit",
+        support: "Support",
+        features: "Fonctions",
+        howItWorks: "Comment ça marche",
+        changelog: "Journal",
         privacy: "Confidentialité",
         terms: "Conditions",
         copyright: "© 2026 FocusMint. Tous droits réservés.",

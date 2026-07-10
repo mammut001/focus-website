@@ -1,9 +1,10 @@
 import Navbar from '@/components/Navbar';
-import HeroSection from '@/components/HeroSection';
-import FeaturesSection from '@/components/FeaturesSection';
+import Hero from '@/components/Hero';
+import ProductStatement from '@/components/ProductStatement';
+import ProductFeature from '@/components/ProductFeature';
+import FeatureGrid from '@/components/FeatureGrid';
 import HowItWorks from '@/components/HowItWorks';
-import ScreenshotGallery from '@/components/ScreenshotGallery';
-import StatsCounter from '@/components/StatsCounter';
+import ScreenshotShowcase from '@/components/ScreenshotShowcase';
 import DownloadCTA from '@/components/DownloadCTA';
 import Footer from '@/components/Footer';
 import { getDictionary } from '../dictionaries';
@@ -12,13 +13,14 @@ export default async function Home({ params: { lang } }: { params: { lang: 'en' 
     const dict = await getDictionary(lang);
 
     return (
-        <main className="min-h-screen bg-[hsl(225,30%,4%)] text-white overflow-hidden selection:bg-indigo-500/30 selection:text-indigo-200">
+        <main className="min-h-screen bg-bg text-text-primary">
             <Navbar dict={dict.navbar} />
-            <HeroSection dict={dict.hero} />
-            <FeaturesSection dict={dict.features} />
+            <Hero dict={dict.hero} />
+            <ProductStatement dict={dict.productStatement} />
+            <ProductFeature dict={dict.features} />
+            <FeatureGrid dict={dict.features} />
             <HowItWorks dict={dict.howItWorks} />
-            <ScreenshotGallery dict={dict.gallery} />
-            <StatsCounter dict={dict.stats} />
+            <ScreenshotShowcase dict={dict.gallery} />
             <DownloadCTA dict={dict.download} />
             <Footer dict={dict.footer} />
         </main>

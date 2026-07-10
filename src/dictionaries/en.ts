@@ -6,7 +6,6 @@ export type Dictionary = {
         ogDescription: string;
     };
     navbar: {
-        focus: string;
         features: string;
         howItWorks: string;
         download: string;
@@ -25,34 +24,37 @@ export type Dictionary = {
     hero: {
         badge: string;
         title: string;
-        tagline: string;
-        description: string; // The <br> will be handled in component
+        description: string;
         appStore: string;
+        appStoreUrl: string;
         learnMore: string;
         mockup: {
-            timer: string; // 25:00
-            status: string; // Focusing
-            mode: string; // Work Mode
-            watchTime: string; // 15:00
-            watchMode: string; // Study
+            timer: string;
+            status: string;
+            mode: string;
+            watchTime: string;
+            watchMode: string;
         };
+    };
+    productStatement: {
+        line: string;
+        brandWord: string;
     };
     features: {
         title: string;
         subtitle: string;
-        items: {
-            dualMode: { title: string; desc: string };
-            stats: { title: string; desc: string };
-            earnings: { title: string; desc: string };
-            watch: { title: string; desc: string };
-            goalsLifecycle: { title: string; desc: string };
-            bilingual: { title: string; desc: string };
-            notifications: { title: string; desc: string };
-            export: { title: string; desc: string };
-            tips: { title: string; desc: string };
-            clockIn: { title: string; desc: string };
-            sounds: { title: string; desc: string };
-        };
+        main: {
+            title: string;
+            description: string;
+            points: string[];
+            mockupIcon: string;
+            bg: string;
+        }[];
+        grid: {
+            icon: string;
+            title: string;
+            desc: string;
+        }[];
     };
     howItWorks: {
         title: string;
@@ -61,14 +63,20 @@ export type Dictionary = {
             step1: { title: string; desc: string };
             step2: { title: string; desc: string };
             step3: { title: string; desc: string };
-            step4: { title: string; desc: string };
         };
     };
     gallery: {
         title: string;
         subtitle: string;
+        tabLabels: {
+            timer: string;
+            watch: string;
+            stats: string;
+            goals: string;
+            earnings: string;
+        };
         items: {
-            main: {
+            timer: {
                 title: string;
                 desc: string;
                 ui: {
@@ -92,16 +100,6 @@ export type Dictionary = {
                     trend: string;
                 };
             };
-            income: {
-                title: string;
-                desc: string;
-                ui: {
-                    period: string;
-                    rate: string;
-                    work: string;
-                    study: string;
-                };
-            };
             goals: {
                 title: string;
                 desc: string;
@@ -112,35 +110,32 @@ export type Dictionary = {
                     deadline: string;
                 };
             };
-            tips: {
+            earnings: {
                 title: string;
                 desc: string;
                 ui: {
                     period: string;
-                    today: string;
-                    thisWeek: string;
-                    allocation: string;
+                    rate: string;
+                    work: string;
+                    study: string;
                 };
             };
-        };
-    };
-    stats: {
-        title: string;
-        subtitle: string;
-        items: {
-            users: { label: string; suffix: string };
-            sessions: { label: string; suffix: string };
-            hours: { label: string; suffix: string };
-            rating: { label: string; suffix: string };
         };
     };
     download: {
         title: string;
         subtitle: string;
         appStore: string;
-        comingSoon: string;
+        appStoreUrl: string;
+        footnote: string;
     };
     footer: {
+        description: string;
+        product: string;
+        support: string;
+        features: string;
+        howItWorks: string;
+        changelog: string;
         privacy: string;
         terms: string;
         copyright: string;
@@ -149,13 +144,12 @@ export type Dictionary = {
 
 export const en: Dictionary = {
     metadata: {
-        title: "FocusMint — Focus Timer, Goal Tracking & Earnings Analytics for iPhone & Apple Watch",
-        description: "FocusMint is a focus timer for iPhone & Apple Watch with goal lifecycle tracking, earnings analytics, tips tracking, clock-in mode, and ambient sounds.",
-        ogTitle: "FocusMint — Focus Timer, Goals & Earnings",
-        ogDescription: "iPhone + Apple Watch Focus Timer, Goal Lifecycle, Earnings Analytics, Tips Tracking, Clock In",
+        title: "FocusMint — Focus Timer for iPhone and Apple Watch",
+        description: "A calm focus timer for iPhone and Apple Watch. Track sessions, review progress, and understand where your time goes.",
+        ogTitle: "FocusMint — Focus Timer for iPhone and Apple Watch",
+        ogDescription: "A calm focus timer for iPhone and Apple Watch with session tracking and time insights.",
     },
     navbar: {
-        focus: "FocusMint",
         features: "Features",
         howItWorks: "How it Works",
         download: "Download",
@@ -172,99 +166,106 @@ export const en: Dictionary = {
         viewOnGitHub: "View on GitHub",
     },
     hero: {
-        badge: "iPhone + Apple Watch",
-        title: "FocusMint",
-        tagline: "Productivity, Reimagined",
-        description: "A powerful focus timer crafted for iPhone and Apple Watch,\nfeaturing goal lifecycle tracking, earnings analytics, tips, and clock-in.",
-        appStore: "App Store",
-        learnMore: "Learn More",
+        badge: "Focus timer for iPhone and Apple Watch",
+        title: "Focus on the work.\nWe'll keep the time.",
+        description: "A calm focus timer for iPhone and Apple Watch, with simple sessions, clear progress, and no unnecessary distractions.",
+        appStore: "Coming soon on the App Store",
+        appStoreUrl: "#",
+        learnMore: "See how it works",
         mockup: {
             timer: "25:00",
             status: "Focusing",
             mode: "Work Mode",
-            watchTime: "15:00",
-            watchMode: "Study",
+            watchTime: "25:00",
+            watchMode: "Focus",
         },
+    },
+    productStatement: {
+        line: "FocusMint is designed to help you {brand}, not to give you another system to manage.",
+        brandWord: "begin",
     },
     features: {
-        title: "Highlights",
-        subtitle: "Built for high achievers, making every minute count",
-        items: {
-            dualMode: {
-                title: "Dual Mode",
-                desc: "Stopwatch and Countdown modes. Choose your rhythm for different scenarios",
+        title: "Everything you need, nothing you don't",
+        subtitle: "Every feature serves a single purpose: helping you focus without getting in the way.",
+        main: [
+            {
+                title: "Start without setting everything up.",
+                description: "Choose a mode, tap once, and get to work. Use countdown when you need structure, or count up when you simply want to begin.",
+                points: [
+                    "Countdown and count-up modes",
+                    "Simple one-tap sessions",
+                    "Designed to stay out of the way",
+                ],
+                mockupIcon: "timer",
+                bg: "default",
             },
-            stats: {
-                title: "Smart Stats",
-                desc: "Weekly dashboard, bar charts, and mode distribution at a glance",
+            {
+                title: "Your timer, right on your wrist.",
+                description: "Start, pause, and check your session without reaching for your phone. Apple Watch keeps your focus data in sync.",
+                points: [
+                    "Start and stop from your wrist",
+                    "Haptic feedback for session ends",
+                    "Goal snapshots at a glance",
+                ],
+                mockupIcon: "watch",
+                bg: "brand",
             },
-            earnings: {
-                title: "Earnings Analytics",
-                desc: "Base pay vs tips breakdown, effective hourly rate, best day/week, month-over-month comparisons",
+            {
+                title: "See where your time went.",
+                description: "Review your sessions, understand your habits, and see the value of the time you invest. Weekly stats, earnings breakdown, and goal progress in one place.",
+                points: [
+                    "Weekly session overview",
+                    "Income and tips tracking",
+                    "Goal progress and history",
+                ],
+                mockupIcon: "stats",
+                bg: "default",
             },
-            watch: {
-                title: "Apple Watch",
-                desc: "Focus on your wrist. Live Work controls, goal snapshots, Digital Crown, haptics, complications",
-            },
-            goalsLifecycle: {
-                title: "Goal Lifecycle",
-                desc: "Track active, completed, and missed goals. Smart prioritization, time and income goals with saving rates",
-            },
-            bilingual: {
-                title: "Multilingual",
-                desc: "English, French, and Chinese. Seamless switching between interfaces",
-            },
-            notifications: {
-                title: "Notifications",
-                desc: "Countdown completion alerts. Haptic warnings at 1 min / 30 sec. Background ambient sounds",
-            },
-            tips: {
-                title: "Tips Tracker",
-                desc: "Record tips with daily, weekly, or pay-period presets. Allocate across sessions or by date",
-            },
-            clockIn: {
-                title: "Clock In",
-                desc: "Real-time work timer with live earnings counter. Live Activity on Dynamic Island. Tip prompt on completion",
-            },
-            sounds: {
-                title: "Background Sounds",
-                desc: "Rain, Ocean, Cafe, Forest, and Fireplace ambient sounds to improve focus during sessions",
-            },
-            export: {
-                title: "Data Export",
-                desc: "Export your focus data to CSV. Full control over your data",
-            },
-        },
+        ],
+        grid: [
+            { icon: "clock", title: "Dual Mode", desc: "Stopwatch and countdown. Pick what works for you." },
+            { icon: "check", title: "Goal Tracking", desc: "Set time or income goals. See progress at a glance." },
+            { icon: "dollar", title: "Earnings", desc: "Track hourly earnings and tips per session." },
+            { icon: "chart", title: "Statistics", desc: "Weekly charts, mode distribution, and trends." },
+            { icon: "bell", title: "Notifications", desc: "Session end alerts and haptic warnings." },
+            { icon: "play", title: "Clock In", desc: "Real-time work timer with live earnings." },
+            { icon: "sound", title: "Background Sounds", desc: "Rain, ocean, cafe, and forest ambience." },
+            { icon: "globe", title: "Multilingual", desc: "English, French, and Chinese interfaces." },
+            { icon: "download", title: "Data Export", desc: "Export your sessions to CSV." },
+        ],
     },
     howItWorks: {
-        title: "Simple Steps",
-        subtitle: "Start your focus journey immediately",
+        title: "Simple by design",
+        subtitle: "Three steps to get started, nothing more.",
         steps: {
             step1: {
-                title: "Select Mode",
-                desc: "Choose from Work, Study, or Custom modes to fit your needs",
+                title: "Choose what feels right",
+                desc: "Use a countdown for structure or count up when you just want to begin.",
             },
             step2: {
-                title: "Start Focus",
-                desc: "Use count-up, countdown, or Clock In to track your time",
+                title: "Stay with the session",
+                desc: "FocusMint quietly keeps track while you work or study.",
             },
             step3: {
-                title: "Set Goals",
-                desc: "Create time or income goals. Track active, completed, and missed progress",
-            },
-            step4: {
-                title: "View Insights",
-                desc: "Check earnings analytics, tips breakdown, and smart stats in the dashboard",
+                title: "Look back with clarity",
+                desc: "Review your sessions and understand how your focus changes over time.",
             },
         },
     },
     gallery: {
-        title: "Previews",
-        subtitle: "Pixel-perfect interface design",
+        title: "See it in action",
+        subtitle: "Real screenshots from the app.",
+        tabLabels: {
+            timer: "Timer",
+            watch: "Watch",
+            stats: "Stats",
+            goals: "Goals",
+            earnings: "Earnings",
+        },
         items: {
-            main: {
-                title: "Main Interface",
-                desc: "Elegant ring timer, clear at a glance",
+            timer: {
+                title: "Timer",
+                desc: "Clean, simple, and easy to read.",
                 ui: {
                     time: "25:00",
                     status: "Focusing",
@@ -274,31 +275,21 @@ export const en: Dictionary = {
             },
             watch: {
                 title: "Apple Watch",
-                desc: "Your focus companion on wrist",
-                ui: { time: "15:00", mode: "Study Mode" },
+                desc: "Your focus companion on wrist.",
+                ui: { time: "25:00", mode: "Focus" },
             },
             stats: {
                 title: "Dashboard",
-                desc: "Weekly views and focus analysis",
+                desc: "Weekly overview of your sessions.",
                 ui: {
                     period: "This Week",
                     total: "12.5h",
-                    trend: "+15% vs Last Wk",
-                },
-            },
-            income: {
-                title: "Income Track",
-                desc: "Auto-calculate hourly value",
-                ui: {
-                    period: "This Month",
-                    rate: "$80/h × 41h",
-                    work: "Work",
-                    study: "Study",
+                    trend: "+15% vs Last Week",
                 },
             },
             goals: {
                 title: "Goal Lifecycle",
-                desc: "Track active, completed, and missed goals",
+                desc: "Active, completed, and missed goals.",
                 ui: {
                     active: "Active",
                     completed: "Completed",
@@ -306,35 +297,32 @@ export const en: Dictionary = {
                     deadline: "Due in 3 days",
                 },
             },
-            tips: {
-                title: "Tips Tracker",
-                desc: "Record tips with flexible periods",
+            earnings: {
+                title: "Earnings",
+                desc: "Track your time value and tips.",
                 ui: {
-                    period: "This Pay Period",
-                    today: "Today",
-                    thisWeek: "This Week",
-                    allocation: "Spread across sessions",
+                    period: "This Month",
+                    rate: "$80/h × 41h",
+                    work: "Work",
+                    study: "Study",
                 },
             },
         },
     },
-    stats: {
-        title: "By the Numbers",
-        subtitle: "Real data from our users",
-        items: {
-            users: { label: "Active Users", suffix: "+" },
-            sessions: { label: "Focus Sessions", suffix: "+" },
-            hours: { label: "Focus Hours", suffix: "h+" },
-            rating: { label: "App Rating", suffix: "" },
-        },
-    },
     download: {
-        title: "Download Now",
-        subtitle: "Start your focus journey and make every minute valuable",
-        appStore: "App Store",
-        comingSoon: "Coming soon to App Store · Stay tuned",
+        title: "Ready when you are.",
+        subtitle: "A calmer way to begin, focus, and understand your time.",
+        appStore: "Coming soon on the App Store",
+        appStoreUrl: "#",
+        footnote: "iPhone and Apple Watch required.",
     },
     footer: {
+        description: "A calm focus timer for iPhone and Apple Watch.",
+        product: "Product",
+        support: "Support",
+        features: "Features",
+        howItWorks: "How it Works",
+        changelog: "Changelog",
         privacy: "Privacy Policy",
         terms: "Terms of Service",
         copyright: "© 2026 FocusMint. All rights reserved.",

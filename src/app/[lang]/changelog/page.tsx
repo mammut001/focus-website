@@ -7,7 +7,7 @@ export default async function ChangelogPage({ params: { lang } }: { params: { la
     const dict = await getDictionary(lang);
 
     return (
-        <main className="min-h-screen bg-[hsl(225,30%,4%)] text-white overflow-hidden selection:bg-indigo-500/30 selection:text-indigo-200">
+         <main className="min-h-screen bg-bg text-text-primary">
             <Navbar dict={dict.navbar} />
             <div className="pt-24 pb-20">
                  <ChangelogViewer dict={dict.changelogPage} />
