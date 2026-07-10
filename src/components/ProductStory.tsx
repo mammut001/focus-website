@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import PhoneScreenshot from './DeviceFrame';
 import { screenshots } from '@/lib/assets';
 import type { Dictionary } from '@/dictionaries/en';
@@ -13,46 +13,39 @@ interface StoryStep {
 
 export default function ProductStory({ dict }: { dict: Dictionary['story'] }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const panelsRef = useRef<HTMLDivElement>(null);
+  const panelsRefs = useRef<(HTMLElement | null)[]>([]);
 
   const steps = dict.steps as unknown as StoryStep[];
 
-  const handleScroll = useCallback(() => {
-    const el = panelsRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const panelHeight = rect.height / steps.length;
-    const scrollInSection = Math.max(0, Math.min(rect.bottom - window.innerHeight, rect.height - window.innerHeight));
-    const ratio = scrollInSection / (rect.height - window.innerHeight);
-    const idx = Math.min(steps.length - 1, Math.floor(ratio * steps.length));
-    setActiveIndex(idx);
-  }, [steps.length]);
-
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-35% 0px -35% 0px',
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          window.addEventListener('scroll', handleScroll, { passive: true });
-        } else {
-          window.removeEventListener('scroll', handleScroll);
+          const stepStr = entry.target.getAttribute('data-story-step');
+          if (stepStr !== null) {
+            setActiveIndex(parseInt(stepStr, 10));
+          }
         }
-      },
-      { threshold: 0 }
-    );
-    observer.observe(section);
+      });
+    }, observerOptions);
+
+    panelsRefs.current.forEach((panel) => {
+      if (panel) observer.observe(panel);
+    });
+
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
     };
-  }, [handleScroll]);
-
-  const current = steps[activeIndex];
+  }, [steps.length]);
 
   return (
-    <section ref={sectionRef} className="relative bg-bg-warm">
+    <section id="product-story" className="relative bg-bg-warm">
       <div className="max-w-content mx-auto px-6 lg:px-8">
         {/* Mobile: static card layout */}
         <div className="lg:hidden py-16 md:py-20 space-y-20">
@@ -71,62 +64,78 @@ export default function ProductStory({ dict }: { dict: Dictionary['story'] }) {
         </div>
 
         {/* Desktop: sticky scroll */}
-        <div ref={panelsRef} className="hidden lg:grid lg:grid-cols-2 gap-16 py-28 min-h-[120vh] sticky top-0 items-center">
+        <div className="hidden lg:grid lg:grid-cols-2 gap-16 py-28 items-start relative">
           {/* Left: text panels */}
-          <div className="relative">
-            {/* Step indicators */}
-            <div className="flex gap-2 mb-10">
-              {steps.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveIndex(i)}
-                  className={`h-1 rounded-full transition-all duration-300 ${i === activeIndex ? 'w-8 bg-brand' : 'w-6 bg-border'}`}
-                  aria-label={`Go to step ${i + 1}`}
-                />
-              ))}
-            </div>
-
-            <div
-              style={{
-                opacity: 1,
-                transition: 'opacity 0.35s ease-out, transform 0.35s ease-out',
-              }}
-            >
-              <span className="text-sm font-semibold text-brand mb-3 block">
-                {String(activeIndex + 1).padStart(2, '0')}
-              </span>
-              <h2 className="text-[32px] lg:text-[40px] font-semibold leading-[1.05] text-text-primary mb-4">
-                {current.title}
-              </h2>
-              <p className="text-base lg:text-lg text-text-secondary leading-relaxed max-w-sm">
-                {current.description}
-              </p>
-            </div>
+          <div className="space-y-[10vh]">
+            {steps.map((step, i) => (
+              <article
+                key={i}
+                data-story-step={i}
+                ref={(el) => {
+                  panelsRefs.current[i] = el;
+                }}
+                className="min-h-[65vh] flex flex-col justify-center transition-opacity duration-300"
+                style={{
+                  opacity: activeIndex === i ? 1 : 0.4
+                }}
+              >
+                <span className="text-sm font-semibold text-brand mb-3 block">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h2 className="text-[32px] lg:text-[40px] font-semibold leading-[1.05] text-text-primary mb-4">
+                  {step.title}
+                </h2>
+                <p className="text-base lg:text-lg text-text-secondary leading-relaxed max-w-sm">
+                  {step.description}
+                </p>
+              </article>
+            ))}
           </div>
 
-          {/* Right: sticky screenshot */}
-          <div className="relative flex items-center justify-center">
-            <div className="relative w-[320px]">
-              {current.screenshots.map((src, i) => (
-                <div
-                  key={src}
-                  className={`absolute inset-0 transition-all duration-500 ${i === 0 ? 'relative' : ''}`}
-                  style={{
-                    opacity: i === 0 ? 1 : 0,
-                    transform: i === 0 ? 'translateX(0)' : 'translateX(8px)',
-                    zIndex: steps.length - i,
-                  }}
-                >
-                  {i === 0 && (
-                    <PhoneScreenshot src={src} alt={current.title} />
-                  )}
-                </div>
-              ))}
-              {current.screenshots.length > 1 && (
-                <div className="absolute -bottom-3 -right-3 w-[140px] opacity-60">
-                  <PhoneScreenshot src={current.screenshots[1]} alt="" />
-                </div>
-              )}
+          {/* Right: sticky screenshot container */}
+          <div className="sticky top-24 h-[75vh] flex items-center justify-center">
+            <div className="relative w-full max-w-[450px] aspect-[4/5] flex items-center justify-center">
+              {steps.map((step, stepIdx) => {
+                const isActive = activeIndex === stepIdx;
+                const hasSecond = step.screenshots.length > 1;
+                return (
+                  <div
+                    key={stepIdx}
+                    className="absolute inset-0 flex items-center justify-center transition-all duration-500 ease-in-out"
+                    style={{
+                      opacity: isActive ? 1 : 0,
+                      transform: isActive ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.97)',
+                      pointerEvents: isActive ? 'auto' : 'none',
+                      zIndex: isActive ? 10 : 1,
+                    }}
+                  >
+                    <div className="relative flex items-center justify-center w-full h-full">
+                      {/* First screenshot */}
+                      <div 
+                        className="w-[310px] z-10 transition-transform duration-500"
+                        style={{
+                          transform: hasSecond && isActive ? 'translateX(-30px)' : 'translateX(0px)',
+                        }}
+                      >
+                        <PhoneScreenshot src={step.screenshots[0]} alt={step.title} priority={stepIdx === 0} />
+                      </div>
+
+                      {/* Second screenshot */}
+                      {hasSecond && (
+                        <div 
+                          className="absolute w-[230px] z-0 transition-transform duration-500"
+                          style={{
+                            transform: 'translateX(45px) translateY(40px)',
+                            opacity: 0.95,
+                          }}
+                        >
+                          <PhoneScreenshot src={step.screenshots[1]} alt="" />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

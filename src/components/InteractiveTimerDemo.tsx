@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Reveal from './Reveal';
+import type { Dictionary } from '@/dictionaries/en';
 
 type TimerMode = 'countdown' | 'countup';
 type FocusMode = 'work' | 'study';
 
-export default function InteractiveTimerDemo() {
+export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timerDemo'] }) {
   const [phase, setPhase] = useState<'idle' | 'running' | 'paused' | 'done'>('idle');
   const [timerMode, setTimerMode] = useState<TimerMode>('countdown');
   const [focusMode, setFocusMode] = useState<FocusMode>('work');
@@ -91,10 +92,13 @@ export default function InteractiveTimerDemo() {
       <section id="interactive-demo" className="py-20 md:py-28 px-6" style={{ background: '#edf8f2' }}>
         <div className="max-w-content mx-auto">
           <div className="text-center mb-10">
-            <p className="text-sm font-medium text-brand-dark mb-2">{'Try it yourself'}</p>
-            <h2 className="text-[28px] sm:text-[36px] font-semibold leading-[1.1] tracking-tight text-text-primary">
-              {'See how it feels'}
+            <p className="text-sm font-medium text-brand-dark mb-2">{dict.eyebrow}</p>
+            <h2 className="text-[28px] sm:text-[36px] font-semibold leading-[1.1] tracking-tight text-text-primary mb-3">
+              {dict.title}
             </h2>
+            <p className="text-base text-text-secondary max-w-md mx-auto">
+              {dict.description}
+            </p>
           </div>
 
           <div className="max-w-[320px] mx-auto bg-surface rounded-2xl border border-border shadow-soft p-8">
@@ -114,26 +118,28 @@ export default function InteractiveTimerDemo() {
                 <span className="text-3xl font-semibold text-text-primary tabular-nums" aria-live="polite" aria-atomic="true">
                   {display}
                 </span>
-                <span className="text-xs text-text-tertiary mt-0.5 capitalize">{focusMode}</span>
+                <span className="text-xs text-text-tertiary mt-0.5 capitalize">
+                  {focusMode === 'work' ? dict.work : dict.study}
+                </span>
               </div>
             </div>
 
             {/* Controls */}
             <div className="flex gap-2 justify-center mb-5">
               {phase === 'idle' && (
-                <button onClick={start} className="btn-primary px-6 py-2.5 text-sm">Start</button>
+                <button onClick={start} className="btn-primary px-6 py-2.5 text-sm">{dict.start}</button>
               )}
               {phase === 'running' && (
-                <button onClick={pause} className="btn-primary px-6 py-2.5 text-sm" style={{ background: '#145c3b' }}>Pause</button>
+                <button onClick={pause} className="btn-primary px-6 py-2.5 text-sm" style={{ background: '#145c3b' }}>{dict.pause}</button>
               )}
               {phase === 'paused' && (
                 <>
-                  <button onClick={resume} className="btn-primary px-6 py-2.5 text-sm">Resume</button>
-                  <button onClick={reset} className="px-6 py-2.5 text-sm font-medium text-text-secondary bg-black/5 rounded-xl hover:bg-black/10 transition-colors">Reset</button>
+                  <button onClick={resume} className="btn-primary px-6 py-2.5 text-sm">{dict.resume}</button>
+                  <button onClick={reset} className="px-6 py-2.5 text-sm font-medium text-text-secondary bg-black/5 rounded-xl hover:bg-black/10 transition-colors">{dict.reset}</button>
                 </>
               )}
               {phase === 'done' && (
-                <button onClick={reset} className="btn-primary px-6 py-2.5 text-sm">Done</button>
+                <button onClick={reset} className="btn-primary px-6 py-2.5 text-sm">{dict.done}</button>
               )}
             </div>
 
@@ -144,21 +150,21 @@ export default function InteractiveTimerDemo() {
                 className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${timerMode === 'countdown' ? 'bg-brand text-white' : 'bg-black/5 text-text-secondary'}`}
                 aria-pressed={timerMode === 'countdown'}
               >
-                Countdown
+                {dict.countdown}
               </button>
               <button
                 onClick={() => { if (!isActive) { setTimerMode('countup'); reset(); } }}
                 className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${timerMode === 'countup' ? 'bg-brand text-white' : 'bg-black/5 text-text-secondary'}`}
                 aria-pressed={timerMode === 'countup'}
               >
-                Count Up
+                {dict.countUp}
               </button>
               <button
                 onClick={() => setFocusMode(focusMode === 'work' ? 'study' : 'work')}
                 className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${focusMode === 'work' ? 'bg-amber-500/10 text-amber-700' : 'bg-blue-500/10 text-blue-700'}`}
                 aria-pressed={false}
               >
-                {focusMode === 'work' ? 'Work' : 'Study'}
+                {focusMode === 'work' ? dict.work : dict.study}
               </button>
             </div>
           </div>

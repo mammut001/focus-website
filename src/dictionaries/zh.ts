@@ -29,7 +29,8 @@ export const zh: Dictionary = {
         description: "专注计时、工作记录、目标、收入分析、桌面小组件和 Apple Watch，集中在一个安静清晰的 App 中。",
         appStore: "即将登陆 App Store",
         appStoreUrl: "#",
-        learnMore: "探索 App",
+        learnMore: "试试 30 秒计时器",
+        seeCapabilities: "了解 FocusMint 的功能",
         tags: ["专注计时", "目标与收入", "iPhone + Apple Watch"],
         mockup: {
             timer: "00:30",
@@ -107,6 +108,46 @@ export const zh: Dictionary = {
             { title: "洞察", desc: "周视图和热力图揭示你的专注规律。" },
             { title: "手表", desc: "在 Apple Watch 上查看计时器和目标，从手腕开始专注。" },
         ],
+    },
+    timerDemo: {
+        eyebrow: "体验 FocusMint",
+        title: "先从一个 30 秒的专注开始。",
+        description: "在浏览器中体验最基础的计时流程。",
+        start: "开始",
+        pause: "暂停",
+        resume: "继续",
+        reset: "重置",
+        done: "完成",
+        countdown: "倒计时",
+        countUp: "正计时",
+        work: "工作",
+        study: "学习",
+    },
+    productGallery: {
+        title: "从每一个角度，看清你的时间。",
+        subtitle: "开始专注、回顾记录、跟进目标，并发现时间背后的规律。",
+        tabs: {
+            focus: {
+                label: "专注",
+                title: "结构化或灵活的专注方式",
+                description: "使用倒计时或正计时计时器，配备适合学习、工作或其他活动的专注预设。",
+            },
+            history: {
+                label: "历史",
+                title: "记录每一次专注",
+                description: "回顾你在何时、专注了什么以及专注了多久。保持你所有付出的准确记录。",
+            },
+            goals: {
+                label: "目标",
+                title: "将时间转化为进步",
+                description: "设定时间或收入目标，保持动力并看清每次专注的实际价值。",
+            },
+            insights: {
+                label: "洞察",
+                title: "发现你的时间规律",
+                description: "通过活动热力图和周图表，轻松找出你最具生产力的时间段。",
+            },
+        },
     },
     supporting: {
         title: "你需要的其他功能",

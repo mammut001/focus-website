@@ -4,7 +4,7 @@ import ProductCredibility from '@/components/ProductCredibility';
 import InteractiveTimerDemo from '@/components/InteractiveTimerDemo';
 import ProductStory from '@/components/ProductStory';
 import AppleEcosystemSection from '@/components/AppleEcosystemSection';
-import FeatureExplorer from '@/components/FeatureExplorer';
+import ProductGallery from '@/components/ProductGallery';
 import SupportingFeatures from '@/components/SupportingFeatures';
 import DownloadCTA from '@/components/DownloadCTA';
 import Footer from '@/components/Footer';
@@ -18,10 +18,10 @@ export default async function Home({ params: { lang } }: { params: { lang: 'en' 
             <Navbar dict={dict.navbar} />
             <Hero dict={dict.hero} />
             <ProductCredibility />
-            <InteractiveTimerDemo />
+            <InteractiveTimerDemo dict={dict.timerDemo} />
             <ProductStory dict={dict.story} />
             <AppleEcosystemSection dict={dict.ecosystem} />
-            <FeatureExplorer dict={dict.explorer} />
+            <ProductGallery dict={dict.productGallery} />
             <SupportingFeatures dict={dict.supporting} />
             <DownloadCTA dict={dict.download} />
             <Footer dict={dict.footer} />

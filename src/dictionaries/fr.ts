@@ -29,7 +29,8 @@ export const fr: Dictionary = {
         description: "FocusMint réunit sessions de concentration, objectifs, revenus, widgets et Apple Watch en un seul endroit calme.",
         appStore: "Bientôt sur l'App Store",
         appStoreUrl: "#",
-        learnMore: "Explorer l'app",
+        learnMore: "Essayer le minuteur de 30 secondes",
+        seeCapabilities: "Découvrir ce que FocusMint peut faire",
         tags: ["Sessions de focus", "Objectifs & revenus", "iPhone + Apple Watch"],
         mockup: {
             timer: "00:30",
@@ -107,6 +108,46 @@ export const fr: Dictionary = {
             { title: "Aperçus", desc: "Graphiques hebdomadaires et heatmaps révèlent vos habitudes de concentration." },
             { title: "Montre", desc: "Votre minuteur et vos objectifs sur Apple Watch. Lancez, pause et suivez depuis votre poignet." },
         ],
+    },
+    timerDemo: {
+        eyebrow: "Essayer FocusMint",
+        title: "Une mini session, directement dans votre navigateur.",
+        description: "Lancez la démo de 30 secondes pour découvrir le fonctionnement du minuteur.",
+        start: "Démarrer",
+        pause: "Pause",
+        resume: "Reprendre",
+        reset: "Réinitialiser",
+        done: "Terminé",
+        countdown: "Compte à rebours",
+        countUp: "Chronomètre",
+        work: "Travail",
+        study: "Étude",
+    },
+    productGallery: {
+        title: "Votre temps, sous tous les angles.",
+        subtitle: "Lancez une session, passez en revue votre journée, suivez un objectif et découvrez les tendances de votre temps.",
+        tabs: {
+            focus: {
+                label: "Focus",
+                title: "Concentration structurée ou flexible",
+                description: "Utilisez le compte à rebours ou le chronomètre avec des profils adaptés pour l'étude, le travail ou d'autres activités.",
+            },
+            history: {
+                label: "Historique",
+                title: "Chaque session enregistrée",
+                description: "Consultez ce sur quoi vous avez travaillé, quand et pendant combien de temps. Gardez un historique précis.",
+            },
+            goals: {
+                label: "Objectifs",
+                title: "Transformez le temps en progrès",
+                description: "Définissez des objectifs de temps ou de revenus pour rester motivé et valoriser votre concentration.",
+            },
+            insights: {
+                label: "Aperçus",
+                title: "Découvrez vos habitudes",
+                description: "Les heatmaps d'activité et les graphiques hebdomadaires permettent d'identifier facilement vos moments les plus productifs.",
+            },
+        },
     },
     supporting: {
         title: "Tout le reste dont vous avez besoin",
