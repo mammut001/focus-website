@@ -7,7 +7,7 @@ export type Dictionary = {
     };
     navbar: {
         features: string;
-        howItWorks: string;
+        tryDemo: string;
         download: string;
         changelog: string;
     };
@@ -28,6 +28,7 @@ export type Dictionary = {
         appStore: string;
         appStoreUrl: string;
         learnMore: string;
+        tags: string[];
         mockup: {
             timer: string;
             status: string;
@@ -36,91 +37,38 @@ export type Dictionary = {
             watchMode: string;
         };
     };
-    productStatement: {
-        line: string;
-        brandWord: string;
-    };
-    features: {
-        title: string;
-        subtitle: string;
-        main: {
+    story: {
+        steps: {
             title: string;
             description: string;
-            points: string[];
-            mockupIcon: string;
-            bg: string;
+            screenshots: string[];
         }[];
-        grid: {
-            icon: string;
+    };
+    ecosystem: {
+        title: string;
+        subtitle: string;
+        tabs: {
+            title: string;
+            desc: string;
+            points: string[];
+        }[];
+    };
+    explorer: {
+        title: string;
+        subtitle: string;
+        panels: {
             title: string;
             desc: string;
         }[];
     };
-    howItWorks: {
+    supporting: {
         title: string;
         subtitle: string;
-        steps: {
-            step1: { title: string; desc: string };
-            step2: { title: string; desc: string };
-            step3: { title: string; desc: string };
-        };
-    };
-    gallery: {
-        title: string;
-        subtitle: string;
-        tabLabels: {
-            timer: string;
-            watch: string;
-            stats: string;
-            goals: string;
-            earnings: string;
-        };
         items: {
-            timer: {
-                title: string;
-                desc: string;
-                ui: {
-                    time: string;
-                    status: string;
-                    pause: string;
-                    stop: string;
-                };
-            };
-            watch: {
-                title: string;
-                desc: string;
-                ui: { time: string; mode: string };
-            };
-            stats: {
-                title: string;
-                desc: string;
-                ui: {
-                    period: string;
-                    total: string;
-                    trend: string;
-                };
-            };
-            goals: {
-                title: string;
-                desc: string;
-                ui: {
-                    active: string;
-                    completed: string;
-                    missed: string;
-                    deadline: string;
-                };
-            };
-            earnings: {
-                title: string;
-                desc: string;
-                ui: {
-                    period: string;
-                    rate: string;
-                    work: string;
-                    study: string;
-                };
-            };
-        };
+            icon: string;
+            title: string;
+            desc: string;
+        }[];
     };
     download: {
         title: string;
@@ -134,7 +82,7 @@ export type Dictionary = {
         product: string;
         support: string;
         features: string;
-        howItWorks: string;
+        tryDemo: string;
         changelog: string;
         privacy: string;
         terms: string;
@@ -151,7 +99,7 @@ export const en: Dictionary = {
     },
     navbar: {
         features: "Features",
-        howItWorks: "How it Works",
+        tryDemo: "Try the Timer",
         download: "Download",
         changelog: "Changelog",
     },
@@ -167,147 +115,100 @@ export const en: Dictionary = {
     },
     hero: {
         badge: "Focus timer for iPhone and Apple Watch",
-        title: "Focus on the work.\nWe'll keep the time.",
-        description: "A calm focus timer for iPhone and Apple Watch, with simple sessions, clear progress, and no unnecessary distractions.",
+        title: "Make your time\nvisible.",
+        description: "FocusMint brings focus sessions, goals, earnings, widgets, and Apple Watch together in one calm place.",
         appStore: "Coming soon on the App Store",
         appStoreUrl: "#",
-        learnMore: "See how it works",
+        learnMore: "Explore the app",
+        tags: ["Focus sessions", "Goals & earnings", "iPhone + Apple Watch"],
         mockup: {
-            timer: "25:00",
+            timer: "00:30",
             status: "Focusing",
-            mode: "Work Mode",
+            mode: "Work",
             watchTime: "25:00",
             watchMode: "Focus",
         },
     },
-    productStatement: {
-        line: "FocusMint is designed to help you {brand}, not to give you another system to manage.",
-        brandWord: "begin",
-    },
-    features: {
-        title: "Everything you need, nothing you don't",
-        subtitle: "Every feature serves a single purpose: helping you focus without getting in the way.",
-        main: [
+    story: {
+        steps: [
             {
-                title: "Start without setting everything up.",
-                description: "Choose a mode, tap once, and get to work. Use countdown when you need structure, or count up when you simply want to begin.",
-                points: [
-                    "Countdown and count-up modes",
-                    "Simple one-tap sessions",
-                    "Designed to stay out of the way",
-                ],
-                mockupIcon: "timer",
-                bg: "default",
+                title: "Start in the way that fits.",
+                description: "Use countdown when you need structure, count up when you simply want to begin, or clock in for longer work sessions.",
+                screenshots: ["home", "modes"],
             },
             {
-                title: "Your timer, right on your wrist.",
-                description: "Start, pause, and check your session without reaching for your phone. Apple Watch keeps your focus data in sync.",
-                points: [
-                    "Start and stop from your wrist",
-                    "Haptic feedback for session ends",
-                    "Goal snapshots at a glance",
-                ],
-                mockupIcon: "watch",
-                bg: "brand",
+                title: "Every session has a history.",
+                description: "Review what you worked on, how long it took, and how your sessions add up over time.",
+                screenshots: ["sessions"],
             },
             {
-                title: "See where your time went.",
-                description: "Review your sessions, understand your habits, and see the value of the time you invest. Weekly stats, earnings breakdown, and goal progress in one place.",
-                points: [
-                    "Weekly session overview",
-                    "Income and tips tracking",
-                    "Goal progress and history",
-                ],
-                mockupIcon: "stats",
-                bg: "default",
+                title: "Turn time into progress.",
+                description: "Set time or income goals, follow active and completed goals, and understand the value of the time you invest.",
+                screenshots: ["goals", "income-goal"],
+            },
+            {
+                title: "See the patterns behind your time.",
+                description: "Weekly charts and activity heatmaps make it easier to understand when and how you focus.",
+                screenshots: ["heatmap", "weekly-chart"],
             },
         ],
-        grid: [
-            { icon: "clock", title: "Dual Mode", desc: "Stopwatch and countdown. Pick what works for you." },
-            { icon: "check", title: "Goal Tracking", desc: "Set time or income goals. See progress at a glance." },
-            { icon: "dollar", title: "Earnings", desc: "Track hourly earnings and tips per session." },
-            { icon: "chart", title: "Statistics", desc: "Weekly charts, mode distribution, and trends." },
-            { icon: "bell", title: "Notifications", desc: "Session end alerts and haptic warnings." },
-            { icon: "play", title: "Clock In", desc: "Real-time work timer with live earnings." },
-            { icon: "sound", title: "Background Sounds", desc: "Rain, ocean, cafe, and forest ambience." },
-            { icon: "globe", title: "Multilingual", desc: "English, French, and Chinese interfaces." },
-            { icon: "download", title: "Data Export", desc: "Export your sessions to CSV." },
-        ],
     },
-    howItWorks: {
-        title: "Simple by design",
-        subtitle: "Three steps to get started, nothing more.",
-        steps: {
-            step1: {
-                title: "Choose what feels right",
-                desc: "Use a countdown for structure or count up when you just want to begin.",
-            },
-            step2: {
-                title: "Stay with the session",
-                desc: "FocusMint quietly keeps track while you work or study.",
-            },
-            step3: {
-                title: "Look back with clarity",
-                desc: "Review your sessions and understand how your focus changes over time.",
-            },
-        },
-    },
-    gallery: {
-        title: "See it in action",
-        subtitle: "Real screenshots from the app.",
-        tabLabels: {
-            timer: "Timer",
-            watch: "Watch",
-            stats: "Stats",
-            goals: "Goals",
-            earnings: "Earnings",
-        },
-        items: {
-            timer: {
-                title: "Timer",
-                desc: "Clean, simple, and easy to read.",
-                ui: {
-                    time: "25:00",
-                    status: "Focusing",
-                    pause: "Pause",
-                    stop: "Stop",
-                },
-            },
-            watch: {
+    ecosystem: {
+        title: "Your session follows you.",
+        subtitle: "Apple Watch, widgets, and Live Activity keep your focus data close at hand.",
+        tabs: [
+            {
                 title: "Apple Watch",
-                desc: "Your focus companion on wrist.",
-                ui: { time: "25:00", mode: "Focus" },
+                desc: "Start, pause, review goals, and keep an eye on progress directly from Apple Watch.",
+                points: [
+                    "Start and stop sessions from your wrist",
+                    "View goal snapshots",
+                    "Haptic feedback on completion",
+                ],
             },
-            stats: {
-                title: "Dashboard",
-                desc: "Weekly overview of your sessions.",
-                ui: {
-                    period: "This Week",
-                    total: "12.5h",
-                    trend: "+15% vs Last Week",
-                },
+            {
+                title: "Home Screen Widgets",
+                desc: "Start or stop work and see live progress without opening the app.",
+                points: [
+                    "Start and stop from the widget",
+                    "Live earnings and elapsed time",
+                    "Work profile selection",
+                ],
             },
-            goals: {
-                title: "Goal Lifecycle",
-                desc: "Active, completed, and missed goals.",
-                ui: {
-                    active: "Active",
-                    completed: "Completed",
-                    missed: "Missed",
-                    deadline: "Due in 3 days",
-                },
+            {
+                title: "Live Activity",
+                desc: "Keep an eye on your session from the Dynamic Island or Lock Screen.",
+                points: [
+                    "Real-time timer on Lock Screen",
+                    "Dynamic Island integration",
+                    "Quick access to stop your session",
+                ],
             },
-            earnings: {
-                title: "Earnings",
-                desc: "Track your time value and tips.",
-                ui: {
-                    period: "This Month",
-                    rate: "$80/h × 41h",
-                    work: "Work",
-                    study: "Study",
-                },
-            },
-        },
+        ],
+    },
+    explorer: {
+        title: "Explore the app",
+        subtitle: "Real screenshots from FocusMint.",
+        panels: [
+            { title: "Timer", desc: "The main timer screen. Start a session with one tap, switch between countdown and count-up, and track your progress." },
+            { title: "Goals", desc: "Set time or income goals. Track active, completed, and missed goals at a glance." },
+            { title: "Sessions", desc: "Review your session history. See what you worked on, for how long, and when." },
+            { title: "Earnings", desc: "Track your earnings and tips. See hourly rates and understand the value of your time." },
+            { title: "Insights", desc: "Weekly charts and heatmaps reveal your focus patterns over time." },
+            { title: "Watch", desc: "Your timer and goals on Apple Watch. Start, pause, and check progress from your wrist." },
+        ],
+    },
+    supporting: {
+        title: "Everything else you need",
+        subtitle: "Thoughtfully designed features that work together.",
+        items: [
+            { icon: "widgets", title: "Widgets & Live Activity", desc: "Start or stop work and see live progress without opening the app." },
+            { icon: "watch", title: "Apple Watch Sync", desc: "Your sessions, goals, and timer sync automatically to Apple Watch." },
+            { icon: "sound", title: "Background Sounds", desc: "Rain, ocean, café, forest, and fireplace ambience to help you focus." },
+            { icon: "goal", title: "Goals & Earnings", desc: "Set time or income goals. Earnings and tips included in goal progress." },
+            { icon: "tip", title: "Tips and Clock In", desc: "Record tips and include them in your earnings and goals. Clock in for longer work sessions." },
+            { icon: "export", title: "CSV Data Export", desc: "Export your session data and earnings to CSV for your own analysis." },
+        ],
     },
     download: {
         title: "Ready when you are.",
@@ -321,7 +222,7 @@ export const en: Dictionary = {
         product: "Product",
         support: "Support",
         features: "Features",
-        howItWorks: "How it Works",
+        tryDemo: "Try the Timer",
         changelog: "Changelog",
         privacy: "Privacy Policy",
         terms: "Terms of Service",

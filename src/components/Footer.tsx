@@ -10,10 +10,9 @@ export default function Footer({ dict }: { dict: Dictionary['footer'] }) {
   const lang = (params.lang as string) || 'en';
 
   return (
-    <footer className="border-t border-border" style={{ background: '#0f3324' }}>
+    <footer style={{ background: '#0f3324' }}>
       <div className="max-w-content mx-auto px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
-          {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-3">
               <div className="w-7 h-7 rounded-md bg-brand flex items-center justify-center">
@@ -23,22 +22,16 @@ export default function Footer({ dict }: { dict: Dictionary['footer'] }) {
               </div>
               <span className="text-base font-semibold text-white">FocusMint</span>
             </div>
-            <p className="text-sm text-white/50 max-w-xs">
-              {dict.description}
-            </p>
+            <p className="text-sm text-white/50 max-w-xs">{dict.description}</p>
           </div>
-
-          {/* Links */}
           <div>
             <h4 className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3">{dict.product}</h4>
             <ul className="space-y-2">
               <li><a href="#features" className="text-sm text-white/60 hover:text-white transition-colors">{dict.features}</a></li>
-              <li><a href="#how-it-works" className="text-sm text-white/60 hover:text-white transition-colors">{dict.howItWorks}</a></li>
+              <li><a href="#interactive-demo" className="text-sm text-white/60 hover:text-white transition-colors">{dict.tryDemo}</a></li>
               <li><Link href={`/${lang}/changelog`} className="text-sm text-white/60 hover:text-white transition-colors">{dict.changelog}</Link></li>
             </ul>
           </div>
-
-          {/* Support */}
           <div>
             <h4 className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3">{dict.support}</h4>
             <ul className="space-y-2">
@@ -55,15 +48,9 @@ export default function Footer({ dict }: { dict: Dictionary['footer'] }) {
             </ul>
           </div>
         </div>
-
-        {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-10 pt-6 border-t border-white/10">
-          <div className="text-xs text-white/30">
-            {dict.copyright}
-          </div>
-          <div className="flex items-center gap-2">
-            <LanguageSwitcher />
-          </div>
+          <div className="text-xs text-white/30">{dict.copyright}</div>
+          <LanguageSwitcher />
         </div>
       </div>
     </footer>

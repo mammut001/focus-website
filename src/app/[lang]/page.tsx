@@ -1,10 +1,11 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import ProductStatement from '@/components/ProductStatement';
-import ProductFeature from '@/components/ProductFeature';
-import FeatureGrid from '@/components/FeatureGrid';
-import HowItWorks from '@/components/HowItWorks';
-import ScreenshotShowcase from '@/components/ScreenshotShowcase';
+import ProductCredibility from '@/components/ProductCredibility';
+import InteractiveTimerDemo from '@/components/InteractiveTimerDemo';
+import ProductStory from '@/components/ProductStory';
+import AppleEcosystemSection from '@/components/AppleEcosystemSection';
+import FeatureExplorer from '@/components/FeatureExplorer';
+import SupportingFeatures from '@/components/SupportingFeatures';
 import DownloadCTA from '@/components/DownloadCTA';
 import Footer from '@/components/Footer';
 import { getDictionary } from '../dictionaries';
@@ -16,11 +17,12 @@ export default async function Home({ params: { lang } }: { params: { lang: 'en' 
         <main className="min-h-screen bg-bg text-text-primary">
             <Navbar dict={dict.navbar} />
             <Hero dict={dict.hero} />
-            <ProductStatement dict={dict.productStatement} />
-            <ProductFeature dict={dict.features} />
-            <FeatureGrid dict={dict.features} />
-            <HowItWorks dict={dict.howItWorks} />
-            <ScreenshotShowcase dict={dict.gallery} />
+            <ProductCredibility />
+            <InteractiveTimerDemo />
+            <ProductStory dict={dict.story} />
+            <AppleEcosystemSection dict={dict.ecosystem} />
+            <FeatureExplorer dict={dict.explorer} />
+            <SupportingFeatures dict={dict.supporting} />
             <DownloadCTA dict={dict.download} />
             <Footer dict={dict.footer} />
         </main>
