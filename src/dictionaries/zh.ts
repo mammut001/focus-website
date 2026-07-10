@@ -27,8 +27,8 @@ export const zh: Dictionary = {
         badge: "为 iPhone 和 Apple Watch 打造的专注计时器",
         title: "让投入的每一分钟，\n都清晰可见。",
         description: "专注计时、工作记录、目标、收入分析、桌面小组件和 Apple Watch，集中在一个安静清晰的 App 中。",
-        appStore: "即将登陆 App Store",
-        appStoreUrl: "#",
+        appStore: "在 App Store 下载",
+        appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         learnMore: "试试 30 秒计时器",
         seeCapabilities: "了解 FocusMint 的功能",
         tags: ["专注计时", "目标与收入", "iPhone + Apple Watch"],
@@ -164,8 +164,8 @@ export const zh: Dictionary = {
     download: {
         title: "准备好了？",
         subtitle: "一种更安静的方式，开始专注并了解你的时间。",
-        appStore: "即将登陆 App Store",
-        appStoreUrl: "#",
+        appStore: "在 App Store 下载",
+        appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         footnote: "需配备 iPhone 和 Apple Watch。",
     },
     footer: {
