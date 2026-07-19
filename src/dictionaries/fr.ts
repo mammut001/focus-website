@@ -26,11 +26,10 @@ export const fr: Dictionary = {
     hero: {
         badge: "Minuteur pour iPhone et Apple Watch",
         title: "Rendez votre temps\nvisible.",
-        description: "FocusMint réunit sessions de concentration, objectifs, revenus, widgets et Apple Watch en un seul endroit calme.",
+        description: "FocusMint réunit sessions de concentration, objectifs, revenus, planification des shifts, widgets et Apple Watch en un seul endroit calme.",
         appStore: "Télécharger sur l'App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         learnMore: "Essayer le minuteur de 30 secondes",
-        seeCapabilities: "Découvrir ce que FocusMint peut faire",
         tags: ["Sessions de focus", "Objectifs & revenus", "iPhone + Apple Watch"],
         mockup: {
             timer: "00:30",
@@ -44,7 +43,7 @@ export const fr: Dictionary = {
         steps: [
             {
                 title: "Commencez comme vous voulez.",
-                description: "Utilisez le compte à rebours pour la structure, le chronomètre pour commencer simplement, ou l'horloge pour les longues sessions.",
+                description: "Utilisez le compte à rebours ou le Pomodoro pour la structure, le chronomètre pour commencer simplement, ou l'horloge pour les longues sessions.",
                 screenshots: ["home", "modes"],
             },
             {
@@ -130,7 +129,7 @@ export const fr: Dictionary = {
             focus: {
                 label: "Focus",
                 title: "Concentration structurée ou flexible",
-                description: "Utilisez le compte à rebours ou le chronomètre avec des profils adaptés pour l'étude, le travail ou d'autres activités.",
+                description: "Utilisez le compte à rebours, le chronomètre ou le Pomodoro avec des profils adaptés pour l'étude, le travail ou d'autres activités.",
             },
             history: {
                 label: "Historique",
@@ -157,8 +156,8 @@ export const fr: Dictionary = {
             { icon: "watch", title: "Synchronisation Apple Watch", desc: "Vos sessions et objectifs se synchronisent automatiquement avec la montre." },
             { icon: "sound", title: "Sons d'ambiance", desc: "Pluie, océan, café, forêt et cheminée pour vous aider à vous concentrer." },
             { icon: "goal", title: "Objectifs et revenus", desc: "Fixez des objectifs de temps ou de revenus. Les pourboires sont inclus." },
-            { icon: "tip", title: "Pourboires et horloge", desc: "Enregistrez les pourboires et incluez-les dans vos revenus. Horloge pour les longues sessions." },
-            { icon: "export", title: "Export CSV", desc: "Exportez vos données de sessions et revenus en CSV." },
+            { icon: "shift", title: "Planification des shifts", desc: "Planifiez vos prochains shifts, définissez des rappels et gardez votre emploi du temps au même endroit." },
+            { icon: "forecast", title: "Prévision de paie", desc: "Anticipez la prochaine paie, suivez le rythme et réconciliez ce que vous avez vraiment gagné." },
         ],
     },
     download: {
@@ -166,7 +165,7 @@ export const fr: Dictionary = {
         subtitle: "Une façon plus calme de commencer, vous concentrer et comprendre votre temps.",
         appStore: "Télécharger sur l'App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
-        footnote: "iPhone et Apple Watch requis.",
+        footnote: "iPhone et Apple Watch requis. Les outils de travail avancés se débloquent avec FocusMint Pro.",
     },
     footer: {
         description: "Un minuteur de concentration calme pour iPhone et Apple Watch.",

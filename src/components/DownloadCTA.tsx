@@ -11,7 +11,7 @@ export default function DownloadCTA({ dict }: { dict: Dictionary['download'] }) 
   }, []);
 
   return (
-    <section className="py-28 md:py-36 px-6 relative overflow-hidden" style={{ background: '#edf8f2' }}>
+    <section id="download" className="py-28 md:py-36 px-6 relative overflow-hidden scroll-mt-20" style={{ background: '#edf8f2' }}>
       <div
         style={{
           opacity: visible ? 1 : 0,

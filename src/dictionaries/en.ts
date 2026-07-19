@@ -28,7 +28,6 @@ export type Dictionary = {
         appStore: string;
         appStoreUrl: string;
         learnMore: string;
-        seeCapabilities: string;
         tags: string[];
         mockup: {
             timer: string;
@@ -157,11 +156,10 @@ export const en: Dictionary = {
     hero: {
         badge: "Focus timer for iPhone and Apple Watch",
         title: "Make your time\nvisible.",
-        description: "FocusMint brings focus sessions, goals, earnings, widgets, and Apple Watch together in one calm place.",
+        description: "FocusMint brings focus sessions, goals, earnings, shift planning, widgets, and Apple Watch together in one calm place.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         learnMore: "Try the 30-second timer",
-        seeCapabilities: "See what FocusMint can do",
         tags: ["Focus sessions", "Goals & earnings", "iPhone + Apple Watch"],
         mockup: {
             timer: "00:30",
@@ -175,7 +173,7 @@ export const en: Dictionary = {
         steps: [
             {
                 title: "Start in the way that fits.",
-                description: "Use countdown when you need structure, count up when you simply want to begin, or clock in for longer work sessions.",
+                description: "Use countdown or Pomodoro when you need structure, count up when you simply want to begin, or clock in for longer work sessions.",
                 screenshots: ["home", "modes"],
             },
             {
@@ -261,7 +259,7 @@ export const en: Dictionary = {
             focus: {
                 label: "Focus",
                 title: "Focus with structure or flexibility",
-                description: "Use countdown or count-up timers with work profiles suited for study, work, or other activities.",
+                description: "Use countdown, count-up, or Pomodoro with work profiles suited for study, work, or other activities.",
             },
             history: {
                 label: "History",
@@ -288,8 +286,8 @@ export const en: Dictionary = {
             { icon: "watch", title: "Apple Watch Sync", desc: "Your sessions, goals, and timer sync automatically to Apple Watch." },
             { icon: "sound", title: "Background Sounds", desc: "Rain, ocean, café, forest, and fireplace ambience to help you focus." },
             { icon: "goal", title: "Goals & Earnings", desc: "Set time or income goals. Earnings and tips included in goal progress." },
-            { icon: "tip", title: "Tips and Clock In", desc: "Record tips and include them in your earnings and goals. Clock in for longer work sessions." },
-            { icon: "export", title: "CSV Data Export", desc: "Export your session data and earnings to CSV for your own analysis." },
+            { icon: "shift", title: "Shift Planner", desc: "Plan upcoming shifts, set reminders, and keep your work schedule in one place." },
+            { icon: "forecast", title: "Paycheck Forecast", desc: "Forecast the next paycheck, track pacing, and reconcile what you actually earned." },
         ],
     },
     download: {
@@ -297,7 +295,7 @@ export const en: Dictionary = {
         subtitle: "A calmer way to begin, focus, and understand your time.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
-        footnote: "iPhone and Apple Watch required.",
+        footnote: "iPhone and Apple Watch required. Advanced work tools unlock with FocusMint Pro.",
     },
     footer: {
         description: "A calm focus timer for iPhone and Apple Watch.",

@@ -8,6 +8,7 @@ import ProductGallery from '@/components/ProductGallery';
 import SupportingFeatures from '@/components/SupportingFeatures';
 import DownloadCTA from '@/components/DownloadCTA';
 import Footer from '@/components/Footer';
+import HashScroll from '@/components/HashScroll';
 import { getDictionary } from '../dictionaries';
 
 export default async function Home({ params: { lang } }: { params: { lang: 'en' | 'fr' | 'zh' } }) {
@@ -15,6 +16,7 @@ export default async function Home({ params: { lang } }: { params: { lang: 'en' 
 
     return (
         <main className="min-h-screen bg-bg text-text-primary">
+            <HashScroll />
             <Navbar dict={dict.navbar} />
             <Hero dict={dict.hero} />
             <ProductCredibility />
