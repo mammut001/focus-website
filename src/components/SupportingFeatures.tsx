@@ -26,14 +26,15 @@ const iconMap: Record<string, React.ReactNode> = {
       <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4" fill="currentColor" /><circle cx="12" cy="12" r="1" fill="currentColor" />
     </svg>
   ),
-  tip: (
+  shift: (
     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
     </svg>
   ),
-  export: (
+  forecast: (
     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 13l4-4 4 4 5-6 5 4" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 20h18" />
     </svg>
   ),
 };
@@ -41,7 +42,7 @@ const iconMap: Record<string, React.ReactNode> = {
 export default function SupportingFeatures({ dict }: { dict: Dictionary['supporting'] }) {
   return (
     <Reveal>
-      <section className="py-20 md:py-28 px-6 bg-white">
+      <section id="features" className="py-20 md:py-28 px-6 bg-white scroll-mt-20">
         <div className="max-w-content mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-[28px] sm:text-[36px] font-semibold leading-[1.05] text-text-primary mb-3">

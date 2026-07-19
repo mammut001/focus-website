@@ -23,7 +23,10 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
 
   const scrollTo = (id: string) => {
     if (isHomePage) {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
       router.push(`/${lang}/#${id}`);
     }

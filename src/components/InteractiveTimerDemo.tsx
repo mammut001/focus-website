@@ -15,34 +15,44 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
   const [progress, setProgress] = useState(1);
 
   const startTimeRef = useRef(0);
-  const remainingRef = useRef(30);
+  const accruedRef = useRef(30);
   const rafRef = useRef(0);
 
   const TOTAL = 30;
+
+  const formatTime = (seconds: number) => {
+    const safe = Math.max(0, seconds);
+    const mins = Math.floor(safe / 60);
+    const secs = Math.floor(safe % 60);
+    return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  };
 
   const tick = useCallback((timestamp: number) => {
     if (!startTimeRef.current) startTimeRef.current = timestamp;
     const elapsed = (timestamp - startTimeRef.current) / 1000;
 
     if (timerMode === 'countdown') {
-      const left = Math.max(0, remainingRef.current - elapsed);
-      const mins = Math.floor(left / 60);
-      const secs = Math.floor(left % 60);
-      setDisplay(`${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`);
+      const left = Math.max(0, accruedRef.current - elapsed);
+      setDisplay(formatTime(left));
       setProgress(left / TOTAL);
       if (left <= 0) {
         setPhase('done');
         setDisplay('00:00');
         setProgress(0);
+        accruedRef.current = 0;
         return;
       }
     } else {
-      const total = remainingRef.current + elapsed;
-      const mins = Math.floor(total / 60);
-      const secs = Math.floor(total % 60);
-      setDisplay(`${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`);
-      const p = Math.min(total / TOTAL, 1);
-      setProgress(p);
+      const total = accruedRef.current + elapsed;
+      setDisplay(formatTime(total));
+      setProgress(Math.min(total / TOTAL, 1));
+      if (total >= TOTAL) {
+        setPhase('done');
+        setDisplay(formatTime(TOTAL));
+        setProgress(1);
+        accruedRef.current = TOTAL;
+        return;
+      }
     }
 
     rafRef.current = requestAnimationFrame(tick);
@@ -58,28 +68,43 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
 
   useEffect(() => {
     if (phase === 'idle') {
-      remainingRef.current = TOTAL;
-      setDisplay('00:30');
-      setProgress(1);
+      accruedRef.current = timerMode === 'countdown' ? TOTAL : 0;
+      setDisplay(timerMode === 'countdown' ? formatTime(TOTAL) : '00:00');
+      setProgress(timerMode === 'countdown' ? 1 : 0);
     }
   }, [phase, timerMode]);
 
   const start = () => {
-    remainingRef.current = timerMode === 'countdown' ? remainingRef.current : 0;
+    accruedRef.current = timerMode === 'countdown' ? TOTAL : 0;
     setPhase('running');
   };
+
   const pause = () => {
-    if (phase === 'running') {
-      cancelAnimationFrame(rafRef.current);
-      if (timerMode === 'countdown') remainingRef.current -= (performance.now() - startTimeRef.current) / 1000;
-      setPhase('paused');
+    if (phase !== 'running') return;
+    cancelAnimationFrame(rafRef.current);
+    const elapsed = startTimeRef.current
+      ? (performance.now() - startTimeRef.current) / 1000
+      : 0;
+    if (timerMode === 'countdown') {
+      accruedRef.current = Math.max(0, accruedRef.current - elapsed);
+    } else {
+      accruedRef.current = Math.min(TOTAL, accruedRef.current + elapsed);
     }
+    setPhase('paused');
   };
+
   const resume = () => {
     setPhase('running');
   };
+
   const reset = () => {
     cancelAnimationFrame(rafRef.current);
+    setPhase('idle');
+  };
+
+  const selectTimerMode = (mode: TimerMode) => {
+    if (phase === 'running' || phase === 'paused') return;
+    setTimerMode(mode);
     setPhase('idle');
   };
 
@@ -89,7 +114,7 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
 
   return (
     <Reveal>
-      <section id="interactive-demo" className="py-20 md:py-28 px-6" style={{ background: '#edf8f2' }}>
+      <section id="interactive-demo" className="py-20 md:py-28 px-6 scroll-mt-20" style={{ background: '#edf8f2' }}>
         <div className="max-w-content mx-auto">
           <div className="text-center mb-10">
             <p className="text-sm font-medium text-brand-dark mb-2">{dict.eyebrow}</p>
@@ -102,7 +127,6 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
           </div>
 
           <div className="max-w-[320px] mx-auto bg-surface rounded-2xl border border-border shadow-soft p-8">
-            {/* Timer Display */}
             <div className="relative w-40 h-40 mx-auto mb-6">
               <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
                 <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(23,32,25,0.06)" strokeWidth="6" />
@@ -111,7 +135,7 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
                   stroke="#32b978" strokeWidth="6" strokeLinecap="round"
                   strokeDasharray={circumference}
                   strokeDashoffset={offset}
-                  style={{ transition: 'stroke-dashoffset 0.3s ease' }}
+                  style={{ transition: phase === 'running' ? 'none' : 'stroke-dashoffset 0.3s ease' }}
                 />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -124,7 +148,6 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
               </div>
             </div>
 
-            {/* Controls */}
             <div className="flex gap-2 justify-center mb-5">
               {phase === 'idle' && (
                 <button onClick={start} className="btn-primary px-6 py-2.5 text-sm">{dict.start}</button>
@@ -143,18 +166,19 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
               )}
             </div>
 
-            {/* Mode toggles */}
             <div className="flex gap-2 justify-center">
               <button
-                onClick={() => { if (!isActive) { setTimerMode('countdown'); reset(); } }}
-                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${timerMode === 'countdown' ? 'bg-brand text-white' : 'bg-black/5 text-text-secondary'}`}
+                onClick={() => selectTimerMode('countdown')}
+                disabled={isActive}
+                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors disabled:opacity-50 ${timerMode === 'countdown' ? 'bg-brand text-white' : 'bg-black/5 text-text-secondary'}`}
                 aria-pressed={timerMode === 'countdown'}
               >
                 {dict.countdown}
               </button>
               <button
-                onClick={() => { if (!isActive) { setTimerMode('countup'); reset(); } }}
-                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${timerMode === 'countup' ? 'bg-brand text-white' : 'bg-black/5 text-text-secondary'}`}
+                onClick={() => selectTimerMode('countup')}
+                disabled={isActive}
+                className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors disabled:opacity-50 ${timerMode === 'countup' ? 'bg-brand text-white' : 'bg-black/5 text-text-secondary'}`}
                 aria-pressed={timerMode === 'countup'}
               >
                 {dict.countUp}
@@ -162,7 +186,7 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
               <button
                 onClick={() => setFocusMode(focusMode === 'work' ? 'study' : 'work')}
                 className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${focusMode === 'work' ? 'bg-amber-500/10 text-amber-700' : 'bg-blue-500/10 text-blue-700'}`}
-                aria-pressed={false}
+                aria-pressed={focusMode === 'work'}
               >
                 {focusMode === 'work' ? dict.work : dict.study}
               </button>

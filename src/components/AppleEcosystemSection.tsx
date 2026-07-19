@@ -1,16 +1,38 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Reveal from './Reveal';
-import { WatchScreenshot } from './DeviceFrame';
-import { screenshots } from '@/lib/assets';
+import PhoneScreenshot, { WatchScreenshot } from './DeviceFrame';
 import type { Dictionary } from '@/dictionaries/en';
+
+const TAB_VISUALS = [
+  {
+    kind: 'watch' as const,
+    phoneSrc: 'home' as const,
+    watchSrc: 'session' as const,
+    phoneAlt: 'FocusMint on iPhone',
+    watchAlt: 'FocusMint Apple Watch session view',
+  },
+  {
+    kind: 'widget' as const,
+    phoneSrc: 'home' as const,
+    watchSrc: 'home' as const,
+    phoneAlt: 'FocusMint widgets on iPhone home screen',
+    watchAlt: 'FocusMint Apple Watch home',
+  },
+  {
+    kind: 'live' as const,
+    phoneSrc: 'earnings' as const,
+    watchSrc: 'session' as const,
+    phoneAlt: 'FocusMint Live Activity style progress',
+    watchAlt: 'FocusMint Apple Watch session',
+  },
+];
 
 export default function AppleEcosystemSection({ dict }: { dict: Dictionary['ecosystem'] }) {
   const [activeTab, setActiveTab] = useState(0);
-  const [visible, setVisible] = useState(false);
-
   const tabs = dict.tabs;
+  const visual = TAB_VISUALS[activeTab] ?? TAB_VISUALS[0];
 
   return (
     <section className="py-20 md:py-28 px-6" style={{ background: '#0f3324' }}>
@@ -28,29 +50,39 @@ export default function AppleEcosystemSection({ dict }: { dict: Dictionary['ecos
 
         <Reveal delay={100}>
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Device visualization */}
-            <div className="flex items-center justify-center gap-6 lg:order-2">
-              <div className="w-[200px] lg:w-[240px]">
-                <div className="aspect-[9/19.5] bg-white/5 rounded-[28px] lg:rounded-[32px] border border-white/10 overflow-hidden shadow-[0_40px_90px_rgba(0,0,0,0.3)]">
-                  <div className="w-full h-full flex items-center justify-center p-4">
-                    <img
-                      src={screenshots.iphone.home}
-                      alt="FocusMint widget on iPhone home screen"
-                      className="w-full h-full object-cover rounded-lg"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
+            <div className="flex items-center justify-center gap-5 lg:order-2 min-h-[340px] lg:min-h-[420px]">
+              <div
+                key={`phone-${activeTab}`}
+                className="w-[180px] lg:w-[220px] transition-all duration-300 ease-out"
+                style={{
+                  opacity: visual.kind === 'watch' ? 0.55 : 1,
+                  transform: visual.kind === 'watch' ? 'scale(0.92)' : 'scale(1)',
+                }}
+              >
+                <PhoneScreenshot src={visual.phoneSrc} alt={visual.phoneAlt} />
               </div>
 
-              <WatchScreenshot
-                src="session"
-                alt="FocusMint Apple Watch session view"
-                className="mb-6"
-              />
+              <div
+                key={`watch-${activeTab}`}
+                className="transition-all duration-300 ease-out"
+                style={{
+                  opacity: visual.kind === 'widget' ? 0.45 : 1,
+                  transform:
+                    visual.kind === 'watch'
+                      ? 'scale(1.08) translateY(-8px)'
+                      : visual.kind === 'widget'
+                        ? 'scale(0.9)'
+                        : 'scale(1)',
+                }}
+              >
+                <WatchScreenshot
+                  src={visual.watchSrc}
+                  alt={visual.watchAlt}
+                  className="mb-4 lg:mb-8"
+                />
+              </div>
             </div>
 
-            {/* Content tabs */}
             <div className="lg:order-1">
               <div className="flex flex-wrap gap-1 mb-6" role="tablist">
                 {tabs.map((tab: { title: string; desc: string; points: string[] }, i: number) => (
@@ -79,10 +111,8 @@ export default function AppleEcosystemSection({ dict }: { dict: Dictionary['ecos
                   id={`eco-panel-${i}`}
                   aria-labelledby={`eco-tab-${i}`}
                   hidden={activeTab !== i}
-                  style={{
-                    opacity: activeTab === i ? 1 : 0,
-                    transition: 'opacity 0.25s ease-out',
-                  }}
+                  className="transition-opacity duration-200 ease-out"
+                  style={{ opacity: activeTab === i ? 1 : 0 }}
                 >
                   {activeTab === i && (
                     <div>

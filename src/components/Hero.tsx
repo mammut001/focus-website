@@ -15,7 +15,6 @@ export default function Hero({ dict }: { dict: Dictionary['hero'] }) {
     <section className="min-h-[90vh] flex items-center relative overflow-hidden bg-bg-warm pt-24 lg:pt-0">
       <div className="max-w-content mx-auto px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left */}
           <div
             style={{
               opacity: visible ? 1 : 0,
@@ -38,7 +37,7 @@ export default function Hero({ dict }: { dict: Dictionary['hero'] }) {
               {dict.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-10">
+            <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center mb-10">
               {dict.appStoreUrl === '#' ? (
                 <span className="btn-primary cursor-default opacity-80">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -60,18 +59,8 @@ export default function Hero({ dict }: { dict: Dictionary['hero'] }) {
               >
                 {dict.learnMore}
               </button>
-              <button
-                onClick={() => document.getElementById('product-story')?.scrollIntoView({ behavior: 'smooth' })}
-                className="text-text-secondary hover:text-text-primary text-sm font-medium transition-colors underline underline-offset-4 flex items-center gap-1 py-2"
-              >
-                {dict.seeCapabilities}
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
             </div>
 
-            {/* Product capability tags */}
             <div className="flex flex-wrap gap-2">
               {dict.tags.map((tag: string) => (
                 <span key={tag} className="px-3 py-1.5 text-sm text-text-secondary bg-white rounded-lg border border-border">
@@ -81,7 +70,6 @@ export default function Hero({ dict }: { dict: Dictionary['hero'] }) {
             </div>
           </div>
 
-          {/* Right - device screenshots */}
           <div
             className="relative flex items-center justify-center lg:justify-end py-8"
             style={{

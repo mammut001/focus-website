@@ -26,11 +26,10 @@ export const zh: Dictionary = {
     hero: {
         badge: "为 iPhone 和 Apple Watch 打造的专注计时器",
         title: "让投入的每一分钟，\n都清晰可见。",
-        description: "专注计时、工作记录、目标、收入分析、桌面小组件和 Apple Watch，集中在一个安静清晰的 App 中。",
+        description: "专注计时、工作记录、目标、收入分析、班次规划、桌面小组件和 Apple Watch，集中在一个安静清晰的 App 中。",
         appStore: "在 App Store 下载",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         learnMore: "试试 30 秒计时器",
-        seeCapabilities: "了解 FocusMint 的功能",
         tags: ["专注计时", "目标与收入", "iPhone + Apple Watch"],
         mockup: {
             timer: "00:30",
@@ -44,7 +43,7 @@ export const zh: Dictionary = {
         steps: [
             {
                 title: "选择适合你的方式开始。",
-                description: "需要结构感时用倒计时，想简单开始就用正计时，长时间工作可以用打卡模式。",
+                description: "需要结构感时用倒计时或番茄钟，想简单开始就用正计时，长时间工作可以用打卡模式。",
                 screenshots: ["home", "modes"],
             },
             {
@@ -130,7 +129,7 @@ export const zh: Dictionary = {
             focus: {
                 label: "专注",
                 title: "结构化或灵活的专注方式",
-                description: "使用倒计时或正计时计时器，配备适合学习、工作或其他活动的专注预设。",
+                description: "使用倒计时、正计时或番茄钟，配备适合学习、工作或其他活动的专注预设。",
             },
             history: {
                 label: "历史",
@@ -157,8 +156,8 @@ export const zh: Dictionary = {
             { icon: "watch", title: "Apple Watch 同步", desc: "专注记录和目标自动同步到手表。" },
             { icon: "sound", title: "背景白噪音", desc: "雨声、海浪、咖啡馆、森林和壁炉环境音。" },
             { icon: "goal", title: "目标与收入", desc: "设定时间或收入目标，小费也计入进展。" },
-            { icon: "tip", title: "小费与打卡", desc: "记录小费并纳入收入统计，长时间工作使用打卡模式。" },
-            { icon: "export", title: "CSV 导出", desc: "导出专注记录和收入数据到 CSV。" },
+            { icon: "shift", title: "班次规划", desc: "安排即将到来的班次、设置提醒，把工作日程集中管理。" },
+            { icon: "forecast", title: "工资预测", desc: "预测下一笔工资、追踪进度，并对账实际到手金额。" },
         ],
     },
     download: {
@@ -166,7 +165,7 @@ export const zh: Dictionary = {
         subtitle: "一种更安静的方式，开始专注并了解你的时间。",
         appStore: "在 App Store 下载",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
-        footnote: "需配备 iPhone 和 Apple Watch。",
+        footnote: "需配备 iPhone 和 Apple Watch。进阶工作工具由 FocusMint Pro 解锁。",
     },
     footer: {
         description: "一款安静、简单的专注计时器，适用于 iPhone 和 Apple Watch。",
