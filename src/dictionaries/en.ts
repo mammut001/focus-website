@@ -37,6 +37,20 @@ export type Dictionary = {
             watchMode: string;
         };
     };
+    pillars: {
+        title: string;
+        subtitle: string;
+        items: {
+            id: 'earn' | 'spend' | 'train';
+            label: string;
+            title: string;
+            description: string;
+            points: string[];
+            panelTitle: string;
+            panelMetric: string;
+            panelDetail: string;
+        }[];
+    };
     story: {
         steps: {
             title: string;
@@ -132,14 +146,14 @@ export type Dictionary = {
 
 export const en: Dictionary = {
     metadata: {
-        title: "FocusMint — Focus Timer for iPhone and Apple Watch",
-        description: "A calm focus timer for iPhone and Apple Watch. Track sessions, review progress, and understand where your time goes.",
-        ogTitle: "FocusMint — Focus Timer for iPhone and Apple Watch",
-        ogDescription: "A calm focus timer for iPhone and Apple Watch with session tracking and time insights.",
+        title: "FocusMint — Earn, Spend, Train | iPhone & Apple Watch",
+        description: "FocusMint helps you earn with focus, spend with awareness, and train for the long term — with weekly review on iPhone and Apple Watch.",
+        ogTitle: "FocusMint — Earn. Spend. Train.",
+        ogDescription: "Create with focus, spend intentionally, train for the long term. One calm app for iPhone and Apple Watch.",
     },
     navbar: {
-        features: "Features",
-        tryDemo: "Try the Timer",
+        features: "Pillars",
+        tryDemo: "Try Focus",
         download: "Download",
         changelog: "Changelog",
     },
@@ -154,13 +168,13 @@ export const en: Dictionary = {
         viewOnGitHub: "View on GitHub",
     },
     hero: {
-        badge: "Focus timer for iPhone and Apple Watch",
-        title: "Make your time\nvisible.",
-        description: "FocusMint brings focus sessions, goals, earnings, shift planning, widgets, and Apple Watch together in one calm place.",
+        badge: "FocusMint for iPhone and Apple Watch",
+        title: "Earn. Spend.\nTrain.",
+        description: "Create with focus, spend with awareness, and train for the long term — then see how the week comes together.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
-        learnMore: "Try the 30-second timer",
-        tags: ["Focus sessions", "Goals & earnings", "iPhone + Apple Watch"],
+        learnMore: "Explore the three pillars",
+        tags: ["Earn", "Spend", "Train"],
         mockup: {
             timer: "00:30",
             status: "Focusing",
@@ -169,33 +183,81 @@ export const en: Dictionary = {
             watchMode: "Focus",
         },
     },
+    pillars: {
+        title: "Three pillars. One calm record.",
+        subtitle: "FocusMint treats creating, spending, and training as equal parts of how you use your time.",
+        items: [
+            {
+                id: 'earn',
+                label: 'Earn',
+                title: 'Create with focus.',
+                description: 'Start study or work sessions with countdown, count-up, Pomodoro, or clock-in — then turn time into earnings and goals.',
+                points: [
+                    'Focus and work sessions from Home',
+                    'Goals and live earnings',
+                    'Widgets, Watch, and Live Activity',
+                ],
+                panelTitle: 'Today’s focus',
+                panelMetric: '6h 45m',
+                panelDetail: '3 sessions · $157.50 earned',
+            },
+            {
+                id: 'spend',
+                label: 'Spend',
+                title: 'Spend intentionally.',
+                description: 'Log expenses by category and see the time cost — how many hours of work that purchase really took.',
+                points: [
+                    'Housing, food, transport, and more',
+                    'Time cost from your hourly rate',
+                    'Recorded balance against earnings',
+                ],
+                panelTitle: 'Time cost',
+                panelMetric: '≈ 2.5h work',
+                panelDetail: '$45 food · based on base hourly rate',
+            },
+            {
+                id: 'train',
+                label: 'Train',
+                title: 'Train for the long term.',
+                description: 'Log strength, cardio, and more. Set a weekly target and build consecutive weeks that hit it.',
+                points: [
+                    'Strength, cardio, mobility, sport',
+                    'Weekly session targets',
+                    'Streaks of consecutive target weeks',
+                ],
+                panelTitle: 'This week',
+                panelMetric: '3 of 4',
+                panelDetail: '2 consecutive target weeks',
+            },
+        ],
+    },
     story: {
         steps: [
             {
-                title: "Start in the way that fits.",
+                title: "Earn — start the way that fits.",
                 description: "Use countdown or Pomodoro when you need structure, count up when you simply want to begin, or clock in for longer work sessions.",
                 screenshots: ["home", "modes"],
             },
             {
-                title: "Every session has a history.",
-                description: "Review what you worked on, how long it took, and how your sessions add up over time.",
+                title: "Spend — see the time behind money.",
+                description: "Add an expense and FocusMint shows its time cost from your hourly rate, so every purchase stays intentional.",
+                screenshots: ["earnings"],
+            },
+            {
+                title: "Train — keep the weekly target.",
+                description: "Log workouts, track progress toward your weekly goal, and build streaks of consecutive target weeks.",
                 screenshots: ["sessions"],
             },
             {
-                title: "Turn time into progress.",
-                description: "Set time or income goals, follow active and completed goals, and understand the value of the time you invest.",
-                screenshots: ["goals", "income-goal"],
-            },
-            {
-                title: "See the patterns behind your time.",
-                description: "Weekly charts and activity heatmaps make it easier to understand when and how you focus.",
+                title: "Weekly Review — see the whole picture.",
+                description: "Earn, Spend, and Train land in one timeline. The weekly review shows focus, spending, and training together.",
                 screenshots: ["heatmap", "weekly-chart"],
             },
         ],
     },
     ecosystem: {
         title: "Your session follows you.",
-        subtitle: "Apple Watch, widgets, and Live Activity keep your focus data close at hand.",
+        subtitle: "Apple Watch, widgets, and Live Activity keep Earn close while you move through the day.",
         tabs: [
             {
                 title: "Apple Watch",
@@ -239,9 +301,9 @@ export const en: Dictionary = {
         ],
     },
     timerDemo: {
-        eyebrow: "Try FocusMint",
-        title: "A small session, right in your browser.",
-        description: "Start the 30-second demo to experience the basic timer flow.",
+        eyebrow: "Earn — try a focus session",
+        title: "A small create session, right in your browser.",
+        description: "Start the 30-second demo to feel how Earn begins.",
         start: "Start",
         pause: "Pause",
         resume: "Resume",
@@ -253,56 +315,56 @@ export const en: Dictionary = {
         study: "Study",
     },
     productGallery: {
-        title: "Your time, from every angle.",
-        subtitle: "Start a session, review your day, follow a goal, and see the patterns behind your time.",
+        title: "Your week, from every angle.",
+        subtitle: "Focus, unified records, weekly review, and the patterns behind your time.",
         tabs: {
             focus: {
                 label: "Focus",
-                title: "Focus with structure or flexibility",
-                description: "Use countdown, count-up, or Pomodoro with work profiles suited for study, work, or other activities.",
+                title: "Earn with structure or flexibility",
+                description: "Countdown, count-up, or Pomodoro with study, work, and other profiles.",
             },
             history: {
-                label: "History",
-                title: "Every session logged",
-                description: "Look back at what you worked on, when, and for how long. Keep an accurate log of your effort.",
+                label: "Records",
+                title: "One timeline for Earn, Spend, Train",
+                description: "Focus sessions, expenses, and workouts share a single records timeline.",
             },
             goals: {
-                label: "Goals",
-                title: "Turn time into progress",
-                description: "Set hourly or income-based goals to stay motivated and realize the value of your focus.",
+                label: "Review",
+                title: "Weekly Review across three pillars",
+                description: "See focus, spending, and training together — with optional Sunday reminders.",
             },
             insights: {
                 label: "Insights",
                 title: "Discover your patterns",
-                description: "Activity heatmaps and weekly charts make it easy to spot when you are most productive.",
+                description: "Heatmaps and weekly charts make it easy to spot when you create, spend, and train.",
             },
         },
     },
     supporting: {
         title: "Everything else you need",
-        subtitle: "Thoughtfully designed features that work together.",
+        subtitle: "Built to support Earn, Spend, and Train together.",
         items: [
-            { icon: "widgets", title: "Widgets & Live Activity", desc: "Start or stop work and see live progress without opening the app." },
-            { icon: "watch", title: "Apple Watch Sync", desc: "Your sessions, goals, and timer sync automatically to Apple Watch." },
-            { icon: "sound", title: "Background Sounds", desc: "Rain, ocean, café, forest, and fireplace ambience to help you focus." },
-            { icon: "goal", title: "Goals & Earnings", desc: "Set time or income goals. Earnings and tips included in goal progress." },
+            { icon: "records", title: "Unified Records", desc: "Earn, Spend, and Train in one timeline with type and date filters." },
+            { icon: "review", title: "Weekly Review Reminder", desc: "Optional Sunday 7 PM reminder to open your full weekly review." },
+            { icon: "widgets", title: "Widgets & Watch", desc: "Start focus from Home Screen widgets, Live Activity, and Apple Watch." },
             { icon: "shift", title: "Shift Planner", desc: "Plan upcoming shifts, set reminders, and keep your work schedule in one place." },
-            { icon: "forecast", title: "Paycheck Forecast", desc: "Forecast the next paycheck, track pacing, and reconcile what you actually earned." },
+            { icon: "forecast", title: "Paycheck Forecast", desc: "Forecast the next paycheck, track pacing, and reconcile what you earned." },
+            { icon: "pro", title: "FocusMint Pro", desc: "Unlock advanced work tools and base currency override for weekly review." },
         ],
     },
     download: {
         title: "Ready when you are.",
-        subtitle: "A calmer way to begin, focus, and understand your time.",
+        subtitle: "A calmer way to earn, spend intentionally, and train for the long term.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         footnote: "iPhone and Apple Watch required. Advanced work tools unlock with FocusMint Pro.",
     },
     footer: {
-        description: "A calm focus timer for iPhone and Apple Watch.",
+        description: "Earn, Spend, and Train — a calm record of how you use your time on iPhone and Apple Watch.",
         product: "Product",
         support: "Support",
-        features: "Features",
-        tryDemo: "Try the Timer",
+        features: "Pillars",
+        tryDemo: "Try Focus",
         changelog: "Changelog",
         privacy: "Privacy Policy",
         terms: "Terms of Service",
