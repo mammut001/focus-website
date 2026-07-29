@@ -24,23 +24,23 @@ export default function ProductGallery({ dict }: { dict: Dictionary['productGall
       title: dict.tabs.history.title,
       description: dict.tabs.history.description,
       main: 'sessions' as const,
-      secondary: 'weekly-chart' as const,
+      secondary: 'earnings' as const,
     },
     {
       id: 'goals',
       label: dict.tabs.goals.label,
       title: dict.tabs.goals.title,
       description: dict.tabs.goals.description,
-      main: 'goals' as const,
-      secondary: 'income-goal' as const,
+      main: 'weekly-chart' as const,
+      secondary: 'heatmap' as const,
     },
     {
       id: 'insights',
       label: dict.tabs.insights.label,
       title: dict.tabs.insights.title,
       description: dict.tabs.insights.description,
-      main: 'earnings' as const,
-      secondary: 'heatmap' as const,
+      main: 'heatmap' as const,
+      secondary: 'goals' as const,
     },
   ];
 

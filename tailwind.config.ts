@@ -9,25 +9,30 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#32b978',
-          hover: '#279b63',
-          dark: '#145c3b',
+          DEFAULT: '#2f9a5f',
+          hover: '#268550',
+          dark: '#1f803c',
           deep: '#0f3324',
-          soft: '#def3e7',
+          soft: '#dff3e6',
           softer: '#edf8f2',
         },
+        pillar: {
+          earn: '#1f803c',
+          spend: '#8c57ad',
+          train: '#1f6ea8',
+        },
         bg: {
-          DEFAULT: '#f7f8f5',
-          warm: '#f3f4ef',
+          DEFAULT: '#f3f6ef',
+          warm: '#eef3e8',
         },
         surface: {
           DEFAULT: '#ffffff',
-          muted: '#eef1eb',
+          muted: '#e7eee0',
         },
         text: {
           primary: '#172019',
-          secondary: '#626c65',
-          tertiary: '#919a93',
+          secondary: '#5d675f',
+          tertiary: '#8b948c',
         },
         border: {
           DEFAULT: 'rgba(23, 32, 25, 0.09)',

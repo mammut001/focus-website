@@ -27,7 +27,7 @@ export default function Footer({ dict }: { dict: Dictionary['footer'] }) {
           <div>
             <h4 className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-3">{dict.product}</h4>
             <ul className="space-y-2">
-              <li><a href="#features" className="text-sm text-white/60 hover:text-white transition-colors">{dict.features}</a></li>
+              <li><a href="#pillars" className="text-sm text-white/60 hover:text-white transition-colors">{dict.features}</a></li>
               <li><a href="#interactive-demo" className="text-sm text-white/60 hover:text-white transition-colors">{dict.tryDemo}</a></li>
               <li><Link href={`/${lang}/changelog`} className="text-sm text-white/60 hover:text-white transition-colors">{dict.changelog}</Link></li>
             </ul>
