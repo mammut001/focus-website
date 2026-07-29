@@ -61,7 +61,7 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
           </button>
 
           <div className="hidden md:flex items-center gap-1">
-            <button onClick={() => scrollTo('features')} className="px-4 py-2 text-sm text-text-secondary hover:text-text-primary rounded-lg hover:bg-black/5 transition-all duration-200">
+            <button onClick={() => scrollTo('pillars')} className="px-4 py-2 text-sm text-text-secondary hover:text-text-primary rounded-lg hover:bg-black/5 transition-all duration-200">
               {dict.features}
             </button>
             <button onClick={() => scrollTo('interactive-demo')} className="px-4 py-2 text-sm text-text-secondary hover:text-text-primary rounded-lg hover:bg-black/5 transition-all duration-200">
@@ -92,7 +92,7 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
         {mobileOpen && (
           <div className="md:hidden pb-5 pt-1 flex flex-col gap-1 border-t border-border mt-1">
             {[
-              { label: dict.features, id: 'features' },
+              { label: dict.features, id: 'pillars' },
               { label: dict.tryDemo, id: 'interactive-demo' },
               { label: dict.download, id: 'download' },
             ].map((item) => (
