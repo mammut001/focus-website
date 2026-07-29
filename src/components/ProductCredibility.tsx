@@ -3,11 +3,11 @@
 import Reveal from './Reveal';
 
 const items = [
-  { label: 'iPhone', icon: 'phone' },
-  { label: 'Apple Watch', icon: 'watch' },
-  { label: 'Widgets', icon: 'grid' },
-  { label: 'Live Activities', icon: 'live' },
-  { label: 'English · Français · 中文', icon: 'globe' },
+  { label: 'Earn', icon: 'earn', color: '#1f803c' },
+  { label: 'Spend', icon: 'spend', color: '#8c57ad' },
+  { label: 'Train', icon: 'train', color: '#1f6ea8' },
+  { label: 'iPhone + Watch', icon: 'phone', color: undefined },
+  { label: 'English · Français · 中文', icon: 'globe', color: undefined },
 ];
 
 export default function ProductCredibility() {
@@ -18,28 +18,28 @@ export default function ProductCredibility() {
           <div className="flex items-center gap-8 md:gap-12 lg:gap-16 overflow-x-auto py-5 scrollbar-none justify-center">
             {items.map((item) => (
               <div key={item.label} className="flex items-center gap-2.5 text-text-secondary flex-shrink-0">
+                {item.icon === 'earn' && (
+                  <svg className="w-5 h-5" style={{ color: item.color }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l7.5-15 7.5 15M8 14h8" />
+                  </svg>
+                )}
+                {item.icon === 'spend' && (
+                  <svg className="w-5 h-5" style={{ color: item.color }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <rect x="4" y="4" width="7" height="7" rx="1.5" />
+                    <rect x="13" y="4" width="7" height="7" rx="1.5" />
+                    <rect x="4" y="13" width="7" height="7" rx="1.5" />
+                    <rect x="13" y="13" width="7" height="7" rx="1.5" />
+                  </svg>
+                )}
+                {item.icon === 'train' && (
+                  <svg className="w-5 h-5" style={{ color: item.color }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 10h12M8 10v8m8-8v8M7 18h10M12 6v4" />
+                  </svg>
+                )}
                 {item.icon === 'phone' && (
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <rect x="5" y="2" width="14" height="20" rx="3" strokeLinecap="round" strokeLinejoin="round" />
                     <line x1="12" y1="18" x2="12.01" y2="18" strokeLinecap="round" />
-                  </svg>
-                )}
-                {item.icon === 'watch' && (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <rect x="6" y="2" width="12" height="20" rx="4" strokeLinecap="round" strokeLinejoin="round" />
-                    <line x1="12" y1="6" x2="12.01" y2="6" strokeLinecap="round" />
-                    <line x1="12" y1="18" x2="12.01" y2="18" strokeLinecap="round" />
-                  </svg>
-                )}
-                {item.icon === 'grid' && (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" />
-                    <rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
-                  </svg>
-                )}
-                {item.icon === 'live' && (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4" fill="currentColor" />
                   </svg>
                 )}
                 {item.icon === 'globe' && (
@@ -48,7 +48,12 @@ export default function ProductCredibility() {
                     <path strokeLinecap="round" d="M12 3a15 15 0 010 18 15 15 0 010-18z" />
                   </svg>
                 )}
-                <span className="text-sm font-medium whitespace-nowrap">{item.label}</span>
+                <span
+                  className="text-sm font-medium whitespace-nowrap"
+                  style={item.color ? { color: item.color } : undefined}
+                >
+                  {item.label}
+                </span>
               </div>
             ))}
           </div>

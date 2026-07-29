@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import ProductCredibility from '@/components/ProductCredibility';
+import PillarsSection from '@/components/PillarsSection';
 import InteractiveTimerDemo from '@/components/InteractiveTimerDemo';
 import ProductStory from '@/components/ProductStory';
 import AppleEcosystemSection from '@/components/AppleEcosystemSection';
@@ -20,6 +21,7 @@ export default async function Home({ params: { lang } }: { params: { lang: 'en' 
             <Navbar dict={dict.navbar} />
             <Hero dict={dict.hero} />
             <ProductCredibility />
+            <PillarsSection dict={dict.pillars} />
             <InteractiveTimerDemo dict={dict.timerDemo} />
             <ProductStory dict={dict.story} />
             <AppleEcosystemSection dict={dict.ecosystem} />

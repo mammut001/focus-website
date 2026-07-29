@@ -3,20 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --brand: #32b978;
-  --brand-hover: #279b63;
-  --brand-dark: #145c3b;
+  --brand: #2f9a5f;
+  --brand-hover: #268550;
+  --brand-dark: #1f803c;
   --brand-deep: #0f3324;
-  --brand-soft: #def3e7;
+  --brand-soft: #dff3e6;
 
-  --bg: #f7f8f5;
-  --bg-warm: #f3f4ef;
+  --pillar-earn: #1f803c;
+  --pillar-spend: #8c57ad;
+  --pillar-train: #1f6ea8;
+  --pillar-earn-soft: rgba(31, 128, 60, 0.12);
+  --pillar-spend-soft: rgba(140, 87, 173, 0.12);
+  --pillar-train-soft: rgba(31, 110, 168, 0.12);
+
+  --bg: #f3f6ef;
+  --bg-warm: #eef3e8;
   --surface: #ffffff;
-  --surface-muted: #eef1eb;
+  --surface-muted: #e7eee0;
 
   --text-primary: #172019;
-  --text-secondary: #626c65;
-  --text-tertiary: #919a93;
+  --text-secondary: #5d675f;
+  --text-tertiary: #8b948c;
 
   --border: rgba(23, 32, 25, 0.09);
   --border-strong: rgba(23, 32, 25, 0.15);
@@ -124,6 +131,15 @@ body {
   50% { transform: translateY(-4px); }
 }
 
+@keyframes pillarFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pillar-panel-enter {
+  animation: pillarFade 280ms ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -163,4 +179,13 @@ body {
 
 .feature-screenshot-enter {
   animation: screenshotEnter 320ms ease-out both;
+}
+
+/* Hero atmosphere */
+.hero-atmosphere {
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(31, 128, 60, 0.10), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 30%, rgba(31, 110, 168, 0.07), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 60% 90%, rgba(140, 87, 173, 0.05), transparent 45%),
+    linear-gradient(180deg, #f5f8f1 0%, #eef3e8 100%);
 }
