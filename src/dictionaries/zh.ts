@@ -15,16 +15,16 @@ export const zh: Dictionary = {
     },
     changelogPage: {
         title: "更新日志",
-        description: "关注最新更新和改进。",
+        description: "来自 App Store 的版本说明，包含 FocusMint 1.3.x。",
         loading: "加载中...",
         error: "加载失败。请稍后再试。",
         noReleases: "未找到版本。",
         releases: "版本",
         commits: "提交",
-        viewOnGitHub: "在 GitHub 上查看",
+        viewOnGitHub: "在 App Store 查看",
     },
     hero: {
-        badge: "为 iPhone 和 Apple Watch 打造的 FocusMint",
+        badge: "FocusMint 1.3.3 · iPhone 与 Apple Watch",
         title: "创造。消费。\n训练。",
         description: "用专注去创造，有意识地消费，为长期而训练——再看一整周如何汇合。",
         appStore: "在 App Store 下载",
@@ -202,10 +202,11 @@ export const zh: Dictionary = {
         items: [
             { icon: "records", title: "统一记录", desc: "创造、消费、训练在同一时间线，可按类型与日期筛选。" },
             { icon: "review", title: "周报提醒", desc: "可选每周日晚上 7 点提醒，打开完整周报。" },
-            { icon: "widgets", title: "小组件与手表", desc: "从主屏幕小组件、实时活动和 Apple Watch 开始专注。" },
+            { icon: "widgets", title: "小组件与手表", desc: "从主屏幕小组件、实时活动、灵动岛和 Apple Watch 开始专注。" },
             { icon: "shift", title: "班次规划", desc: "安排即将到来的班次、设置提醒，把工作日程集中管理。" },
             { icon: "forecast", title: "工资预测", desc: "预测下一笔工资、追踪进度，并对账实际到手金额。" },
-            { icon: "pro", title: "FocusMint Pro", desc: "解锁进阶工作工具，以及周报用的主币种覆盖。" },
+            { icon: "export", title: "CSV 导入与导出", desc: "导入会话，或导出专注与收入数据做自己的分析。" },
+            { icon: "pro", title: "FocusMint Pro · $4.99", desc: "终身解锁进阶工作工具与主币种覆盖。" },
         ],
     },
     download: {
@@ -213,7 +214,7 @@ export const zh: Dictionary = {
         subtitle: "一种更安静的方式：创造、有意识消费，并为长期而训练。",
         appStore: "在 App Store 下载",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
-        footnote: "需配备 iPhone 和 Apple Watch。进阶工作工具由 FocusMint Pro 解锁。",
+        footnote: "App Store 免费 · 需 iPhone 与 Apple Watch · FocusMint Pro 终身 $4.99。",
     },
     footer: {
         description: "创造、消费、训练——在 iPhone 与 Apple Watch 上安静记录你如何使用时间。",

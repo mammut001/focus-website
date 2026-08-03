@@ -1,1 +1,162 @@
-[]
+[
+  {
+    "id": 133,
+    "name": "FocusMint 1.3.3",
+    "tag_name": "1.3.3",
+    "published_at": "2026-08-01T12:00:00Z",
+    "body": "We fixed bugs!",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 132,
+    "name": "FocusMint 1.3.2",
+    "tag_name": "1.3.2",
+    "published_at": "2026-07-23T12:00:00Z",
+    "body": "Architecture redesigned!",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 131,
+    "name": "FocusMint 1.3.1",
+    "tag_name": "1.3.1",
+    "published_at": "2026-07-21T12:00:00Z",
+    "body": "We now have FOCUSMINT PRO\n\nLifetime FocusMint Pro unlocks advanced work tools.",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 130,
+    "name": "FocusMint 1.3.0",
+    "tag_name": "1.3.0",
+    "published_at": "2026-07-16T12:00:00Z",
+    "body": "Version 1.3 introduces smarter shift planning, paycheck forecasting, reconciliation tools, and improved Pro access handling. We also improved reliability, localization, and overall performance.\n\nAlso in recent FocusMint builds: Earn / Spend / Train records, weekly review, and home actions for study, work, expense, and gym.",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 123,
+    "name": "FocusMint 1.2.3",
+    "tag_name": "1.2.3",
+    "published_at": "2026-07-09T12:00:00Z",
+    "body": "Update: \nFixed some bugs \nWe also added Widget to support one-click punch-in",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 122,
+    "name": "FocusMint 1.2.2",
+    "tag_name": "1.2.2",
+    "published_at": "2026-07-07T12:00:00Z",
+    "body": "We fixed bugs!",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 121,
+    "name": "FocusMint 1.2.1",
+    "tag_name": "1.2.1",
+    "published_at": "2026-07-06T12:00:00Z",
+    "body": "We fixed some bugs, and we added TIP option!",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 120,
+    "name": "FocusMint 1.2.0",
+    "tag_name": "1.2.0",
+    "published_at": "2026-07-03T12:00:00Z",
+    "body": "We fixed some bugs!",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 119,
+    "name": "FocusMint 1.1.9",
+    "tag_name": "1.1.9",
+    "published_at": "2026-07-01T12:00:00Z",
+    "body": "Update:\nRefactor the UI\nAdded:\nGOAL SYSTEM",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 118,
+    "name": "FocusMint 1.1.8",
+    "tag_name": "1.1.8",
+    "published_at": "2026-05-20T12:00:00Z",
+    "body": "Fixed bugs!",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 117,
+    "name": "FocusMint 1.1.7",
+    "tag_name": "1.1.7",
+    "published_at": "2026-05-17T12:00:00Z",
+    "body": "Update:\nBug fixed!",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 115,
+    "name": "FocusMint 1.1.5",
+    "tag_name": "1.1.5",
+    "published_at": "2026-05-14T12:00:00Z",
+    "body": "Updates：\nUI re-designed！\nBugs fixed！",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 114,
+    "name": "FocusMint 1.1.4",
+    "tag_name": "1.1.4",
+    "published_at": "2026-04-19T12:00:00Z",
+    "body": "Fixed bugs",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 113,
+    "name": "FocusMint 1.1.3",
+    "tag_name": "1.1.3",
+    "published_at": "2026-04-17T12:00:00Z",
+    "body": "Fix bugs and added SMART predict salary",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 112,
+    "name": "FocusMint 1.1.2",
+    "tag_name": "1.1.2",
+    "published_at": "2026-04-12T12:00:00Z",
+    "body": "1.feat: added work profile\n2.fix: bugs",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 111,
+    "name": "FocusMint 1.1.1",
+    "tag_name": "1.1.1",
+    "published_at": "2026-04-10T12:00:00Z",
+    "body": "1. Buy Me a Coffee – Enjoy the app? Tip the developer directly from within Focus Mint!\n2. Bonus Pay – Log bonuses and special rates alongside your focus sessions.\n3. Earnings Stats – Clearer, more accurate earnings display.\n4. Bug Fixes & Polish – Smoother experience overall.",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 110,
+    "name": "FocusMint 1.1.0",
+    "tag_name": "1.1.0",
+    "published_at": "2026-04-02T12:00:00Z",
+    "body": "Fix:\nreduced audio size\nfixed bugs",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 109,
+    "name": "FocusMint 1.0.9",
+    "tag_name": "1.0.9",
+    "published_at": "2026-04-01T12:00:00Z",
+    "body": "Updates:\nFix:Bug fixed\nFeat: Added HeatMap and background white noise",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 108,
+    "name": "FocusMint 1.0.8",
+    "tag_name": "1.0.8",
+    "published_at": "2026-03-14T12:00:00Z",
+    "body": "What's New in This Version\n\nCustom Modes: Personalize your focus sessions with Custom Emoji icons! \nWatch Sync: Your custom modes now sync automatically and permanently to your Apple Watch.\nSend Feedback: Reach out to us directly via the new Feedback section in your Profile. \nUI Refinement: Enhanced Dark Mode support and optimized layouts for a smoother experience.\nBug Fixes: Squashed various UI bugs across both iPhone and Watch apps.\nLanguage: Added French supportz!",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
+    "id": 10,
+    "name": "FocusMint 1.0",
+    "tag_name": "1.0",
+    "published_at": "2026-02-25T12:00:00Z",
+    "body": "FocusMint 1.0",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  }
+]

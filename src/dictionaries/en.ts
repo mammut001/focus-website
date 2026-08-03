@@ -159,16 +159,16 @@ export const en: Dictionary = {
     },
     changelogPage: {
         title: "Changelog",
-        description: "Follow the latest updates and improvements.",
+        description: "Release notes from the App Store, including FocusMint 1.3.x.",
         loading: "Loading...",
         error: "Failed to load data. Please try again later.",
         noReleases: "No releases found.",
         releases: "Releases",
         commits: "Commits",
-        viewOnGitHub: "View on GitHub",
+        viewOnGitHub: "View on App Store",
     },
     hero: {
-        badge: "FocusMint for iPhone and Apple Watch",
+        badge: "FocusMint 1.3.3 · iPhone and Apple Watch",
         title: "Earn. Spend.\nTrain.",
         description: "Create with focus, spend with awareness, and train for the long term — then see how the week comes together.",
         appStore: "Download on the App Store",
@@ -346,10 +346,11 @@ export const en: Dictionary = {
         items: [
             { icon: "records", title: "Unified Records", desc: "Earn, Spend, and Train in one timeline with type and date filters." },
             { icon: "review", title: "Weekly Review Reminder", desc: "Optional Sunday 7 PM reminder to open your full weekly review." },
-            { icon: "widgets", title: "Widgets & Watch", desc: "Start focus from Home Screen widgets, Live Activity, and Apple Watch." },
+            { icon: "widgets", title: "Widgets & Watch", desc: "Start focus from Home Screen widgets, Live Activity, Dynamic Island, and Apple Watch." },
             { icon: "shift", title: "Shift Planner", desc: "Plan upcoming shifts, set reminders, and keep your work schedule in one place." },
             { icon: "forecast", title: "Paycheck Forecast", desc: "Forecast the next paycheck, track pacing, and reconcile what you earned." },
-            { icon: "pro", title: "FocusMint Pro", desc: "Unlock advanced work tools and base currency override for weekly review." },
+            { icon: "export", title: "CSV Import & Export", desc: "Bring sessions in or export focus and earnings data for your own analysis." },
+            { icon: "pro", title: "FocusMint Pro · $4.99", desc: "Lifetime unlock for advanced work tools and base currency override." },
         ],
     },
     download: {
@@ -357,7 +358,7 @@ export const en: Dictionary = {
         subtitle: "A calmer way to earn, spend intentionally, and train for the long term.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
-        footnote: "iPhone and Apple Watch required. Advanced work tools unlock with FocusMint Pro.",
+        footnote: "Free on the App Store · iPhone and Apple Watch · FocusMint Pro lifetime $4.99.",
     },
     footer: {
         description: "Earn, Spend, and Train — a calm record of how you use your time on iPhone and Apple Watch.",
