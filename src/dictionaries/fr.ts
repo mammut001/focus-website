@@ -15,16 +15,16 @@ export const fr: Dictionary = {
     },
     changelogPage: {
         title: "Journal des modifications",
-        description: "Suivez les dernières mises à jour et améliorations.",
+        description: "Notes de version de l'App Store, y compris FocusMint 1.3.x.",
         loading: "Chargement...",
         error: "Échec du chargement. Veuillez réessayer plus tard.",
         noReleases: "Aucune version trouvée.",
         releases: "Versions",
         commits: "Commits",
-        viewOnGitHub: "Voir sur GitHub",
+        viewOnGitHub: "Voir sur l'App Store",
     },
     hero: {
-        badge: "FocusMint pour iPhone et Apple Watch",
+        badge: "FocusMint 1.3.3 · iPhone et Apple Watch",
         title: "Créer. Dépenser.\nS'entraîner.",
         description: "Créez avec concentration, dépensez avec conscience et entraînez-vous pour le long terme — puis voyez comment la semaine s'assemble.",
         appStore: "Télécharger sur l'App Store",
@@ -202,10 +202,11 @@ export const fr: Dictionary = {
         items: [
             { icon: "records", title: "Registres unifiés", desc: "Créer, Dépenser et S'entraîner sur une timeline, filtrable par type et date." },
             { icon: "review", title: "Rappel de revue", desc: "Rappel optionnel le dimanche à 19 h pour ouvrir la revue complète." },
-            { icon: "widgets", title: "Widgets et Watch", desc: "Lancez le focus depuis les widgets, Live Activity et Apple Watch." },
+            { icon: "widgets", title: "Widgets et Watch", desc: "Lancez le focus depuis les widgets, Live Activity, Dynamic Island et Apple Watch." },
             { icon: "shift", title: "Planification des shifts", desc: "Planifiez vos prochains shifts, définissez des rappels et gardez votre emploi du temps au même endroit." },
             { icon: "forecast", title: "Prévision de paie", desc: "Anticipez la prochaine paie, suivez le rythme et réconciliez ce que vous avez gagné." },
-            { icon: "pro", title: "FocusMint Pro", desc: "Débloquez les outils avancés et le remplacement de devise de base pour la revue." },
+            { icon: "export", title: "Import / export CSV", desc: "Importez des sessions ou exportez focus et revenus pour vos propres analyses." },
+            { icon: "pro", title: "FocusMint Pro · 4,99 $", desc: "Déblocage à vie des outils avancés et du remplacement de devise de base." },
         ],
     },
     download: {
@@ -213,7 +214,7 @@ export const fr: Dictionary = {
         subtitle: "Une façon plus calme de créer, dépenser intentionnellement et s'entraîner pour le long terme.",
         appStore: "Télécharger sur l'App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
-        footnote: "iPhone et Apple Watch requis. Les outils de travail avancés se débloquent avec FocusMint Pro.",
+        footnote: "Gratuit sur l'App Store · iPhone et Apple Watch · FocusMint Pro à vie 4,99 $.",
     },
     footer: {
         description: "Créer, Dépenser, S'entraîner — un registre calme de votre temps sur iPhone et Apple Watch.",
