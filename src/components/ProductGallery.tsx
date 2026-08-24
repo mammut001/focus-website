@@ -40,7 +40,7 @@ export default function ProductGallery({ dict }: { dict: Dictionary['productGall
       title: dict.tabs.insights.title,
       description: dict.tabs.insights.description,
       main: 'records-analytics' as const,
-      secondary: 'pay-schedule' as const,
+      secondary: 'profiles' as const,
     },
   ];
 

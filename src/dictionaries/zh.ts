@@ -26,7 +26,7 @@ export const zh: Dictionary = {
     hero: {
         badge: "全新 Records · Watch 伴侣",
         title: "创造。消费。\n训练。",
-        description: "用今日三件事开始一天，然后学习、工作、记开销或训练。Records 看规律，Apple Watch 随时在。",
+        description: "用今日三件事开始一天，然后学习、工作、开销或健身。Records 看规律，Apple Watch 随时在。",
         appStore: "在 App Store 下载",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         learnMore: "了解三支柱",
@@ -47,11 +47,11 @@ export const zh: Dictionary = {
                 id: 'earn',
                 label: '创造',
                 title: '用专注去创造。',
-                description: '用倒计时、正计时、番茄钟或打卡开始学习/工作，把时间转化为收入与目标。',
+                description: '学习用随心专注、番茄钟或手动补录；工作用打卡上班、番茄钟或手动补录。时间变成收入和目标。',
                 points: [
-                    '从首页开始专注或工作',
+                    '从首页开始学习或工作',
                     '今日三件事先排好',
-                    'Live Focus、番茄钟或打卡',
+                    '随心专注、打卡上班、番茄钟或手动补录',
                 ],
                 screenshot: 'home',
                 panelTitle: '今日专注',
@@ -79,7 +79,7 @@ export const zh: Dictionary = {
                 title: '为长期而训练。',
                 description: '记录力量、有氧等训练，设定每周目标，累积连续达标周。',
                 points: [
-                    '从首页开始一次训练',
+                    '从首页开始健身',
                     'Records 里看每周目标',
                     '今日三件事与手表摘要同步',
                 ],
@@ -94,7 +94,7 @@ export const zh: Dictionary = {
         steps: [
             {
                 title: "从今日三件事开始。",
-                description: "先定三件优先事项，再从同一首页开始学习、工作、记开销或健身。",
+                description: "先定三件优先事项，再从同一首页开始学习、工作、开销或健身。",
                 screenshots: ["home", "session-setup"],
             },
             {
@@ -116,33 +116,33 @@ export const zh: Dictionary = {
     },
     ecosystem: {
         title: "手表是伴侣，不是第二套 App。",
-        subtitle: "Now、Quick Start、Summary 保持轻量——手腕上开始，需要时回到 iPhone。",
+        subtitle: "三个轻量页面：现在、概览、同步。手腕上开始，iPhone 仍是数据源。",
         tabs: [
             {
-                title: "Now",
-                desc: "查看今日三件事；手腕不够用时，继续在 iPhone 上完成。",
+                title: "现在",
+                desc: "今日三件事，同一页下方是快速开始：25 或 50 分钟专注，或打卡到工作档案。",
                 points: [
                     "手腕上的今日三件事",
-                    "勾选已完成",
                     "需要时在 iPhone 继续",
+                    "快速开始：专注 25 / 50，或打卡上班",
                 ],
             },
             {
-                title: "Quick Start",
-                desc: "直接开始 25 或 50 分钟专注，或打卡到某个工作档案，不必打开手机。",
-                points: [
-                    "25 或 50 分钟专注",
-                    "打卡到工作档案",
-                    "只保留立即能做的动作",
-                ],
-            },
-            {
-                title: "Summary",
+                title: "概览",
                 desc: "只读一览：专注、工作、训练和今日三件事，从 iPhone 同步。",
                 points: [
-                    "今日与本周快照",
+                    "今日与本周",
+                    "专注、工作、训练和今日三件事",
                     "只读伴侣界面",
-                    "需要时刷新同步",
+                ],
+            },
+            {
+                title: "同步",
+                desc: "需要新快照时从 iPhone 刷新。手机不在身边时，仍显示已保存的数据。",
+                points: [
+                    "从 iPhone 刷新",
+                    "离线时显示已保存的 iPhone 数据",
+                    "手机仍是数据源",
                 ],
             },
         ],
@@ -151,25 +151,25 @@ export const zh: Dictionary = {
         title: "探索 App",
         subtitle: "来自 FocusMint 的真实截图。",
         panels: [
-            { title: "计时器", desc: "主计时器界面。一键开始专注，切换正计时与倒计时，追踪进度。" },
-            { title: "目标", desc: "设定时间或收入目标，追踪进行中、已完成和已失败的目标。" },
-            { title: "记录", desc: "查看专注历史，了解你做了什么、花了多久。" },
-            { title: "收入", desc: "追踪收入和小费，查看时薪，了解时间的价值。" },
-            { title: "洞察", desc: "周视图和热力图揭示你的专注规律。" },
-            { title: "手表", desc: "在 Apple Watch 上查看计时器和目标，从手腕开始专注。" },
+            { title: "首页", desc: "今日三件事，然后学习、工作、开销或健身。" },
+            { title: "目标", desc: "时间和收入目标在同一列表，含发薪周期进度。" },
+            { title: "记录", desc: "总览看 Life Flow，活动看可编辑账本。" },
+            { title: "工作", desc: "工作档案、打卡上班和发薪工具。" },
+            { title: "分析", desc: "从 Records 进入每日节奏、周回顾和热力图。" },
+            { title: "手表", desc: "现在、概览、同步。快速开始在「现在」页。" },
         ],
     },
     timerDemo: {
         eyebrow: "创造 — 试一次专注",
         title: "先在浏览器里完成一小段创造。",
-        description: "开始 30 秒演示，感受创造如何起步。",
+        description: "30 秒番茄钟或随心专注——对应 iPhone 上两种实时计时。",
         start: "开始",
         pause: "暂停",
         resume: "继续",
         reset: "重置",
         done: "完成",
-        countdown: "倒计时",
-        countUp: "正计时",
+        countdown: "番茄钟",
+        countUp: "随心专注",
         work: "工作",
         study: "学习",
     },
@@ -180,7 +180,7 @@ export const zh: Dictionary = {
             focus: {
                 label: "首页",
                 title: "从今日三件事开始",
-                description: "学习、工作、开销或健身——再用 Live Focus、番茄钟或手动记录。",
+                description: "首页是学习、工作、开销或健身。学习和工作会打开随心专注或打卡上班，以及番茄钟或手动补录。",
             },
             history: {
                 label: "记录",
@@ -194,8 +194,8 @@ export const zh: Dictionary = {
             },
             insights: {
                 label: "洞察",
-                title: "趋势、周报与热力图",
-                description: "每日节奏、周报复盘、年度热力图，以及按工作档案的收入。",
+                title: "先看趋势，再进分析",
+                description: "Records 里的每日节奏，以及周回顾、热力图、支出和按工作档案的收入。",
             },
         },
     },
@@ -205,10 +205,10 @@ export const zh: Dictionary = {
         items: [
             { icon: "today", title: "今日三件事", desc: "iPhone 与 Apple Watch 上的三项每日优先；需要时在 iPhone 继续。" },
             { icon: "records", title: "Records 中心", desc: "总览看规律，活动看可编辑账本——学习、工作、消费、训练。" },
-            { icon: "watch", title: "Watch 伴侣", desc: "Now、Quick Start、Summary。手腕上开始，手机仍是数据源。" },
-            { icon: "widgets", title: "智能小组件", desc: "今日、周预测与下一班次，可选工作档案，动作一次性交接。" },
+            { icon: "watch", title: "Watch 伴侣", desc: "现在、概览、同步。快速开始在「现在」页。手机仍是数据源。" },
+            { icon: "widgets", title: "小组件", desc: "今日、发薪日、下一班，外加 Smart 与快捷操作，可选工作档案。" },
             { icon: "shift", title: "发薪日程", desc: "每周、每两周或每月——确认真实发薪日，预测才可靠。" },
-            { icon: "pro", title: "工作档案与 Pro", desc: "多个工作与时薪。FocusMint Pro 解锁进阶工作工具与币种覆盖。" },
+            { icon: "pro", title: "工作档案与 Pro", desc: "每份工作独立时薪。Pro 解锁更多档案、自定义模式，以及基础币种覆盖。" },
         ],
     },
     download: {
@@ -217,6 +217,9 @@ export const zh: Dictionary = {
         appStore: "在 App Store 下载",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         footnote: "App Store 免费 · iPhone、iPad 与 Apple Watch · FocusMint Pro 终身 $4.99。",
+    },
+    credibility: {
+        items: ["今日三件事", "Records", "Watch", "iPhone · iPad · Watch", "English · Français · 中文"],
     },
     footer: {
         description: "创造、消费、训练——今日三件事、Records 与 Watch 伴侣，适用于 iPhone、iPad 与 Apple Watch。",

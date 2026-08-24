@@ -125,6 +125,9 @@ export type Dictionary = {
             desc: string;
         }[];
     };
+    credibility: {
+        items: string[];
+    };
     download: {
         title: string;
         subtitle: string;
@@ -171,7 +174,7 @@ export const en: Dictionary = {
     hero: {
         badge: "New Records hub · Watch companion",
         title: "Earn. Spend.\nTrain.",
-        description: "Start the day with Today’s 3, then study, work, log a spend, or train. Records shows the pattern. Apple Watch keeps it close.",
+        description: "Start the day with Today’s 3, then Study, Work, Expense, or Gym. Records shows the pattern. Apple Watch keeps it close.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         learnMore: "Explore the three pillars",
@@ -192,11 +195,11 @@ export const en: Dictionary = {
                 id: 'earn',
                 label: 'Earn',
                 title: 'Create with focus.',
-                description: 'Start study or work sessions with countdown, count-up, Pomodoro, or clock-in — then turn time into earnings and goals.',
+                description: 'Study uses Live Focus, Pomodoro, or Manual. Work uses Clock In, Pomodoro, or Manual. Time becomes earnings and goals.',
                 points: [
-                    'Focus and work sessions from Home',
+                    'Study and Work from Home',
                     'Today’s 3 daily priorities',
-                    'Live Focus, Pomodoro, or clock-in',
+                    'Live Focus, Clock In, Pomodoro, or Manual',
                 ],
                 screenshot: 'home',
                 panelTitle: 'Today’s focus',
@@ -224,7 +227,7 @@ export const en: Dictionary = {
                 title: 'Train for the long term.',
                 description: 'Log strength, cardio, and more. Set a weekly target and build consecutive weeks that hit it.',
                 points: [
-                    'Start a workout from Home',
+                    'Gym from Home',
                     'Weekly target in Records',
                     'Today’s 3 and Watch summary stay in sync',
                 ],
@@ -239,7 +242,7 @@ export const en: Dictionary = {
         steps: [
             {
                 title: "Start with Today’s 3.",
-                description: "Pick three priorities, then start Study, Work, a spend, or Gym from the same Home screen.",
+                description: "Pick three priorities, then start Study, Work, Expense, or Gym from the same Home screen.",
                 screenshots: ["home", "session-setup"],
             },
             {
@@ -261,33 +264,33 @@ export const en: Dictionary = {
     },
     ecosystem: {
         title: "A Watch companion, not a second app.",
-        subtitle: "Now, Quick Start, and Summary stay light — start on the wrist, continue on iPhone.",
+        subtitle: "Three light pages — Now, Summary, and Sync. Start on the wrist; iPhone stays the source of truth.",
         tabs: [
             {
                 title: "Now",
-                desc: "See Today’s 3 and continue a pending task on iPhone when the wrist isn’t enough.",
+                desc: "Today’s 3, then Quick Start on the same page: 25 or 50 minute focus, or Clock In to a work profile.",
                 points: [
                     "Today’s 3 on your wrist",
-                    "Mark what’s done",
-                    "Continue on iPhone when needed",
-                ],
-            },
-            {
-                title: "Quick Start",
-                desc: "Start a 25 or 50 minute focus, or clock in to a work profile, without opening the phone.",
-                points: [
-                    "Focus 25 min or 50 min",
-                    "Clock in to a work profile",
-                    "Immediate actions only",
+                    "Continue on iPhone when a task needs the phone",
+                    "Quick Start: Focus 25 / 50, or Clock In",
                 ],
             },
             {
                 title: "Summary",
                 desc: "A read-only glance at Focus, Work, Train, and Today’s 3 — synced from iPhone.",
                 points: [
-                    "Today and This Week snapshots",
+                    "Today and This Week",
+                    "Focus, Work, Train, and Today’s 3",
                     "Read-only companion surface",
-                    "Refresh when you need a new sync",
+                ],
+            },
+            {
+                title: "Sync",
+                desc: "Refresh from iPhone when you need a new snapshot. Cached data stays visible if the phone is away.",
+                points: [
+                    "Refresh from iPhone",
+                    "Shows saved iPhone data when offline",
+                    "The phone stays the source of truth",
                 ],
             },
         ],
@@ -296,25 +299,25 @@ export const en: Dictionary = {
         title: "Explore the app",
         subtitle: "Real screenshots from FocusMint.",
         panels: [
-            { title: "Timer", desc: "The main timer screen. Start a session with one tap, switch between countdown and count-up, and track your progress." },
-            { title: "Goals", desc: "Set time or income goals. Track active, completed, and missed goals at a glance." },
-            { title: "Sessions", desc: "Review your session history. See what you worked on, for how long, and when." },
-            { title: "Earnings", desc: "Track your earnings and tips. See hourly rates and understand the value of your time." },
-            { title: "Insights", desc: "Weekly charts and heatmaps reveal your focus patterns over time." },
-            { title: "Watch", desc: "Your timer and goals on Apple Watch. Start, pause, and check progress from your wrist." },
+            { title: "Home", desc: "Today’s 3, then Study, Work, Expense, or Gym." },
+            { title: "Goals", desc: "Time and income goals in one list, including pay-period progress." },
+            { title: "Records", desc: "Overview for Life Flow, then Activity for the editable ledger." },
+            { title: "Work", desc: "Work profiles, Clock In, and paycheck tools." },
+            { title: "Analytics", desc: "Daily rhythm, Weekly Review, and heatmap from Records." },
+            { title: "Watch", desc: "Now, Summary, and Sync. Quick Start lives on Now." },
         ],
     },
     timerDemo: {
         eyebrow: "Earn — try a focus session",
         title: "A small create session, right in your browser.",
-        description: "Start the 30-second demo to feel how Earn begins.",
+        description: "Thirty seconds of Pomodoro or Live Focus — the two live timers on iPhone.",
         start: "Start",
         pause: "Pause",
         resume: "Resume",
         reset: "Reset",
         done: "Done",
-        countdown: "Countdown",
-        countUp: "Count Up",
+        countdown: "Pomodoro",
+        countUp: "Live Focus",
         work: "Work",
         study: "Study",
     },
@@ -325,7 +328,7 @@ export const en: Dictionary = {
             focus: {
                 label: "Home",
                 title: "Start from Today’s 3",
-                description: "Study, Work, Expense, or Gym — then Live Focus, Pomodoro, or Manual.",
+                description: "Study, Work, Expense, or Gym from Home. Study and Work open Live Focus or Clock In, then Pomodoro or Manual.",
             },
             history: {
                 label: "Records",
@@ -339,8 +342,8 @@ export const en: Dictionary = {
             },
             insights: {
                 label: "Insights",
-                title: "Trends, review, and heatmap",
-                description: "Daily rhythm, weekly review, yearly heatmap, and earnings by work profile.",
+                title: "Trend, then the analytics grid",
+                description: "Daily rhythm in Records, then Weekly Review, heatmap, spend, and earnings by work profile.",
             },
         },
     },
@@ -350,10 +353,10 @@ export const en: Dictionary = {
         items: [
             { icon: "today", title: "Today’s 3", desc: "Three daily priorities on iPhone and Apple Watch, with continue-on-iPhone when a task needs the phone." },
             { icon: "records", title: "Records hub", desc: "Overview for patterns, Activity for the editable ledger — Study, Work, Spend, Train." },
-            { icon: "watch", title: "Watch companion", desc: "Now, Quick Start, and Summary. Start on the wrist; the phone stays the source of truth." },
-            { icon: "widgets", title: "Smart widgets", desc: "Today, weekly projection, and Next Shift — with work profile selection and one-shot actions." },
+            { icon: "watch", title: "Watch companion", desc: "Now, Summary, and Sync. Quick Start sits on Now. The phone stays the source of truth." },
+            { icon: "widgets", title: "Widgets", desc: "Today, Payday, and Next Shift — plus Smart and Quick Actions, with an optional work profile." },
             { icon: "shift", title: "Pay schedule", desc: "Weekly, every two weeks, or monthly — confirm real paydays so forecasts stay honest." },
-            { icon: "pro", title: "Work profiles & Pro", desc: "Multiple jobs and rates. FocusMint Pro unlocks advanced work tools and currency override." },
+            { icon: "pro", title: "Work profiles & Pro", desc: "Separate rates per job. Pro unlocks more profiles, custom modes, and a base-currency override." },
         ],
     },
     download: {
@@ -362,6 +365,9 @@ export const en: Dictionary = {
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         footnote: "Free on the App Store · iPhone, iPad, and Apple Watch · FocusMint Pro lifetime $4.99.",
+    },
+    credibility: {
+        items: ["Today’s 3", "Records", "Watch", "iPhone · iPad · Watch", "English · Français · 中文"],
     },
     footer: {
         description: "Earn, Spend, and Train — Today’s 3, Records, and a Watch companion on iPhone, iPad, and Apple Watch.",
