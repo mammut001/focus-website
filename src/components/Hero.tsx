@@ -86,10 +86,10 @@ export default function Hero({ dict }: { dict: Dictionary['hero'] }) {
             }}
           >
             <div className="relative flex items-end gap-4 lg:gap-6">
-              <PhoneScreenshot src="home" alt="FocusMint home with Earn Spend Train actions" priority />
+              <PhoneScreenshot src="home" alt="FocusMint home with Today’s 3 and Study Work Expense Gym" priority />
               <WatchScreenshot
-                src="home"
-                alt="FocusMint Apple Watch home screen"
+                src="now"
+                alt="FocusMint Apple Watch Now with Today’s 3"
                 className="mb-4 lg:mb-8"
               />
             </div>

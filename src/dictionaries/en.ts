@@ -46,6 +46,7 @@ export type Dictionary = {
             title: string;
             description: string;
             points: string[];
+            screenshot: string;
             panelTitle: string;
             panelMetric: string;
             panelDetail: string;
@@ -146,10 +147,10 @@ export type Dictionary = {
 
 export const en: Dictionary = {
     metadata: {
-        title: "FocusMint — Earn, Spend, Train | iPhone & Apple Watch",
-        description: "FocusMint helps you earn with focus, spend with awareness, and train for the long term — with weekly review on iPhone and Apple Watch.",
+        title: "FocusMint — Earn, Spend, Train | iPhone, iPad & Apple Watch",
+        description: "Start with Today’s 3, then study, work, spend, and train. Records and a Watch companion keep the week visible.",
         ogTitle: "FocusMint — Earn. Spend. Train.",
-        ogDescription: "Create with focus, spend intentionally, train for the long term. One calm app for iPhone and Apple Watch.",
+        ogDescription: "Today’s 3, unified Records, and an Apple Watch companion for focus, work, spending, and training.",
     },
     navbar: {
         features: "Pillars",
@@ -159,22 +160,22 @@ export const en: Dictionary = {
     },
     changelogPage: {
         title: "Changelog",
-        description: "Follow the latest updates and improvements.",
+        description: "Release notes from the App Store, including FocusMint 1.3.x.",
         loading: "Loading...",
         error: "Failed to load data. Please try again later.",
         noReleases: "No releases found.",
         releases: "Releases",
         commits: "Commits",
-        viewOnGitHub: "View on GitHub",
+        viewOnGitHub: "View on App Store",
     },
     hero: {
-        badge: "FocusMint for iPhone and Apple Watch",
+        badge: "New Records hub · Watch companion",
         title: "Earn. Spend.\nTrain.",
-        description: "Create with focus, spend with awareness, and train for the long term — then see how the week comes together.",
+        description: "Start the day with Today’s 3, then study, work, log a spend, or train. Records shows the pattern. Apple Watch keeps it close.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         learnMore: "Explore the three pillars",
-        tags: ["Earn", "Spend", "Train"],
+        tags: ["Today’s 3", "Records", "Watch"],
         mockup: {
             timer: "00:30",
             status: "Focusing",
@@ -194,9 +195,10 @@ export const en: Dictionary = {
                 description: 'Start study or work sessions with countdown, count-up, Pomodoro, or clock-in — then turn time into earnings and goals.',
                 points: [
                     'Focus and work sessions from Home',
-                    'Goals and live earnings',
-                    'Widgets, Watch, and Live Activity',
+                    'Today’s 3 daily priorities',
+                    'Live Focus, Pomodoro, or clock-in',
                 ],
+                screenshot: 'home',
                 panelTitle: 'Today’s focus',
                 panelMetric: '6h 45m',
                 panelDetail: '3 sessions · $157.50 earned',
@@ -207,10 +209,11 @@ export const en: Dictionary = {
                 title: 'Spend intentionally.',
                 description: 'Log expenses by category and see the time cost — how many hours of work that purchase really took.',
                 points: [
-                    'Housing, food, transport, and more',
-                    'Time cost from your hourly rate',
-                    'Recorded balance against earnings',
+                    'Log expenses from the Home actions',
+                    'See earned, spent, and kept in Life Flow',
+                    'Time cost from your work profiles',
                 ],
+                screenshot: 'records',
                 panelTitle: 'Time cost',
                 panelMetric: '≈ 2.5h work',
                 panelDetail: '$45 food · based on base hourly rate',
@@ -221,10 +224,11 @@ export const en: Dictionary = {
                 title: 'Train for the long term.',
                 description: 'Log strength, cardio, and more. Set a weekly target and build consecutive weeks that hit it.',
                 points: [
-                    'Strength, cardio, mobility, sport',
-                    'Weekly session targets',
-                    'Streaks of consecutive target weeks',
+                    'Start a workout from Home',
+                    'Weekly target in Records',
+                    'Today’s 3 and Watch summary stay in sync',
                 ],
+                screenshot: 'records-analytics',
                 panelTitle: 'This week',
                 panelMetric: '3 of 4',
                 panelDetail: '2 consecutive target weeks',
@@ -234,56 +238,56 @@ export const en: Dictionary = {
     story: {
         steps: [
             {
-                title: "Earn — start the way that fits.",
-                description: "Use countdown or Pomodoro when you need structure, count up when you simply want to begin, or clock in for longer work sessions.",
-                screenshots: ["home", "modes"],
+                title: "Start with Today’s 3.",
+                description: "Pick three priorities, then start Study, Work, a spend, or Gym from the same Home screen.",
+                screenshots: ["home", "session-setup"],
             },
             {
-                title: "Spend — see the time behind money.",
-                description: "Add an expense and FocusMint shows its time cost from your hourly rate, so every purchase stays intentional.",
-                screenshots: ["earnings"],
+                title: "See the week as Life Flow.",
+                description: "Records Overview shows intentional time, earned, spent, and kept — plus Study, Work, Spend, and Train at a glance.",
+                screenshots: ["records", "records-analytics"],
             },
             {
-                title: "Train — keep the weekly target.",
-                description: "Log workouts, track progress toward your weekly goal, and build streaks of consecutive target weeks.",
-                screenshots: ["sessions"],
+                title: "Inspect the activity ledger.",
+                description: "Filter the week by Study, Work, Spend, or Train. Every session is editable in one timeline.",
+                screenshots: ["records-activity"],
             },
             {
-                title: "Weekly Review — see the whole picture.",
-                description: "Earn, Spend, and Train land in one timeline. The weekly review shows focus, spending, and training together.",
-                screenshots: ["heatmap", "weekly-chart"],
+                title: "Turn time into goals.",
+                description: "Set income and time goals, follow pay-period progress, and keep study hours on track.",
+                screenshots: ["goals", "home-goals"],
             },
         ],
     },
     ecosystem: {
-        title: "Your session follows you.",
-        subtitle: "Apple Watch, widgets, and Live Activity keep Earn close while you move through the day.",
+        title: "A Watch companion, not a second app.",
+        subtitle: "Now, Quick Start, and Summary stay light — start on the wrist, continue on iPhone.",
         tabs: [
             {
-                title: "Apple Watch",
-                desc: "Start, pause, review goals, and keep an eye on progress directly from Apple Watch.",
+                title: "Now",
+                desc: "See Today’s 3 and continue a pending task on iPhone when the wrist isn’t enough.",
                 points: [
-                    "Start and stop sessions from your wrist",
-                    "View goal snapshots",
-                    "Haptic feedback on completion",
+                    "Today’s 3 on your wrist",
+                    "Mark what’s done",
+                    "Continue on iPhone when needed",
                 ],
             },
             {
-                title: "Home Screen Widgets",
-                desc: "Start or stop work and see live progress without opening the app.",
+                title: "Quick Start",
+                desc: "Start a 25 or 50 minute focus, or clock in to a work profile, without opening the phone.",
                 points: [
-                    "Start and stop from the widget",
-                    "Live earnings and elapsed time",
-                    "Work profile selection",
+                    "Focus 25 min or 50 min",
+                    "Clock in to a work profile",
+                    "Immediate actions only",
                 ],
             },
             {
-                title: "Live Activity",
-                desc: "Keep an eye on your session from the Dynamic Island or Lock Screen.",
+                title: "Summary",
+                desc: "A read-only glance at Focus, Work, Train, and Today’s 3 — synced from iPhone.",
                 points: [
-                    "Real-time timer on Lock Screen",
-                    "Dynamic Island integration",
-                    "Quick access to stop your session",
+                    "Today and This Week snapshots",
+                    "Read-only companion surface",
+                    "Refresh when you need a new sync",
                 ],
             },
         ],
@@ -316,40 +320,40 @@ export const en: Dictionary = {
     },
     productGallery: {
         title: "Your week, from every angle.",
-        subtitle: "Focus, unified records, weekly review, and the patterns behind your time.",
+        subtitle: "Today’s 3, unified Records, weekly review, and the patterns behind your time.",
         tabs: {
             focus: {
-                label: "Focus",
-                title: "Earn with structure or flexibility",
-                description: "Countdown, count-up, or Pomodoro with study, work, and other profiles.",
+                label: "Home",
+                title: "Start from Today’s 3",
+                description: "Study, Work, Expense, or Gym — then Live Focus, Pomodoro, or Manual.",
             },
             history: {
                 label: "Records",
-                title: "One timeline for Earn, Spend, Train",
-                description: "Focus sessions, expenses, and workouts share a single records timeline.",
+                title: "Overview first, then the ledger",
+                description: "Life Flow, highlights, and an editable activity timeline for Study, Work, Spend, and Train.",
             },
             goals: {
-                label: "Review",
-                title: "Weekly Review across three pillars",
-                description: "See focus, spending, and training together — with optional Sunday reminders.",
+                label: "Goals",
+                title: "Income and time in one list",
+                description: "Pay-period earnings goals next to weekly study hours, with progress you can actually use.",
             },
             insights: {
                 label: "Insights",
-                title: "Discover your patterns",
-                description: "Heatmaps and weekly charts make it easy to spot when you create, spend, and train.",
+                title: "Trends, review, and heatmap",
+                description: "Daily rhythm, weekly review, yearly heatmap, and earnings by work profile.",
             },
         },
     },
     supporting: {
         title: "Everything else you need",
-        subtitle: "Built to support Earn, Spend, and Train together.",
+        subtitle: "Built around Home, Records, and a thin Watch companion.",
         items: [
-            { icon: "records", title: "Unified Records", desc: "Earn, Spend, and Train in one timeline with type and date filters." },
-            { icon: "review", title: "Weekly Review Reminder", desc: "Optional Sunday 7 PM reminder to open your full weekly review." },
-            { icon: "widgets", title: "Widgets & Watch", desc: "Start focus from Home Screen widgets, Live Activity, and Apple Watch." },
-            { icon: "shift", title: "Shift Planner", desc: "Plan upcoming shifts, set reminders, and keep your work schedule in one place." },
-            { icon: "forecast", title: "Paycheck Forecast", desc: "Forecast the next paycheck, track pacing, and reconcile what you earned." },
-            { icon: "pro", title: "FocusMint Pro", desc: "Unlock advanced work tools and base currency override for weekly review." },
+            { icon: "today", title: "Today’s 3", desc: "Three daily priorities on iPhone and Apple Watch, with continue-on-iPhone when a task needs the phone." },
+            { icon: "records", title: "Records hub", desc: "Overview for patterns, Activity for the editable ledger — Study, Work, Spend, Train." },
+            { icon: "watch", title: "Watch companion", desc: "Now, Quick Start, and Summary. Start on the wrist; the phone stays the source of truth." },
+            { icon: "widgets", title: "Smart widgets", desc: "Today, weekly projection, and Next Shift — with work profile selection and one-shot actions." },
+            { icon: "shift", title: "Pay schedule", desc: "Weekly, every two weeks, or monthly — confirm real paydays so forecasts stay honest." },
+            { icon: "pro", title: "Work profiles & Pro", desc: "Multiple jobs and rates. FocusMint Pro unlocks advanced work tools and currency override." },
         ],
     },
     download: {
@@ -357,10 +361,10 @@ export const en: Dictionary = {
         subtitle: "A calmer way to earn, spend intentionally, and train for the long term.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
-        footnote: "iPhone and Apple Watch required. Advanced work tools unlock with FocusMint Pro.",
+        footnote: "Free on the App Store · iPhone, iPad, and Apple Watch · FocusMint Pro lifetime $4.99.",
     },
     footer: {
-        description: "Earn, Spend, and Train — a calm record of how you use your time on iPhone and Apple Watch.",
+        description: "Earn, Spend, and Train — Today’s 3, Records, and a Watch companion on iPhone, iPad, and Apple Watch.",
         product: "Product",
         support: "Support",
         features: "Pillars",
