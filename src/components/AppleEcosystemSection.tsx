@@ -14,18 +14,18 @@ const TAB_VISUALS = [
     watchAlt: 'FocusMint Watch Now',
   },
   {
-    kind: 'watch' as const,
-    phoneSrc: 'session-setup' as const,
-    watchSrc: 'quick-start' as const,
-    phoneAlt: 'FocusMint session setup',
-    watchAlt: 'FocusMint Watch Quick Start',
-  },
-  {
     kind: 'live' as const,
     phoneSrc: 'records' as const,
     watchSrc: 'summary' as const,
     phoneAlt: 'FocusMint Records overview',
     watchAlt: 'FocusMint Watch Summary',
+  },
+  {
+    kind: 'watch' as const,
+    phoneSrc: 'home' as const,
+    watchSrc: 'sync' as const,
+    phoneAlt: 'FocusMint Home',
+    watchAlt: 'FocusMint Watch Sync',
   },
 ];
 

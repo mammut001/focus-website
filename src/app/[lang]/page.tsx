@@ -20,7 +20,7 @@ export default async function Home({ params: { lang } }: { params: { lang: 'en' 
             <HashScroll />
             <Navbar dict={dict.navbar} />
             <Hero dict={dict.hero} />
-            <ProductCredibility />
+            <ProductCredibility dict={dict.credibility} />
             <PillarsSection dict={dict.pillars} />
             <InteractiveTimerDemo dict={dict.timerDemo} />
             <ProductStory dict={dict.story} />
