@@ -9,23 +9,23 @@ const TAB_VISUALS = [
   {
     kind: 'watch' as const,
     phoneSrc: 'home' as const,
-    watchSrc: 'session' as const,
-    phoneAlt: 'FocusMint on iPhone',
-    watchAlt: 'FocusMint Apple Watch session view',
+    watchSrc: 'now' as const,
+    phoneAlt: 'FocusMint Home with Today’s 3',
+    watchAlt: 'FocusMint Watch Now',
   },
   {
-    kind: 'widget' as const,
-    phoneSrc: 'home' as const,
-    watchSrc: 'home' as const,
-    phoneAlt: 'FocusMint widgets on iPhone home screen',
-    watchAlt: 'FocusMint Apple Watch home',
+    kind: 'watch' as const,
+    phoneSrc: 'session-setup' as const,
+    watchSrc: 'quick-start' as const,
+    phoneAlt: 'FocusMint session setup',
+    watchAlt: 'FocusMint Watch Quick Start',
   },
   {
     kind: 'live' as const,
-    phoneSrc: 'earnings' as const,
-    watchSrc: 'session' as const,
-    phoneAlt: 'FocusMint Live Activity style progress',
-    watchAlt: 'FocusMint Apple Watch session',
+    phoneSrc: 'records' as const,
+    watchSrc: 'summary' as const,
+    phoneAlt: 'FocusMint Records overview',
+    watchAlt: 'FocusMint Watch Summary',
   },
 ];
 
@@ -66,13 +66,11 @@ export default function AppleEcosystemSection({ dict }: { dict: Dictionary['ecos
                 key={`watch-${activeTab}`}
                 className="transition-all duration-300 ease-out"
                 style={{
-                  opacity: visual.kind === 'widget' ? 0.45 : 1,
+                  opacity: 1,
                   transform:
                     visual.kind === 'watch'
                       ? 'scale(1.08) translateY(-8px)'
-                      : visual.kind === 'widget'
-                        ? 'scale(0.9)'
-                        : 'scale(1)',
+                      : 'scale(1)',
                 }}
               >
                 <WatchScreenshot

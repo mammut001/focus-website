@@ -3,11 +3,10 @@
 import Reveal from './Reveal';
 
 const items = [
-  { label: 'v1.3.3', icon: 'version', color: '#1f803c' },
-  { label: 'Earn', icon: 'earn', color: '#1f803c' },
-  { label: 'Spend', icon: 'spend', color: '#8c57ad' },
-  { label: 'Train', icon: 'train', color: '#1f6ea8' },
-  { label: 'iPhone + Watch', icon: 'phone', color: undefined },
+  { label: 'Today’s 3', icon: 'earn', color: '#1f803c' },
+  { label: 'Records', icon: 'spend', color: '#8c57ad' },
+  { label: 'Watch', icon: 'train', color: '#1f6ea8' },
+  { label: 'iPhone · iPad · Watch', icon: 'phone', color: undefined },
   { label: 'English · Français · 中文', icon: 'globe', color: undefined },
 ];
 
