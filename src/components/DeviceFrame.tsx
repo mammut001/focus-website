@@ -13,7 +13,7 @@ interface PhoneScreenshotProps {
 export default function PhoneScreenshot({ src, alt = '', className = '', priority = false }: PhoneScreenshotProps) {
   return (
     <div className={`relative ${className}`}>
-      <div className="aspect-[9/19.5] bg-surface rounded-[28px] lg:rounded-[32px] shadow-[0_40px_90px_rgba(20,45,31,0.14),0_10px_30px_rgba(20,45,31,0.08)] overflow-hidden border border-border">
+      <div className="aspect-[9/19.5] bg-[#0d1312] rounded-[28px] lg:rounded-[32px] shadow-[0_40px_90px_rgba(20,45,31,0.14),0_10px_30px_rgba(20,45,31,0.08)] overflow-hidden border border-black/20">
         <img
           src={screenshots.iphone[src]}
           alt={alt}
@@ -38,7 +38,7 @@ interface WatchScreenshotProps {
 export function WatchScreenshot({ src, alt = '', className = '' }: WatchScreenshotProps) {
   return (
     <div className={`relative ${className}`}>
-      <div className="w-[90px] sm:w-[100px] lg:w-[110px] bg-[#e8eae6] rounded-[1.6rem] lg:rounded-[1.8rem] border border-border shadow-[0_20px_50px_rgba(20,45,31,0.12),0_6px_16px_rgba(20,45,31,0.06)] overflow-hidden">
+      <div className="w-[90px] sm:w-[100px] lg:w-[110px] bg-[#111814] rounded-[1.6rem] lg:rounded-[1.8rem] border border-black/40 shadow-[0_20px_50px_rgba(20,45,31,0.18),0_6px_16px_rgba(20,45,31,0.08)] overflow-hidden">
         <img
           src={screenshots.watch[src]}
           alt={alt}

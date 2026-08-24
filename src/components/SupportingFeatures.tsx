@@ -4,9 +4,20 @@ import Reveal from './Reveal';
 import type { Dictionary } from '@/dictionaries/en';
 
 const iconMap: Record<string, React.ReactNode> = {
+  today: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  ),
   records: (
     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h10" />
+    </svg>
+  ),
+  watch: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <rect x="7" y="3" width="10" height="18" rx="3" />
+      <path strokeLinecap="round" d="M9 7h6M9 17h6" />
     </svg>
   ),
   review: (
@@ -29,6 +40,11 @@ const iconMap: Record<string, React.ReactNode> = {
     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M3 13l4-4 4 4 5-6 5 4" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M3 20h18" />
+    </svg>
+  ),
+  export: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
     </svg>
   ),
   pro: (

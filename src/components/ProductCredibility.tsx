@@ -3,10 +3,10 @@
 import Reveal from './Reveal';
 
 const items = [
-  { label: 'Earn', icon: 'earn', color: '#1f803c' },
-  { label: 'Spend', icon: 'spend', color: '#8c57ad' },
-  { label: 'Train', icon: 'train', color: '#1f6ea8' },
-  { label: 'iPhone + Watch', icon: 'phone', color: undefined },
+  { label: 'Today’s 3', icon: 'earn', color: '#1f803c' },
+  { label: 'Records', icon: 'spend', color: '#8c57ad' },
+  { label: 'Watch', icon: 'train', color: '#1f6ea8' },
+  { label: 'iPhone · iPad · Watch', icon: 'phone', color: undefined },
   { label: 'English · Français · 中文', icon: 'globe', color: undefined },
 ];
 
@@ -18,6 +18,11 @@ export default function ProductCredibility() {
           <div className="flex items-center gap-8 md:gap-12 lg:gap-16 overflow-x-auto py-5 scrollbar-none justify-center">
             {items.map((item) => (
               <div key={item.label} className="flex items-center gap-2.5 text-text-secondary flex-shrink-0">
+                {item.icon === 'version' && (
+                  <svg className="w-5 h-5" style={{ color: item.color }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )}
                 {item.icon === 'earn' && (
                   <svg className="w-5 h-5" style={{ color: item.color }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l7.5-15 7.5 15M8 14h8" />

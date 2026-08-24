@@ -3,7 +3,14 @@
 import { useState } from 'react';
 import Reveal from './Reveal';
 import PhoneScreenshot from './DeviceFrame';
+import { screenshots } from '@/lib/assets';
 import type { Dictionary } from '@/dictionaries/en';
+
+type IPhoneShot = keyof typeof screenshots.iphone;
+
+function pillarShot(key: string): IPhoneShot {
+  return key in screenshots.iphone ? (key as IPhoneShot) : 'home';
+}
 
 const ACCENT: Record<'earn' | 'spend' | 'train', { solid: string; soft: string }> = {
   earn: { solid: '#1f803c', soft: 'rgba(31, 128, 60, 0.12)' },
@@ -102,40 +109,9 @@ export default function PillarsSection({ dict }: { dict: Dictionary['pillars'] }
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            {item.id === 'earn' ? (
-              <div className="w-full max-w-[280px]">
-                <PhoneScreenshot src="home" alt={item.title} />
-              </div>
-            ) : (
-              <div
-                className="w-full max-w-[360px] rounded-[24px] border border-border bg-white p-7 shadow-soft"
-                style={{
-                  background: `linear-gradient(160deg, ${accent.soft}, #ffffff 55%)`,
-                }}
-              >
-                <p className="text-xs font-semibold uppercase tracking-wider text-text-tertiary mb-3">
-                  {item.panelTitle}
-                </p>
-                <p
-                  className="text-[40px] sm:text-[48px] font-semibold leading-none tabular-nums mb-3"
-                  style={{ color: accent.solid }}
-                >
-                  {item.panelMetric}
-                </p>
-                <p className="text-sm text-text-secondary leading-relaxed mb-6">
-                  {item.panelDetail}
-                </p>
-                <div className="h-2 rounded-full bg-black/5 overflow-hidden">
-                  <div
-                    className="h-full rounded-full transition-all duration-500"
-                    style={{
-                      width: item.id === 'spend' ? '62%' : '75%',
-                      background: accent.solid,
-                    }}
-                  />
-                </div>
-              </div>
-            )}
+            <div className="w-full max-w-[280px]">
+              <PhoneScreenshot src={pillarShot(item.screenshot)} alt={item.title} />
+            </div>
           </div>
         </div>
       </div>
