@@ -4,6 +4,7 @@ import type { Dictionary } from '@/dictionaries/en';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
+import { asset } from '@/lib/basePath';
 
 export default function Footer({ dict }: { dict: Dictionary['footer'] }) {
   const params = useParams();
@@ -15,12 +16,14 @@ export default function Footer({ dict }: { dict: Dictionary['footer'] }) {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-7 h-7 rounded-md bg-brand flex items-center justify-center">
-                <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <span className="text-base font-semibold text-white">FocusMint</span>
+              <img
+                src={asset('/lifemint-icon.jpg')}
+                alt=""
+                width={28}
+                height={28}
+                className="w-7 h-7 rounded-md object-cover"
+              />
+              <span className="text-base font-semibold text-white">LifeMint</span>
             </div>
             <p className="text-sm text-white/50 max-w-xs">{dict.description}</p>
           </div>

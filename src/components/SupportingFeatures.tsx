@@ -47,6 +47,11 @@ const iconMap: Record<string, React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
     </svg>
   ),
+  ocean: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M2.5 12c1.25-1.5 2.5-1.5 3.75 0s2.5 1.5 3.75 0 2.5-1.5 3.75 0 2.5 1.5 3.75 0M2.5 17c1.25-1.5 2.5-1.5 3.75 0s2.5 1.5 3.75 0 2.5-1.5 3.75 0 2.5 1.5 3.75 0" />
+    </svg>
+  ),
   pro: (
     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.5l2.1 4.26 4.7.68-3.4 3.31.8 4.67-4.2-2.21-4.2 2.21.8-4.67-3.4-3.31 4.7-.68 2.1-4.26z" />
