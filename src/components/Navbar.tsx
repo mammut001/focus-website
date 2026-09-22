@@ -5,6 +5,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 import type { Dictionary } from '@/dictionaries/en';
 import { useParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { asset } from '@/lib/basePath';
 
 export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
   const [scrolled, setScrolled] = useState(false);
@@ -52,12 +53,14 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
       <div className="max-w-content mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-[68px]">
           <button onClick={handleLogoClick} className="flex items-center gap-2.5 cursor-pointer" aria-label="Home">
-            <div className="w-8 h-8 rounded-lg bg-brand flex items-center justify-center">
-              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <span className="text-base font-semibold tracking-tight text-text-primary">FocusMint</span>
+            <img
+              src={asset('/lifemint-icon.jpg')}
+              alt=""
+              width={32}
+              height={32}
+              className="w-8 h-8 rounded-lg object-cover shadow-sm"
+            />
+            <span className="text-base font-semibold tracking-tight text-text-primary">LifeMint</span>
           </button>
 
           <div className="hidden md:flex items-center gap-1">

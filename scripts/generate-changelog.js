@@ -23,6 +23,16 @@ function readExistingChangelog() {
     }
 }
 
+function mergeWithExisting(fetched) {
+    const existing = readExistingChangelog();
+    const seen = new Set(fetched.map((release) => release.tag_name));
+    const merged = [
+        ...fetched,
+        ...existing.filter((release) => !seen.has(release.tag_name)),
+    ];
+    return merged.sort((a, b) => String(b.published_at).localeCompare(String(a.published_at)));
+}
+
 function keepExistingOrEmpty(reason) {
     const existing = readExistingChangelog();
     if (existing.length > 0) {
@@ -37,7 +47,7 @@ function fetchText(url, headers = {}) {
     return new Promise((resolve, reject) => {
         const options = {
             headers: {
-                'User-Agent': 'FocusMintWebsiteChangelog/1.0',
+                'User-Agent': 'LifeMintWebsiteChangelog/1.0',
                 ...headers,
             },
         };
@@ -90,11 +100,11 @@ function parseAppStoreVersions(html) {
                 .trim())
             .filter((body) => body && !body.startsWith('{') && !body.includes('@context'));
 
-        const body = bodies.length > 0 ? bodies[bodies.length - 1] : `FocusMint ${current.tag}`;
+        const body = bodies.length > 0 ? bodies[bodies.length - 1] : `LifeMint ${current.tag}`;
         const id = Number(current.tag.replace(/\D/g, '')) || releases.length + 1;
         releases.push({
             id,
-            name: `FocusMint ${current.tag}`,
+            name: `LifeMint ${current.tag}`,
             tag_name: current.tag,
             published_at: `${current.date}T12:00:00Z`,
             body,
@@ -121,7 +131,7 @@ async function generateChangelog() {
                 const releases = await fetchGitHubData(`https://api.github.com/repos/${REPO}/releases`);
                 if (Array.isArray(releases) && releases.length > 0) {
                     console.log(`Found ${releases.length} GitHub releases.`);
-                    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(releases, null, 2));
+                    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(mergeWithExisting(releases), null, 2));
                     return;
                 }
             } catch (error) {
@@ -137,18 +147,18 @@ async function generateChangelog() {
             let appStoreReleases = parseAppStoreVersions(html);
             if (appStoreReleases.length > 0) {
                 const enrichments = {
-                    '1.3.0': '\n\nAlso in recent FocusMint builds: Earn / Spend / Train records, weekly review, and home actions for study, work, expense, and gym.',
-                    '1.3.1': '\n\nLifetime FocusMint Pro unlocks advanced work tools.',
+                    '1.3.0': '\n\nAlso in recent LifeMint builds: Earn / Spend / Train records, weekly review, and home actions for study, work, expense, and gym.',
+                    '1.3.1': '\n\nLifetime LifeMint Pro unlocks advanced work tools.',
                 };
                 appStoreReleases = appStoreReleases.map((release) => {
                     const extra = enrichments[release.tag_name];
-                    if (!extra || release.body.includes('Earn / Spend / Train') || release.body.includes('Lifetime FocusMint Pro')) {
+                    if (!extra || release.body.includes('Earn / Spend / Train') || release.body.includes('Lifetime LifeMint Pro')) {
                         return release;
                     }
                     return { ...release, body: `${release.body}${extra}` };
                 });
                 console.log(`Found ${appStoreReleases.length} App Store versions.`);
-                fs.writeFileSync(OUTPUT_FILE, JSON.stringify(appStoreReleases, null, 2));
+                fs.writeFileSync(OUTPUT_FILE, JSON.stringify(mergeWithExisting(appStoreReleases), null, 2));
                 return;
             }
         } catch (error) {
