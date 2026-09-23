@@ -89,6 +89,19 @@ export type Dictionary = {
         countUp: string;
         work: string;
         study: string;
+        earn: string;
+        spend: string;
+        train: string;
+        earnHint: string;
+        spendHint: string;
+        spendLog: string;
+        spendLogged: string;
+        spendRate: string;
+        trainHint: string;
+        trainLog: string;
+        trainWeek: string;
+        trainTargetMet: string;
+        spendCategories: { label: string; amount: string; cost: string }[];
     };
     productGallery: {
         title: string;
@@ -150,20 +163,20 @@ export type Dictionary = {
 
 export const en: Dictionary = {
     metadata: {
-        title: "FocusMint — Earn, Spend, Train | iPhone, iPad & Apple Watch",
-        description: "Start with Today’s 3, then study, work, spend, and train. Records and a Watch companion keep the week visible.",
-        ogTitle: "FocusMint — Earn. Spend. Train.",
+        title: "LifeMint — Earn, Spend, Train | iPhone, iPad & Apple Watch",
+        description: "Run your life, not just your timer. Today’s 3, unified Records, and an Apple Watch companion for focus, work, spending, and training.",
+        ogTitle: "LifeMint — Earn. Spend. Train.",
         ogDescription: "Today’s 3, unified Records, and an Apple Watch companion for focus, work, spending, and training.",
     },
     navbar: {
         features: "Pillars",
-        tryDemo: "Try Focus",
+        tryDemo: "Try it",
         download: "Download",
         changelog: "Changelog",
     },
     changelogPage: {
         title: "Changelog",
-        description: "Release notes from the App Store, including FocusMint 1.3.x.",
+        description: "Release notes from the App Store, including LifeMint 1.4.x and later.",
         loading: "Loading...",
         error: "Failed to load data. Please try again later.",
         noReleases: "No releases found.",
@@ -172,9 +185,9 @@ export const en: Dictionary = {
         viewOnGitHub: "View on App Store",
     },
     hero: {
-        badge: "New Records hub · Watch companion",
+        badge: "Run your life, not just your timer",
         title: "Earn. Spend.\nTrain.",
-        description: "Start the day with Today’s 3, then Study, Work, Expense, or Gym. Records shows the pattern. Apple Watch keeps it close.",
+        description: "Focus, work, spending, and growth—together. Start with Today’s 3, then Study, Work, Expense, or Gym. Records shows the pattern; Apple Watch keeps it close.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         learnMore: "Explore the three pillars",
@@ -189,7 +202,7 @@ export const en: Dictionary = {
     },
     pillars: {
         title: "Three pillars. One calm record.",
-        subtitle: "FocusMint treats creating, spending, and training as equal parts of how you use your time.",
+        subtitle: "LifeMint treats creating, spending, and training as equal parts of how you use your time.",
         items: [
             {
                 id: 'earn',
@@ -297,20 +310,20 @@ export const en: Dictionary = {
     },
     explorer: {
         title: "Explore the app",
-        subtitle: "Real screenshots from FocusMint.",
+        subtitle: "Real screenshots from LifeMint.",
         panels: [
             { title: "Home", desc: "Today’s 3, then Study, Work, Expense, or Gym." },
             { title: "Goals", desc: "Time and income goals in one list, including pay-period progress." },
             { title: "Records", desc: "Overview for Life Flow, then Activity for the editable ledger." },
-            { title: "Work", desc: "Work profiles, Clock In, and paycheck tools." },
+            { title: "Work", desc: "Work profiles, Shift Planner, Clock In, and paycheck tools." },
             { title: "Analytics", desc: "Daily rhythm, Weekly Review, and heatmap from Records." },
             { title: "Watch", desc: "Now, Summary, and Sync. Quick Start lives on Now." },
         ],
     },
     timerDemo: {
-        eyebrow: "Earn — try a focus session",
-        title: "A small create session, right in your browser.",
-        description: "Thirty seconds of Pomodoro or Live Focus — the two live timers on iPhone.",
+        eyebrow: "Try Earn, Spend, and Train",
+        title: "Three small actions, right in your browser.",
+        description: "A 30-second focus, a logged expense with time cost, or a workout toward this week’s target.",
         start: "Start",
         pause: "Pause",
         resume: "Resume",
@@ -320,6 +333,23 @@ export const en: Dictionary = {
         countUp: "Live Focus",
         work: "Work",
         study: "Study",
+        earn: "Earn",
+        spend: "Spend",
+        train: "Train",
+        earnHint: "Pomodoro or Live Focus — Study or Work.",
+        spendHint: "Pick a spend. Time cost uses a $25/hr demo rate.",
+        spendLog: "Log expense",
+        spendLogged: "Logged",
+        spendRate: "$25/hr demo rate",
+        trainHint: "Log a Gym session toward a weekly target of 3.",
+        trainLog: "Log Gym",
+        trainWeek: "This week",
+        trainTargetMet: "Weekly target hit",
+        spendCategories: [
+            { label: "Coffee", amount: "$6.50", cost: "≈ 16 min of work" },
+            { label: "Lunch", amount: "$18", cost: "≈ 43 min of work" },
+            { label: "Transit", amount: "$3.25", cost: "≈ 8 min of work" },
+        ],
     },
     productGallery: {
         title: "Your week, from every angle.",
@@ -351,12 +381,13 @@ export const en: Dictionary = {
         title: "Everything else you need",
         subtitle: "Built around Home, Records, and a thin Watch companion.",
         items: [
-            { icon: "today", title: "Today’s 3", desc: "Three daily priorities on iPhone and Apple Watch, with continue-on-iPhone when a task needs the phone." },
-            { icon: "records", title: "Records hub", desc: "Overview for patterns, Activity for the editable ledger — Study, Work, Spend, Train." },
+            { icon: "today", title: "Today’s 3", desc: "Three daily priorities on iPhone and Apple Watch, recent activity from the last three days across every domain, and continue-on-iPhone when a task needs the phone." },
+            { icon: "records", title: "Records hub", desc: "Overview for patterns, Activity for the editable ledger — Study, Work, Spend, Train. Browse any week, Monday through Sunday." },
             { icon: "watch", title: "Watch companion", desc: "Now, Summary, and Sync. Quick Start sits on Now. The phone stays the source of truth." },
-            { icon: "widgets", title: "Widgets", desc: "Today, Payday, and Next Shift — plus Smart and Quick Actions, with an optional work profile." },
-            { icon: "shift", title: "Pay schedule", desc: "Weekly, every two weeks, or monthly — confirm real paydays so forecasts stay honest." },
-            { icon: "pro", title: "Work profiles & Pro", desc: "Separate rates per job. Pro unlocks more profiles, custom modes, and a base-currency override." },
+            { icon: "widgets", title: "Widgets", desc: "Today, Payday, and Next Shift — plus Smart and Quick Actions, with an optional work profile. Widgets follow your Today priorities." },
+            { icon: "shift", title: "Shift Planner", desc: "One-time shifts and weekly templates for every work profile. Confirm real paydays so paycheck forecasts stay honest." },
+            { icon: "ocean", title: "Ocean Collection", desc: "Complete focus sessions to collect ocean creatures without affecting timers or history." },
+            { icon: "pro", title: "Work profiles & Pro", desc: "Separate rates per job. Pro unlocks more profiles, weekly shift templates, custom modes, and a base-currency override." },
         ],
     },
     download: {
@@ -364,7 +395,7 @@ export const en: Dictionary = {
         subtitle: "A calmer way to earn, spend intentionally, and train for the long term.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
-        footnote: "Free on the App Store · iPhone, iPad, and Apple Watch · FocusMint Pro lifetime $4.99.",
+        footnote: "Free on the App Store · iPhone, iPad, and Apple Watch · LifeMint Pro lifetime $4.99.",
     },
     credibility: {
         items: ["Today’s 3", "Records", "Watch", "iPhone · iPad · Watch", "English · Français · 中文"],
@@ -374,10 +405,10 @@ export const en: Dictionary = {
         product: "Product",
         support: "Support",
         features: "Pillars",
-        tryDemo: "Try Focus",
+        tryDemo: "Try it",
         changelog: "Changelog",
         privacy: "Privacy Policy",
         terms: "Terms of Service",
-        copyright: "© 2026 FocusMint. All rights reserved.",
+        copyright: "© 2026 LifeMint. All rights reserved.",
     },
 };

@@ -10,22 +10,22 @@ const TAB_VISUALS = [
     kind: 'watch' as const,
     phoneSrc: 'home' as const,
     watchSrc: 'now' as const,
-    phoneAlt: 'FocusMint Home with Today’s 3',
-    watchAlt: 'FocusMint Watch Now',
+    phoneAlt: 'LifeMint Home with Today’s 3',
+    watchAlt: 'LifeMint Watch Now',
   },
   {
     kind: 'live' as const,
     phoneSrc: 'records' as const,
     watchSrc: 'summary' as const,
-    phoneAlt: 'FocusMint Records overview',
-    watchAlt: 'FocusMint Watch Summary',
+    phoneAlt: 'LifeMint Records overview',
+    watchAlt: 'LifeMint Watch Summary',
   },
   {
     kind: 'watch' as const,
     phoneSrc: 'home' as const,
     watchSrc: 'sync' as const,
-    phoneAlt: 'FocusMint Home',
-    watchAlt: 'FocusMint Watch Sync',
+    phoneAlt: 'LifeMint Home',
+    watchAlt: 'LifeMint Watch Sync',
   },
 ];
 

@@ -23,7 +23,7 @@ export default function Hero({ dict }: { dict: Dictionary['hero'] }) {
             }}
           >
             <p className="text-2xl sm:text-3xl font-semibold tracking-tight text-brand-dark mb-4">
-              FocusMint
+              LifeMint
             </p>
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-soft border border-brand/20 mb-6">
@@ -86,10 +86,10 @@ export default function Hero({ dict }: { dict: Dictionary['hero'] }) {
             }}
           >
             <div className="relative flex items-end gap-4 lg:gap-6">
-              <PhoneScreenshot src="home" alt="FocusMint home with Today’s 3 and Study Work Expense Gym" priority />
+              <PhoneScreenshot src="home" alt="LifeMint home with Today’s 3 and Study Work Expense Gym" priority />
               <WatchScreenshot
                 src="now"
-                alt="FocusMint Apple Watch Now with Today’s 3"
+                alt="LifeMint Apple Watch Now with Today’s 3"
                 className="mb-4 lg:mb-8"
               />
             </div>

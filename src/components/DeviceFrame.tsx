@@ -13,7 +13,7 @@ interface PhoneScreenshotProps {
 export default function PhoneScreenshot({ src, alt = '', className = '', priority = false }: PhoneScreenshotProps) {
   return (
     <div className={`relative ${className}`}>
-      <div className="aspect-[9/19.5] bg-[#0d1312] rounded-[28px] lg:rounded-[32px] shadow-[0_40px_90px_rgba(20,45,31,0.14),0_10px_30px_rgba(20,45,31,0.08)] overflow-hidden border border-black/20">
+      <div className="aspect-[9/19.5] bg-[#121212] rounded-[28px] lg:rounded-[32px] shadow-[0_40px_90px_rgba(20,45,31,0.14),0_10px_30px_rgba(20,45,31,0.08)] overflow-hidden border border-black/30">
         <img
           src={screenshots.iphone[src]}
           alt={alt}
