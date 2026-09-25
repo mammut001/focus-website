@@ -6,6 +6,7 @@ import InteractiveTimerDemo from '@/components/InteractiveTimerDemo';
 import ProductStory from '@/components/ProductStory';
 import AppleEcosystemSection from '@/components/AppleEcosystemSection';
 import ProductGallery from '@/components/ProductGallery';
+import FeatureExplorer from '@/components/FeatureExplorer';
 import SupportingFeatures from '@/components/SupportingFeatures';
 import DownloadCTA from '@/components/DownloadCTA';
 import Footer from '@/components/Footer';
@@ -26,6 +27,7 @@ export default async function Home({ params: { lang } }: { params: { lang: 'en' 
             <ProductStory dict={dict.story} />
             <AppleEcosystemSection dict={dict.ecosystem} />
             <ProductGallery dict={dict.productGallery} />
+            <FeatureExplorer dict={dict.explorer} />
             <SupportingFeatures dict={dict.supporting} />
             <DownloadCTA dict={dict.download} />
             <Footer dict={dict.footer} />

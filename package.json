@@ -7,7 +7,8 @@
     "prebuild": "node scripts/generate-changelog.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "screenshots": "python3 scripts/import-iphone-screenshots.py"
   },
   "dependencies": {
     "@types/node": "^20.0.0",

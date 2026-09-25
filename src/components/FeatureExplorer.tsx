@@ -1,54 +1,54 @@
 'use client';
 
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useCallback, useState, useRef } from 'react';
 import Reveal from './Reveal';
 import { PhoneFrame } from './DeviceFrame';
 import { screenshots } from '@/lib/assets';
 import type { Dictionary } from '@/dictionaries/en';
 
-interface TabInfo {
-  id: string;
-  label: string;
-  screenshot: keyof typeof screenshots.iphone;
-}
-
-const TABS: TabInfo[] = [
-  { id: 'home', label: 'Home', screenshot: 'home' },
-  { id: 'goals', label: 'Goals', screenshot: 'goals' },
-  { id: 'sessions', label: 'Sessions', screenshot: 'sessions' },
-  { id: 'earnings', label: 'Earnings', screenshot: 'earnings' },
-  { id: 'insights', label: 'Insights', screenshot: 'heatmap' },
-  { id: 'watch', label: 'Watch', screenshot: 'home' }, // will use watch image
+/** One screenshot per explorer panel (same order as dict.explorer.panels). */
+const PANEL_SCREENSHOTS: (keyof typeof screenshots.iphone | 'watch')[] = [
+  'home',
+  'expense',
+  'fitness',
+  'records',
+  'profiles',
+  'goals',
+  'watch',
 ];
 
 export default function FeatureExplorer({ dict }: { dict: Dictionary['explorer'] }) {
   const [activeTab, setActiveTab] = useState(0);
   const tabListRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const panelCount = Math.min(dict.panels.length, PANEL_SCREENSHOTS.length);
 
-  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
-    let newIdx = activeTab;
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-      e.preventDefault();
-      newIdx = (activeTab + 1) % TABS.length;
-    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-      e.preventDefault();
-      newIdx = (activeTab - 1 + TABS.length) % TABS.length;
-    } else if (e.key === 'Home') {
-      e.preventDefault();
-      newIdx = 0;
-    } else if (e.key === 'End') {
-      e.preventDefault();
-      newIdx = TABS.length - 1;
-    }
-    if (newIdx !== activeTab) {
-      setActiveTab(newIdx);
-      const btn = tabListRef.current?.querySelectorAll('[role="tab"]')[newIdx] as HTMLButtonElement;
-      btn?.focus();
-    }
-  }, [activeTab]);
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      let newIdx = activeTab;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        newIdx = (activeTab + 1) % panelCount;
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        newIdx = (activeTab - 1 + panelCount) % panelCount;
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        newIdx = 0;
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        newIdx = panelCount - 1;
+      }
+      if (newIdx !== activeTab) {
+        setActiveTab(newIdx);
+        const btn = tabListRef.current?.querySelectorAll('[role="tab"]')[newIdx] as HTMLButtonElement;
+        btn?.focus();
+      }
+    },
+    [activeTab, panelCount],
+  );
 
-  const current = TABS[activeTab];
+  const shotKey = PANEL_SCREENSHOTS[activeTab];
+  const panel = dict.panels[activeTab];
 
   return (
     <Reveal>
@@ -64,24 +64,18 @@ export default function FeatureExplorer({ dict }: { dict: Dictionary['explorer']
           </div>
 
           <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-            {/* Left: screenshot */}
             <div className="max-w-[320px] mx-auto lg:mx-0 mb-8 lg:mb-0">
               <PhoneFrame>
                 <img
-                  key={current.id}
-                  src={current.id === 'watch' ? screenshots.watch.home : screenshots.iphone[current.screenshot]}
-                  alt={current.label}
+                  key={shotKey}
+                  src={shotKey === 'watch' ? screenshots.watch.home : screenshots.iphone[shotKey]}
+                  alt={panel?.title ?? ''}
                   className="w-full h-full object-cover"
-                  style={{
-                    opacity: visible ? 1 : 0,
-                    transition: 'opacity 0.3s ease-out, transform 0.3s ease-out',
-                  }}
                   loading="lazy"
                 />
               </PhoneFrame>
             </div>
 
-            {/* Right: tabs */}
             <div>
               <div
                 ref={tabListRef}
@@ -90,13 +84,13 @@ export default function FeatureExplorer({ dict }: { dict: Dictionary['explorer']
                 onKeyDown={handleKeyDown}
                 className="flex gap-1 overflow-x-auto pb-2 mb-6 scrollbar-none"
               >
-                {TABS.map((tab, i) => (
+                {dict.panels.slice(0, panelCount).map((tab, i) => (
                   <button
-                    key={tab.id}
+                    key={tab.title}
                     role="tab"
-                    id={`explorer-tab-${tab.id}`}
+                    id={`explorer-tab-${i}`}
                     aria-selected={activeTab === i}
-                    aria-controls={`explorer-panel-${tab.id}`}
+                    aria-controls={`explorer-panel-${i}`}
                     tabIndex={activeTab === i ? 0 : -1}
                     onClick={() => setActiveTab(i)}
                     className={`px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors ${
@@ -105,28 +99,24 @@ export default function FeatureExplorer({ dict }: { dict: Dictionary['explorer']
                         : 'text-text-secondary hover:text-text-primary hover:bg-black/5'
                     }`}
                   >
-                    {tab.label}
+                    {tab.title}
                   </button>
                 ))}
               </div>
 
-              {TABS.map((tab, i) => (
+              {dict.panels.slice(0, panelCount).map((tab, i) => (
                 <div
-                  key={tab.id}
-                  id={`explorer-panel-${tab.id}`}
+                  key={tab.title}
+                  id={`explorer-panel-${i}`}
                   role="tabpanel"
-                  aria-labelledby={`explorer-tab-${tab.id}`}
+                  aria-labelledby={`explorer-tab-${i}`}
                   hidden={activeTab !== i}
                   className="max-w-sm"
                 >
-                  {activeTab === i && dict.panels[i] && (
+                  {activeTab === i && (
                     <div>
-                      <h3 className="text-xl font-semibold text-text-primary mb-2">
-                        {dict.panels[i].title}
-                      </h3>
-                      <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
-                        {dict.panels[i].desc}
-                      </p>
+                      <h3 className="text-xl font-semibold text-text-primary mb-2">{tab.title}</h3>
+                      <p className="text-sm sm:text-base text-text-secondary leading-relaxed">{tab.desc}</p>
                     </div>
                   )}
                 </div>

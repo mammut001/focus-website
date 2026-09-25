@@ -24,7 +24,7 @@ export default function ProductGallery({ dict }: { dict: Dictionary['productGall
       title: dict.tabs.history.title,
       description: dict.tabs.history.description,
       main: 'records' as const,
-      secondary: 'records-activity' as const,
+      secondary: 'expense' as const,
     },
     {
       id: 'goals',
@@ -32,15 +32,15 @@ export default function ProductGallery({ dict }: { dict: Dictionary['productGall
       title: dict.tabs.goals.title,
       description: dict.tabs.goals.description,
       main: 'goals' as const,
-      secondary: 'home-goals' as const,
+      secondary: 'earnings' as const,
     },
     {
       id: 'insights',
       label: dict.tabs.insights.label,
       title: dict.tabs.insights.title,
       description: dict.tabs.insights.description,
-      main: 'records-analytics' as const,
-      secondary: 'profiles' as const,
+      main: 'fitness' as const,
+      secondary: 'pay-schedule' as const,
     },
   ];
 

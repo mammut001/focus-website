@@ -6,6 +6,8 @@ export const screenshots = {
     'home-goals': asset('/screenshots/iphone/home-goals.webp'),
     records: asset('/screenshots/iphone/records.webp'),
     'records-analytics': asset('/screenshots/iphone/records-analytics.webp'),
+    expense: asset('/screenshots/iphone/expense.webp'),
+    fitness: asset('/screenshots/iphone/fitness.webp'),
     'records-activity': asset('/screenshots/iphone/records-activity.webp'),
     goals: asset('/screenshots/iphone/goals.webp'),
     modes: asset('/screenshots/iphone/modes.webp'),
