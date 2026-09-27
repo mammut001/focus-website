@@ -1,22 +1,18 @@
-import { describe, it, expect, mock, beforeEach } from "bun:test";
-import { render } from "@testing-library/react";
+import { describe, it, expect } from "bun:test";
+import { renderToStaticMarkup } from "react-dom/server";
 import RootPage from "../page";
 
-const replaceMock = mock(() => {});
-
-mock.module("next/navigation", () => ({
-  useRouter: () => ({
-    replace: replaceMock,
-  }),
-}));
-
 describe("RootPage", () => {
-  beforeEach(() => {
-    replaceMock.mockClear();
+  const html = renderToStaticMarkup(<RootPage />);
+
+  it("redirects to a locale without waiting for hydration", () => {
+    expect(html).toContain("location.replace(");
+    expect(html).toContain("'zh'");
+    expect(html).toContain("'fr'");
   });
 
-  it("should redirect to /en", () => {
-    render(<RootPage />);
-    expect(replaceMock).toHaveBeenCalledWith("/en");
+  it("falls back to /en/ when JavaScript is off", () => {
+    expect(html).toContain('http-equiv="refresh"');
+    expect(html).toContain('href="/en/"');
   });
 });

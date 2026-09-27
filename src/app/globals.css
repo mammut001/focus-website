@@ -136,6 +136,15 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+.hero-enter {
+  animation: fadeUp 0.7s ease-out both;
+}
+
+.hero-enter-delayed {
+  animation-duration: 0.8s;
+  animation-delay: 0.15s;
+}
+
 .pillar-panel-enter {
   animation: pillarFade 280ms ease-out both;
 }

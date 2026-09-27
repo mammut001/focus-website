@@ -67,6 +67,7 @@ export default function ProductGallery({ dict }: { dict: Dictionary['productGall
               <button
                 key={theme.id}
                 onClick={() => setActiveTab(idx)}
+                aria-pressed={activeTab === idx}
                 className={`px-6 py-2.5 text-sm font-medium rounded-full transition-colors ${
                   activeTab === idx
                     ? 'bg-brand text-white shadow-soft'
@@ -94,6 +95,10 @@ export default function ProductGallery({ dict }: { dict: Dictionary['productGall
               <img
                 src={screenshots.iphone[activeTheme.secondary]}
                 alt=""
+                width={720}
+                height={1560}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-cover rounded-[16px]"
               />
             </div>
@@ -134,7 +139,7 @@ export default function ProductGallery({ dict }: { dict: Dictionary['productGall
                 </div>
                 {/* Secondary Screenshot */}
                 <div className="absolute w-[120px] right-4 bottom-4 z-0 rounded-[16px] overflow-hidden border border-border shadow-soft bg-white p-1">
-                  <img src={screenshots.iphone[theme.secondary]} alt="" className="w-full h-auto rounded-[12px]" />
+                  <img src={screenshots.iphone[theme.secondary]} alt="" width={720} height={1560} loading="lazy" decoding="async" className="w-full h-auto rounded-[12px]" />
                 </div>
               </div>
             </div>
