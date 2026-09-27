@@ -54,7 +54,7 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
         <div className="flex items-center justify-between h-16 md:h-[68px]">
           <button onClick={handleLogoClick} className="flex items-center gap-2.5 cursor-pointer" aria-label="Home">
             <img
-              src={asset('/lifemint-icon.jpg')}
+              src={asset('/lifemint-icon.webp')}
               alt=""
               width={32}
               height={32}
@@ -81,8 +81,8 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
             </button>
           </div>
 
-          <button className="md:hidden p-2 text-text-secondary hover:text-text-primary transition-colors" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button className="md:hidden p-2 text-text-secondary hover:text-text-primary transition-colors" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu" aria-expanded={mobileOpen} aria-controls="mobile-menu">
+            <svg className="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -93,7 +93,7 @@ export default function Navbar({ dict }: { dict: Dictionary['navbar'] }) {
         </div>
 
         {mobileOpen && (
-          <div className="md:hidden pb-5 pt-1 flex flex-col gap-1 border-t border-border mt-1">
+          <div id="mobile-menu" className="md:hidden pb-5 pt-1 flex flex-col gap-1 border-t border-border mt-1">
             {[
               { label: dict.features, id: 'pillars' },
               { label: dict.tryDemo, id: 'interactive-demo' },

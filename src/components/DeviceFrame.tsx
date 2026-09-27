@@ -21,8 +21,8 @@ export default function PhoneScreenshot({ src, alt = '', className = '', priorit
           height={1560}
           loading={priority ? 'eager' : 'lazy'}
           fetchPriority={priority ? 'high' : 'auto'}
+          decoding="async"
           className="w-full h-full object-cover"
-          sizes="(max-width: 640px) 320px, (max-width: 1024px) 400px, 720px"
         />
       </div>
     </div>
@@ -42,11 +42,11 @@ export function WatchScreenshot({ src, alt = '', className = '' }: WatchScreensh
         <img
           src={screenshots.watch[src]}
           alt={alt}
-          width={400}
-          height={476}
+          width={416}
+          height={496}
           loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
-          sizes="(max-width: 640px) 90px, 110px"
         />
       </div>
     </div>
