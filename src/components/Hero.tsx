@@ -42,11 +42,11 @@ export default function Hero({ dict }: { dict: Dictionary['hero'] }) {
 
             <div className="flex flex-wrap gap-2">
               {dict.tags.map((tag, i) => {
-                const colors = ['#1f803c', '#8c57ad', '#1f6ea8'];
+                const colors = ['#1f803c', '#2f6fe0', '#8c57ad'];
                 const softs = [
                   'rgba(31, 128, 60, 0.12)',
+                  'rgba(47, 111, 224, 0.12)',
                   'rgba(140, 87, 173, 0.12)',
-                  'rgba(31, 110, 168, 0.12)',
                 ];
                 return (
                   <span

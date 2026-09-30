@@ -29,28 +29,45 @@ export type Dictionary = {
         appStoreUrl: string;
         learnMore: string;
         tags: string[];
-        mockup: {
-            timer: string;
-            status: string;
-            mode: string;
-            watchTime: string;
-            watchMode: string;
-        };
     };
-    pillars: {
+    ring: {
         title: string;
         subtitle: string;
+        explainer: string;
         items: {
-            id: 'earn' | 'spend' | 'train';
+            id: 'focus' | 'earn' | 'move' | 'spend';
             label: string;
+            caption: string;
             title: string;
             description: string;
             points: string[];
             screenshot: string;
-            panelTitle: string;
-            panelMetric: string;
-            panelDetail: string;
         }[];
+    };
+    paycheck: {
+        eyebrow: string;
+        title: string;
+        description: string;
+        card: {
+            caption: string;
+            payday: string;
+            daysRemaining: string;
+            estimate: string;
+            range: string;
+            basis: string;
+            confidence: string;
+            recorded: string;
+            basePay: string;
+            tips: string;
+            shiftHours: string;
+            expectedTips: string;
+            disclaimer: string;
+        };
+        points: {
+            title: string;
+            desc: string;
+        }[];
+        footnote: string;
     };
     story: {
         steps: {
@@ -89,18 +106,18 @@ export type Dictionary = {
         countUp: string;
         work: string;
         study: string;
-        earn: string;
+        focus: string;
         spend: string;
-        train: string;
-        earnHint: string;
+        move: string;
+        focusHint: string;
         spendHint: string;
         spendLog: string;
         spendLogged: string;
         spendRate: string;
-        trainHint: string;
-        trainLog: string;
-        trainWeek: string;
-        trainTargetMet: string;
+        moveHint: string;
+        moveLog: string;
+        moveWeek: string;
+        moveTargetMet: string;
         spendCategories: { label: string; amount: string; cost: string }[];
     };
     productGallery: {
@@ -138,6 +155,20 @@ export type Dictionary = {
             desc: string;
         }[];
     };
+    pro: {
+        title: string;
+        subtitle: string;
+        free: {
+            title: string;
+            items: string[];
+        };
+        lifetime: {
+            title: string;
+            price: string;
+            items: string[];
+        };
+        footnote: string;
+    };
     credibility: {
         items: string[];
     };
@@ -153,30 +184,29 @@ export type Dictionary = {
         product: string;
         support: string;
         features: string;
+        paycheck: string;
         tryDemo: string;
         changelog: string;
-        privacy: string;
-        terms: string;
         copyright: string;
     };
 };
 
 export const en: Dictionary = {
     metadata: {
-        title: "LifeMint — Earn, Spend, Train | iPhone, iPad & Apple Watch",
-        description: "Run your life, not just your timer. Today’s 3, unified Records, and an Apple Watch companion for focus, work, spending, and training.",
-        ogTitle: "LifeMint — Earn. Spend. Train.",
-        ogDescription: "Today’s 3, unified Records, and an Apple Watch companion for focus, work, spending, and training.",
+        title: "LifeMint — Focus, Earn, Move, Spend | iPhone, iPad & Apple Watch",
+        description: "Run your life, not just your timer. Pick a Life Ring, start with Today’s 3, and see what your time is worth — including a paycheck forecast built from your own work history.",
+        ogTitle: "LifeMint — Focus. Earn. Move. Spend.",
+        ogDescription: "Pick a Life Ring, start with Today’s 3, and see what your time is worth — including a paycheck forecast built from your own work history.",
     },
     navbar: {
-        features: "Pillars",
+        features: "Life Ring",
         tryDemo: "Try it",
         download: "Download",
         changelog: "Changelog",
     },
     changelogPage: {
         title: "Changelog",
-        description: "Release notes from the App Store, including LifeMint 1.4.x and later.",
+        description: "Release notes from the App Store.",
         loading: "Loading...",
         error: "Failed to load data. Please try again later.",
         noReleases: "No releases found.",
@@ -186,81 +216,126 @@ export const en: Dictionary = {
     },
     hero: {
         badge: "Run your life, not just your timer",
-        title: "Earn. Spend.\nTrain.",
-        description: "Focus, work, spending, and growth—together. Start with Today’s 3, then Study, Work, Expense, or Gym. Records shows the pattern; Apple Watch keeps it close.",
+        title: "Focus. Earn.\nMove. Spend.",
+        description: "Four parts of your day, one calm record. Choose a Life Ring, take Today’s 3, and watch your time turn into something you can measure — down to what your next paycheck will look like.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
-        learnMore: "Explore the three pillars",
-        tags: ["Today’s 3", "Records", "Watch"],
-        mockup: {
-            timer: "00:30",
-            status: "Focusing",
-            mode: "Work",
-            watchTime: "25:00",
-            watchMode: "Focus",
-        },
+        learnMore: "See the Life Ring",
+        tags: ["Life Ring", "Today’s 3", "Paycheck forecast"],
     },
-    pillars: {
-        title: "Three pillars. One calm record.",
-        subtitle: "LifeMint treats creating, spending, and training as equal parts of how you use your time.",
+    ring: {
+        title: "One Life Ring. Four domains.",
+        subtitle: "Focus, Earn, Move, and Spend are equal parts of how you use your time. Pick the ones that matter and Today puts them first.",
+        explainer: "Nothing is turned off — this only decides what Today puts first.",
         items: [
+            {
+                id: 'focus',
+                label: 'Focus',
+                caption: 'Be present',
+                title: 'Focus without the friction.',
+                description: 'Pomodoro, Live Focus, or manual. Study and Work are just focus modes, so your time lands in the right place automatically.',
+                points: [
+                    'Study and Work from Home, plus your own custom modes',
+                    'Pomodoro, Live Focus, or log a session by hand',
+                    'Custom modes keep their own duration, icon, and color',
+                ],
+                screenshot: 'session-setup',
+            },
             {
                 id: 'earn',
                 label: 'Earn',
-                title: 'Create with focus.',
-                description: 'Study uses Live Focus, Pomodoro, or Manual. Work uses Clock In, Pomodoro, or Manual. Time becomes earnings and goals.',
+                caption: 'See your income',
+                title: 'Know what your time is worth.',
+                description: 'Bind an hourly wage to a work profile and every focused hour turns into earnings you can plan around.',
                 points: [
-                    'Study and Work from Home',
-                    'Today’s 3 daily priorities',
-                    'Live Focus, Clock In, Pomodoro, or Manual',
+                    'Separate rates for every job',
+                    'Live earnings while you clock in',
+                    'Next paycheck, estimated before payday',
                 ],
-                screenshot: 'home',
-                panelTitle: 'Today’s focus',
-                panelMetric: '6h 45m',
-                panelDetail: '3 sessions · $157.50 earned',
+                screenshot: 'earnings',
+            },
+            {
+                id: 'move',
+                label: 'Move',
+                caption: 'Stay active',
+                title: 'Train for the long term.',
+                description: 'Log strength, cardio, and Apple Health workouts. Set a weekly target and build consecutive weeks that hit it.',
+                points: [
+                    'Log a workout from Home',
+                    'Weekly target and activity mix in Records',
+                    'Apple Health workouts import automatically',
+                ],
+                screenshot: 'fitness',
             },
             {
                 id: 'spend',
                 label: 'Spend',
-                title: 'Spend intentionally.',
-                description: 'Log expenses by category and see the time cost — how many hours of work that purchase really took.',
+                caption: 'Spend intentionally',
+                title: 'See the real cost of a purchase.',
+                description: 'Log expenses by category and LifeMint converts them into the hours of work they actually cost you.',
                 points: [
-                    'Log expenses from the Home actions',
-                    'See earned, spent, and kept in Life Flow',
+                    'Log from Home, or set a recurring monthly bill',
                     'Time cost from your work profiles',
+                    'Earned, spent, and kept in Life Flow',
                 ],
                 screenshot: 'expense',
-                panelTitle: 'Time cost',
-                panelMetric: '≈ 2.5h work',
-                panelDetail: '$45 food · based on base hourly rate',
-            },
-            {
-                id: 'train',
-                label: 'Train',
-                title: 'Train for the long term.',
-                description: 'Log strength, cardio, and more. Set a weekly target and build consecutive weeks that hit it.',
-                points: [
-                    'Gym from Home',
-                    'Weekly target in Records',
-                    'Today’s 3 and Watch summary stay in sync',
-                ],
-                screenshot: 'fitness',
-                panelTitle: 'This week',
-                panelMetric: '3 of 4',
-                panelDetail: '2 consecutive target weeks',
             },
         ],
+    },
+    paycheck: {
+        eyebrow: "Know what’s coming",
+        title: "Your next paycheck, before it arrives.",
+        description: "Most apps can only tell you what you already earned. LifeMint learns from your past pay periods and your actual schedule, so the estimate is useful from day one of a new cycle.",
+        card: {
+            caption: "Next payday",
+            payday: "Fri, Nov 14",
+            daysRemaining: "6 days remaining",
+            estimate: "Estimated pay",
+            range: "Likely $612 – $688",
+            basis: "Based on your last 4 pay periods",
+            confidence: "Medium confidence",
+            recorded: "recorded",
+            basePay: "Base pay",
+            tips: "Tips",
+            shiftHours: "Includes 12.5 h of scheduled shifts",
+            expectedTips: "Includes about $48 in expected tips",
+            disclaimer: "Based on logged work. Actual pay may differ.",
+        },
+        points: [
+            {
+                title: "It learns from your real history",
+                desc: "After two pay periods, LifeMint takes the median of your last four — skipping vacation and sick periods — and keeps a likely range from how much your pay actually varies.",
+            },
+            {
+                title: "It knows which days you work",
+                desc: "LifeMint learns the weekdays and hours your earnings usually land, so an unworked weekend is never mistaken for a slow pay period.",
+            },
+            {
+                title: "It uses your real schedule",
+                desc: "Days you have entered are counted from your shifts, plus the tips you usually make per hour. Days confirmed without a shift count as days off.",
+            },
+            {
+                title: "The range is honest",
+                desc: "The likely range is an ~80% band built from period-to-period variation and how far your schedule has drifted — not a min/max that only looks right by luck.",
+            },
+        ],
+        footnote: "Pro adds scheduled-plan projections and paycheck reconciliation: expected vs. actual, with notes on every period.",
     },
     story: {
         steps: [
             {
+                title: "Pick your Life Ring.",
+                description: "Choose what you want to improve — Focus, Earn, Move, or Spend. Your first choice leads Today; nothing is ever turned off.",
+                screenshots: ["home", "modes"],
+            },
+            {
                 title: "Start with Today’s 3.",
-                description: "Pick three priorities, then start Study, Work, Expense, or Gym from the same Home screen.",
+                description: "Pick up to three priorities, then start Study, Work, Expense, or Gym from the same Home screen.",
                 screenshots: ["home", "session-setup"],
             },
             {
                 title: "See the week as Life Flow.",
-                description: "Records Overview shows intentional time, earned, spent, and kept — plus Study, Work, Spend, and Train at a glance.",
+                description: "Records shows intentional time, earned, spent, and kept — plus Study, Work, and Train at a glance.",
                 screenshots: ["records", "records-analytics"],
             },
             {
@@ -269,14 +344,9 @@ export const en: Dictionary = {
                 screenshots: ["expense"],
             },
             {
-                title: "Train toward a weekly target.",
-                description: "Log Gym from Home, track weekly workouts and activity mix, and keep Move in sync with Records.",
-                screenshots: ["fitness"],
-            },
-            {
                 title: "Turn time into goals.",
-                description: "Set income and time goals, follow pay-period progress, and keep study hours on track.",
-                screenshots: ["goals", "home-goals"],
+                description: "Set time and income goals, and let the paycheck forecast tell you how many more hours you need.",
+                screenshots: ["goals", "income-goal"],
             },
         ],
     },
@@ -295,10 +365,10 @@ export const en: Dictionary = {
             },
             {
                 title: "Summary",
-                desc: "A read-only glance at Focus, Work, Train, and Today’s 3 — synced from iPhone.",
+                desc: "A read-only glance at your Life Ring domains — Focus, Earn, Move, and Spend — synced from iPhone.",
                 points: [
                     "Today and This Week",
-                    "Focus, Work, Train, and Today’s 3",
+                    "Your four domains, in your own order",
                     "Read-only companion surface",
                 ],
             },
@@ -317,19 +387,19 @@ export const en: Dictionary = {
         title: "Explore the app",
         subtitle: "Real screenshots from LifeMint.",
         panels: [
-            { title: "Home", desc: "Today’s 3, then Study, Work, Expense, or Gym." },
+            { title: "Home", desc: "Today’s 3, your Life Ring hero, and one-tap actions for Study, Work, Expense, or Gym." },
             { title: "Expense", desc: "Log by category, link a work profile, and see real time cost." },
             { title: "Gym", desc: "Weekly workout target, activity mix, streaks, and Log Workout from Home." },
             { title: "Records", desc: "Overview for Life Flow, then Activity for the editable ledger." },
             { title: "Work", desc: "Work profiles, Shift Planner, Clock In, and paycheck tools." },
-            { title: "Goals", desc: "Time and income goals in one list, including pay-period progress." },
+            { title: "Goals", desc: "Time and income goals in one list, with pay-period progress." },
             { title: "Watch", desc: "Now, Summary, and Sync. Quick Start lives on Now." },
         ],
     },
     timerDemo: {
-        eyebrow: "Try Earn, Spend, and Train",
-        title: "Three small actions, right in your browser.",
-        description: "A 30-second focus, a logged expense with time cost, or a workout toward this week’s target.",
+        eyebrow: "Try it right here",
+        title: "Three small actions, in your browser.",
+        description: "A 30-second focus, a logged expense with its time cost, or a workout toward this week’s target.",
         start: "Start",
         pause: "Pause",
         resume: "Resume",
@@ -339,18 +409,18 @@ export const en: Dictionary = {
         countUp: "Live Focus",
         work: "Work",
         study: "Study",
-        earn: "Earn",
+        focus: "Focus",
         spend: "Spend",
-        train: "Train",
-        earnHint: "Pomodoro or Live Focus — Study or Work.",
+        move: "Move",
+        focusHint: "Pomodoro or Live Focus — Study or Work.",
         spendHint: "Pick a spend. Time cost uses a $25/hr demo rate.",
         spendLog: "Log expense",
         spendLogged: "Logged",
         spendRate: "$25/hr demo rate",
-        trainHint: "Log a Gym session toward a weekly target of 3.",
-        trainLog: "Log Gym",
-        trainWeek: "This week",
-        trainTargetMet: "Weekly target hit",
+        moveHint: "Log a workout toward a weekly target of 3.",
+        moveLog: "Log workout",
+        moveWeek: "This week",
+        moveTargetMet: "Weekly target hit",
         spendCategories: [
             { label: "Coffee", amount: "$6.50", cost: "≈ 16 min of work" },
             { label: "Lunch", amount: "$18", cost: "≈ 43 min of work" },
@@ -373,13 +443,13 @@ export const en: Dictionary = {
             },
             goals: {
                 label: "Goals",
-                title: "Income and time in one list",
-                description: "Pay-period earnings goals next to weekly study hours, with progress you can actually use.",
+                title: "Time and income in one list",
+                description: "Time goals and income goals together, with progress you can actually use.",
             },
             insights: {
-                label: "Train & Work",
-                title: "Gym progress and shift planning",
-                description: "Weekly workouts and activity mix, then Shift Planner templates and scheduled pay per profile.",
+                label: "Work",
+                title: "Shift planning that feeds the forecast",
+                description: "One-time shifts and weekly templates per work profile, with scheduled earnings and hours for the pay period.",
             },
         },
     },
@@ -387,34 +457,62 @@ export const en: Dictionary = {
         title: "Everything else you need",
         subtitle: "Built around Home, Records, and a thin Watch companion.",
         items: [
-            { icon: "today", title: "Today’s 3", desc: "Three daily priorities on iPhone and Apple Watch, recent activity from the last three days across every domain, and continue-on-iPhone when a task needs the phone." },
-            { icon: "records", title: "Records hub", desc: "Overview for patterns, Activity for the editable ledger — Study, Work, Spend, Train. Browse any week, Monday through Sunday." },
+            { icon: "today", title: "Today’s 3", desc: "Up to three daily priorities on iPhone and Apple Watch, plus recent activity from the last three days across every domain." },
+            { icon: "records", title: "Records hub", desc: "Overview for patterns, Activity for the editable ledger — Focus, Earn, Move, Spend. Browse any week, Monday through Sunday." },
+            { icon: "forecast", title: "Paycheck forecast", desc: "An estimate with a likely range from your last pay periods, your shifts, and your usual tips. Free from two pay periods in." },
             { icon: "watch", title: "Watch companion", desc: "Now, Summary, and Sync. Quick Start sits on Now. The phone stays the source of truth." },
-            { icon: "widgets", title: "Widgets", desc: "Today, Payday, and Next Shift — plus Smart and Quick Actions, with an optional work profile. Widgets follow your Today priorities." },
-            { icon: "shift", title: "Shift Planner", desc: "One-time shifts and weekly templates for every work profile. Confirm real paydays so paycheck forecasts stay honest." },
-            { icon: "ocean", title: "Ocean Collection", desc: "Complete focus sessions to collect ocean creatures without affecting timers or history." },
-            { icon: "pro", title: "Work profiles & Pro", desc: "Separate rates per job. Pro unlocks more profiles, weekly shift templates, custom modes, and a base-currency override." },
+            { icon: "widgets", title: "Widgets & Live Activity", desc: "Today, Payday, and Next Shift — plus Smart and Quick Actions, with an optional work profile. Lock screen and Dynamic Island included." },
+            { icon: "shift", title: "Shift Planner", desc: "One-time shifts and weekly templates for every work profile. Confirm real paydays so the paycheck forecast stays honest." },
+            { icon: "ocean", title: "Ocean Collection", desc: "Complete focus sessions to collect ocean creatures without affecting timers or history. Turn it off any time." },
+            { icon: "export", title: "Your data stays yours", desc: "CSV export is free, local backup is free, and there is no account required. Multi-currency expenses, with no automatic FX conversion." },
         ],
+    },
+    pro: {
+        title: "Free to use. Pro once, forever.",
+        subtitle: "LifeMint is a one-time purchase — not a subscription. Everything in Pro stays unlocked for good.",
+        free: {
+            title: "Free",
+            items: [
+                "All four Life Ring domains",
+                "Focus timers, Clock In, and goals",
+                "Paycheck forecast from your last pay periods",
+                "One work profile, two custom focus modes, three active goals",
+                "Unlimited one-time shifts",
+                "Widgets, Apple Watch, and CSV export",
+            ],
+        },
+        lifetime: {
+            title: "Pro — one-time purchase",
+            price: "$4.99",
+            items: [
+                "Unlimited work profiles, focus modes, and goals",
+                "Scheduled-plan paycheck projections with confidence indicators",
+                "Paycheck reconciliation: expected vs. actual, with notes",
+                "Weekly shift templates, shift reminders, and per-occurrence edits",
+                "CSV import and validated rows",
+                "Manual base currency for consistent summaries",
+            ],
+        },
+        footnote: "One-time purchase. No subscription, no account, no ads. Owners from 1.3.0 and earlier keep Pro forever.",
     },
     download: {
         title: "Ready when you are.",
-        subtitle: "A calmer way to earn, spend intentionally, and train for the long term.",
+        subtitle: "A calmer way to focus, earn, move, and spend — with a paycheck you can actually plan around.",
         appStore: "Download on the App Store",
         appStoreUrl: "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810",
         footnote: "Free on the App Store · iPhone, iPad, and Apple Watch · LifeMint Pro lifetime $4.99.",
     },
     credibility: {
-        items: ["Today’s 3", "Records", "Watch", "iPhone · iPad · Watch", "English · Français · 中文"],
+        items: ["Life Ring", "Paycheck forecast", "Records", "iPhone · iPad · Watch", "English · Français · 中文 · 日本語 · 한국어"],
     },
     footer: {
-        description: "Earn, Spend, and Train — Today’s 3, Records, and a Watch companion on iPhone, iPad, and Apple Watch.",
+        description: "Focus, Earn, Move, and Spend — a Life Ring, Today’s 3, a paycheck forecast, and an Apple Watch companion.",
         product: "Product",
         support: "Support",
-        features: "Pillars",
+        features: "Life Ring",
+        paycheck: "Paycheck forecast",
         tryDemo: "Try it",
         changelog: "Changelog",
-        privacy: "Privacy Policy",
-        terms: "Terms of Service",
         copyright: "© 2026 LifeMint. All rights reserved.",
     },
 };

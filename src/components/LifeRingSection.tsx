@@ -4,24 +4,19 @@ import { useState } from 'react';
 import Reveal from './Reveal';
 import PhoneScreenshot from './DeviceFrame';
 import { screenshots } from '@/lib/assets';
+import { DOMAIN_ACCENT, type DomainId } from '@/lib/domains';
 import type { Dictionary } from '@/dictionaries/en';
 
 type IPhoneShot = keyof typeof screenshots.iphone;
 
-function pillarShot(key: string): IPhoneShot {
+function domainShot(key: string): IPhoneShot {
   return key in screenshots.iphone ? (key as IPhoneShot) : 'home';
 }
 
-const ACCENT: Record<'earn' | 'spend' | 'train', { solid: string; soft: string }> = {
-  earn: { solid: '#1f803c', soft: 'rgba(31, 128, 60, 0.12)' },
-  spend: { solid: '#8c57ad', soft: 'rgba(140, 87, 173, 0.12)' },
-  train: { solid: '#1f6ea8', soft: 'rgba(31, 110, 168, 0.12)' },
-};
-
-export default function PillarsSection({ dict }: { dict: Dictionary['pillars'] }) {
+export default function LifeRingSection({ dict }: { dict: Dictionary['ring'] }) {
   const [active, setActive] = useState(0);
   const item = dict.items[active];
-  const accent = ACCENT[item.id];
+  const accent = DOMAIN_ACCENT[item.id as DomainId];
 
   return (
     <section id="pillars" className="py-20 md:py-28 px-6 scroll-mt-20 bg-bg">
@@ -43,25 +38,25 @@ export default function PillarsSection({ dict }: { dict: Dictionary['pillars'] }
             role="tablist"
             aria-label={dict.title}
           >
-            <div className="flex gap-1 p-1 rounded-2xl bg-black/[0.04] max-w-lg mx-auto">
-              {dict.items.map((pillar, i) => {
+            <div className="flex gap-1 p-1 rounded-2xl bg-black/[0.04] max-w-xl mx-auto">
+              {dict.items.map((domain, i) => {
                 const selected = active === i;
-                const color = ACCENT[pillar.id];
+                const color = DOMAIN_ACCENT[domain.id];
                 return (
                   <button
-                    key={pillar.id}
+                    key={domain.id}
                     role="tab"
-                    id={`pillar-tab-${pillar.id}`}
+                    id={`domain-tab-${domain.id}`}
                     aria-selected={selected}
-                    aria-controls={`pillar-panel-${pillar.id}`}
+                    aria-controls={`domain-panel-${domain.id}`}
                     onClick={() => setActive(i)}
-                    className="flex-1 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors"
+                    className="flex-1 px-2 sm:px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors"
                     style={{
                       background: selected ? color.solid : 'transparent',
                       color: selected ? '#fff' : 'var(--text-secondary)',
                     }}
                   >
-                    {pillar.label}
+                    {domain.label}
                   </button>
                 );
               })}
@@ -71,17 +66,17 @@ export default function PillarsSection({ dict }: { dict: Dictionary['pillars'] }
 
         <div
           key={item.id}
-          id={`pillar-panel-${item.id}`}
+          id={`domain-panel-${item.id}`}
           role="tabpanel"
-          aria-labelledby={`pillar-tab-${item.id}`}
-          className="pillar-panel-enter grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
+          aria-labelledby={`domain-tab-${item.id}`}
+          className="domain-panel-enter grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
         >
           <div>
             <span
               className="inline-flex text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full mb-4"
               style={{ background: accent.soft, color: accent.solid }}
             >
-              {item.label}
+              {item.caption}
             </span>
             <h3 className="text-[26px] sm:text-[32px] font-semibold leading-[1.1] text-text-primary mb-3">
               {item.title}
@@ -110,10 +105,16 @@ export default function PillarsSection({ dict }: { dict: Dictionary['pillars'] }
 
           <div className="flex justify-center lg:justify-end">
             <div className="w-full max-w-[280px]">
-              <PhoneScreenshot src={pillarShot(item.screenshot)} alt={item.title} />
+              <PhoneScreenshot src={domainShot(item.screenshot)} alt={item.title} />
             </div>
           </div>
         </div>
+
+        <Reveal delay={120}>
+          <p className="mt-10 md:mt-14 text-center text-sm text-text-tertiary max-w-lg mx-auto">
+            {dict.explainer}
+          </p>
+        </Reveal>
       </div>
     </section>
   );

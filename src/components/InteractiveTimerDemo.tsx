@@ -2,23 +2,20 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Reveal from './Reveal';
+import { DOMAIN_ACCENT, type DomainId } from '@/lib/domains';
 import type { Dictionary } from '@/dictionaries/en';
 
 type TimerMode = 'countdown' | 'countup';
 type FocusMode = 'work' | 'study';
-type Pillar = 'earn' | 'spend' | 'train';
+type DemoDomain = 'focus' | 'spend' | 'move';
 
-const ACCENT: Record<Pillar, { solid: string; soft: string }> = {
-  earn: { solid: '#1f803c', soft: 'rgba(31, 128, 60, 0.12)' },
-  spend: { solid: '#8c57ad', soft: 'rgba(140, 87, 173, 0.12)' },
-  train: { solid: '#1f6ea8', soft: 'rgba(31, 110, 168, 0.12)' },
-};
+const ACCENT = DOMAIN_ACCENT;
 
 const TRAIN_TARGET = 3;
 const TOTAL = 30;
 
 export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timerDemo'] }) {
-  const [pillar, setPillar] = useState<Pillar>('earn');
+  const [domain, setDomain] = useState<DemoDomain>('focus');
   const [phase, setPhase] = useState<'idle' | 'running' | 'paused' | 'done'>('idle');
   const [timerMode, setTimerMode] = useState<TimerMode>('countdown');
   const [focusMode, setFocusMode] = useState<FocusMode>('study');
@@ -26,12 +23,12 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
   const [progress, setProgress] = useState(1);
   const [spendIndex, setSpendIndex] = useState(0);
   const [spendLogged, setSpendLogged] = useState(false);
-  const [trainCount, setTrainCount] = useState(0);
+  const [moveCount, setMoveCount] = useState(0);
 
   const startTimeRef = useRef(0);
   const accruedRef = useRef(30);
   const rafRef = useRef(0);
-  const accent = ACCENT[pillar];
+  const accent = ACCENT[domain as DomainId];
 
   const formatTime = (seconds: number) => {
     const safe = Math.max(0, seconds);
@@ -130,19 +127,19 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
     setPhase('idle');
   };
 
-  const selectPillar = (next: Pillar) => {
-    if (next === pillar) return;
+  const selectDomain = (next: DemoDomain) => {
+    if (next === domain) return;
     if (phase === 'running' || phase === 'paused') stopTimer();
-    setPillar(next);
+    setDomain(next);
   };
 
   const circumference = 2 * Math.PI * 52;
-  const trainProgress = trainCount / TRAIN_TARGET;
-  const ringProgress = pillar === 'train' ? trainProgress : pillar === 'spend' ? (spendLogged ? 1 : 0) : progress;
+  const moveProgress = moveCount / TRAIN_TARGET;
+  const ringProgress = domain === 'move' ? moveProgress : domain === 'spend' ? (spendLogged ? 1 : 0) : progress;
   const offset = circumference * (1 - ringProgress);
   const isActive = phase === 'running' || phase === 'paused';
   const category = dict.spendCategories[spendIndex];
-  const pillars: Pillar[] = ['earn', 'spend', 'train'];
+  const domains: DemoDomain[] = ['focus', 'spend', 'move'];
 
   return (
     <Reveal>
@@ -163,15 +160,15 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
             role="tablist"
             aria-label={dict.title}
           >
-            {pillars.map((id) => {
-              const selected = pillar === id;
+            {domains.map((id) => {
+              const selected = domain === id;
               const color = ACCENT[id];
               return (
                 <button
                   key={id}
                   role="tab"
                   aria-selected={selected}
-                  onClick={() => selectPillar(id)}
+                  onClick={() => selectDomain(id)}
                   className="flex-1 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors"
                   style={{
                     background: selected ? color.solid : 'transparent',
@@ -197,7 +194,7 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
                 />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                {pillar === 'earn' && (
+                {domain === 'focus' && (
                   <>
                     <span className="text-3xl font-semibold text-text-primary tabular-nums" aria-live="polite" aria-atomic="true">
                       {display}
@@ -207,7 +204,7 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
                     </span>
                   </>
                 )}
-                {pillar === 'spend' && (
+                {domain === 'spend' && (
                   <>
                     <span className="text-3xl font-semibold tabular-nums" style={{ color: accent.solid }}>
                       {category.amount}
@@ -217,24 +214,24 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
                     </span>
                   </>
                 )}
-                {pillar === 'train' && (
+                {domain === 'move' && (
                   <>
                     <span className="text-3xl font-semibold tabular-nums" style={{ color: accent.solid }}>
-                      {trainCount} / {TRAIN_TARGET}
+                      {moveCount} / {TRAIN_TARGET}
                     </span>
-                    <span className="text-xs text-text-tertiary mt-0.5">{dict.trainWeek}</span>
+                    <span className="text-xs text-text-tertiary mt-0.5">{dict.moveWeek}</span>
                   </>
                 )}
               </div>
             </div>
 
             <p className="text-xs text-text-secondary text-center mb-5 leading-relaxed">
-              {pillar === 'earn' && dict.earnHint}
-              {pillar === 'spend' && dict.spendHint}
-              {pillar === 'train' && dict.trainHint}
+              {domain === 'focus' && dict.focusHint}
+              {domain === 'spend' && dict.spendHint}
+              {domain === 'move' && dict.moveHint}
             </p>
 
-            {pillar === 'earn' && (
+            {domain === 'focus' && (
               <>
                 <div className="flex gap-2 justify-center mb-5">
                   {phase === 'idle' && (
@@ -281,7 +278,7 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
               </>
             )}
 
-            {pillar === 'spend' && (
+            {domain === 'spend' && (
               <>
                 <div className="flex gap-2 justify-center flex-wrap mb-5">
                   {dict.spendCategories.map((item, i) => (
@@ -328,25 +325,25 @@ export default function InteractiveTimerDemo({ dict }: { dict: Dictionary['timer
               </>
             )}
 
-            {pillar === 'train' && (
+            {domain === 'move' && (
               <>
                 <div className="flex gap-2 justify-center mb-2">
-                  {trainCount < TRAIN_TARGET ? (
+                  {moveCount < TRAIN_TARGET ? (
                     <button
-                      onClick={() => setTrainCount((n) => Math.min(TRAIN_TARGET, n + 1))}
+                      onClick={() => setMoveCount((n) => Math.min(TRAIN_TARGET, n + 1))}
                       className="px-6 py-2.5 text-sm font-medium rounded-xl text-white"
                       style={{ background: accent.solid }}
                     >
-                      {dict.trainLog}
+                      {dict.moveLog}
                     </button>
                   ) : (
-                    <p className="text-sm font-medium" style={{ color: accent.solid }}>{dict.trainTargetMet}</p>
+                    <p className="text-sm font-medium" style={{ color: accent.solid }}>{dict.moveTargetMet}</p>
                   )}
                 </div>
-                {trainCount > 0 && (
+                {moveCount > 0 && (
                   <div className="flex justify-center mt-3">
                     <button
-                      onClick={() => setTrainCount(0)}
+                      onClick={() => setMoveCount(0)}
                       className="px-6 py-2.5 text-sm font-medium text-text-secondary bg-black/5 rounded-xl hover:bg-black/10 transition-colors"
                     >
                       {dict.reset}

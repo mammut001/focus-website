@@ -16,10 +16,11 @@ module.exports = {
           soft: '#dff3e6',
           softer: '#edf8f2',
         },
-        pillar: {
+        domain: {
+          focus: '#2f6fe0',
           earn: '#1f803c',
+          move: '#f24d4d',
           spend: '#8c57ad',
-          train: '#1f6ea8',
         },
         bg: {
           DEFAULT: '#f3f6ef',
