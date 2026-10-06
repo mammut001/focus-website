@@ -43,7 +43,7 @@ function keepExistingOrEmpty(reason) {
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify([]));
 }
 
-function fetchText(url, headers = {}) {
+function fetchText(url, headers = {}, redirectsLeft = 5) {
     return new Promise((resolve, reject) => {
         const options = {
             headers: {
@@ -53,6 +53,20 @@ function fetchText(url, headers = {}) {
         };
 
         https.get(url, options, (res) => {
+            if (
+                res.statusCode >= 300
+                && res.statusCode < 400
+                && res.headers.location
+                && redirectsLeft > 0
+            ) {
+                res.resume();
+                const next = res.headers.location.startsWith('http')
+                    ? res.headers.location
+                    : new URL(res.headers.location, url).href;
+                fetchText(next, headers, redirectsLeft - 1).then(resolve).catch(reject);
+                return;
+            }
+
             let data = '';
             if (res.statusCode !== 200) {
                 res.resume();

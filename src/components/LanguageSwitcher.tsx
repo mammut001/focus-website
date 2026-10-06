@@ -7,6 +7,8 @@ const languages = [
     { code: 'en', label: 'EN' },
     { code: 'fr', label: 'FR' },
     { code: 'zh', label: '中文' },
+    { code: 'ja', label: '日本語' },
+    { code: 'ko', label: '한국어' },
 ];
 
 interface LanguageSwitcherProps {
@@ -40,7 +42,7 @@ export default function LanguageSwitcher({ onLanguageChange, isMobile = false }:
         let newPath: string;
         if (!pathname || pathname === '/' || pathname === '') {
             newPath = `/${langCode}`;
-        } else if (['en', 'zh', 'fr'].includes(pathname.split('/')[1])) {
+        } else if (['en', 'zh', 'fr', 'ja', 'ko'].includes(pathname.split('/')[1])) {
             const segments = pathname.split('/');
             segments[1] = langCode;
             newPath = segments.join('/');

@@ -5,6 +5,8 @@ const dictionaries = {
     en: () => import('@/dictionaries/en').then((module) => module.en),
     fr: () => import('@/dictionaries/fr').then((module) => module.fr),
     zh: () => import('@/dictionaries/zh').then((module) => module.zh),
+    ja: () => import('@/dictionaries/ja').then((module) => module.ja),
+    ko: () => import('@/dictionaries/ko').then((module) => module.ko),
 };
 
 export const getDictionary = async (locale: keyof typeof dictionaries) => {

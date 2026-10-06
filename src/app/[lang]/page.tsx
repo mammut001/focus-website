@@ -14,8 +14,9 @@ import DownloadCTA from '@/components/DownloadCTA';
 import Footer from '@/components/Footer';
 import HashScroll from '@/components/HashScroll';
 import { getDictionary } from '../dictionaries';
+import type { Locale } from '@/lib/site';
 
-export default async function Home({ params: { lang } }: { params: { lang: 'en' | 'fr' | 'zh' } }) {
+export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
     const dict = await getDictionary(lang);
 
     return (

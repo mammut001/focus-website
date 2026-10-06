@@ -13,7 +13,7 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: L
     };
 }
 
-export default async function ChangelogPage({ params: { lang } }: { params: { lang: 'en' | 'fr' | 'zh' } }) {
+export default async function ChangelogPage({ params: { lang } }: { params: { lang: Locale } }) {
     const dict = await getDictionary(lang);
 
     return (
