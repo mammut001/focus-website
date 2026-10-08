@@ -274,6 +274,7 @@ export const zh: Dictionary = {
             { icon: "shift", title: "排班计划", desc: "为每个工作档案安排单次班次与每周重复班次模板；确认真实发薪日，工资预测才可靠。" },
             { icon: "ocean", title: "海洋收集", desc: "完成专注会话即可收集海洋生物——不影响计时和历史记录。随时可关闭。" },
             { icon: "export", title: "数据属于你", desc: "CSV 导出免费，本地备份免费，无需账号。多币种记账，不做自动汇率换算。" },
+            { icon: "globe", title: "App 内六种语言", desc: "英语、法语、中文、日语、韩语与西班牙语——App Store 名称与副标题支持加拿大、法国、墨西哥等本地化。" },
         ],
     },
     pro: {
@@ -312,7 +313,7 @@ export const zh: Dictionary = {
         footnote: "App Store 免费 · iPhone、iPad 与 Apple Watch · LifeMint Pro 终身 $4.99。",
     },
     credibility: {
-        items: ["生活圆环", "工资预测", "Records", "iPhone · iPad · Watch", "English · Français · 中文 · 日本語 · 한국어"],
+        items: ["生活圆环", "工资预测", "Records", "iPhone · iPad · Watch", "EN · FR · ZH · JA · KO · ES"],
     },
     footer: {
         description: "专注、收入、运动、支出——生活圆环、今日三件事、工资预测与 Apple Watch 伴侣。",

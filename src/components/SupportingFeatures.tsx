@@ -57,6 +57,12 @@ const iconMap: Record<string, React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.5l2.1 4.26 4.7.68-3.4 3.31.8 4.67-4.2-2.21-4.2 2.21.8-4.67-3.4-3.31 4.7-.68 2.1-4.26z" />
     </svg>
   ),
+  globe: (
+    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3.6 9h16.8M3.6 15h16.8M12 3c-2.5 2.8-3.8 5.8-3.8 9s1.3 6.2 3.8 9c2.5-2.8 3.8-5.8 3.8-9s-1.3-6.2-3.8-9z" />
+    </svg>
+  ),
 };
 
 export default function SupportingFeatures({ dict }: { dict: Dictionary['supporting'] }) {

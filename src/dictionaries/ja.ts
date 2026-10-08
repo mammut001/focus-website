@@ -274,6 +274,7 @@ export const ja: Dictionary = {
             { icon: "shift", title: "シフトプランナー", desc: "各プロファイルに単発・週次テンプレート。実際の給与日を確定し、予測を正直に。" },
             { icon: "ocean", title: "オーシャンコレクション", desc: "集中セッションで海洋生物を集める — タイマーと履歴には影響なし。いつでもオフ可能。" },
             { icon: "export", title: "データはあなたのもの", desc: "CSV エクスポート無料、ローカルバックアップ無料、アカウント不要。多通貨支出、自動為替なし。" },
+            { icon: "globe", title: "アプリ内6言語", desc: "英語・フランス語・中国語・日本語・韓国語・スペイン語。App Store の名称とサブタイトルはカナダ・フランス・メキシコなどに対応。" },
         ],
     },
     pro: {
@@ -312,7 +313,7 @@ export const ja: Dictionary = {
         footnote: "App Store 無料 · iPhone、iPad、Apple Watch · LifeMint Pro 永久 $4.99。",
     },
     credibility: {
-        items: ["ライフリング", "給与予測", "Records", "iPhone · iPad · Watch", "English · Français · 中文 · 日本語 · 한국어"],
+        items: ["ライフリング", "給与予測", "Records", "iPhone · iPad · Watch", "EN · FR · ZH · JA · KO · ES"],
     },
     footer: {
         description: "集中・収入・運動・支出 — ライフリング、今日の3つ、給与予測、Apple Watch コンパニオン。",

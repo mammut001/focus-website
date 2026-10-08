@@ -274,6 +274,7 @@ export const ko: Dictionary = {
             { icon: "shift", title: "시프트 플래너", desc: "프로필별 단발·주간 템플릿. 실제 급여일 확정해 예측을 정직하게." },
             { icon: "ocean", title: "오션 컬렉션", desc: "집중 세션으로 바다 생물 수집 — 타이머·기록에 영향 없음. 언제든 끄기." },
             { icon: "export", title: "데이터는 내 것", desc: "CSV보내기 무료, 로컬 백업 무료, 계정 불필요. 다통화 지출, 자동 환전 없음." },
+            { icon: "globe", title: "앱 6개 언어", desc: "영어·프랑스어·중국어·일본어·한국어·스페인어. App Store 이름·부제는 캐나다·프랑스·멕시코 등에 맞게 제공." },
         ],
     },
     pro: {
@@ -312,7 +313,7 @@ export const ko: Dictionary = {
         footnote: "App Store 무료 · iPhone, iPad, Apple Watch · LifeMint Pro 평생 $4.99.",
     },
     credibility: {
-        items: ["라이프 링", "급여 예측", "Records", "iPhone · iPad · Watch", "English · Français · 中文 · 日本語 · 한국어"],
+        items: ["라이프 링", "급여 예측", "Records", "iPhone · iPad · Watch", "EN · FR · ZH · JA · KO · ES"],
     },
     footer: {
         description: "집중·수입·운동·지출 — 라이프 링, 오늘의 3가지, 급여 예측, Apple Watch 동반자.",

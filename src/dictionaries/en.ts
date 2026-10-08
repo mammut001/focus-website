@@ -465,6 +465,7 @@ export const en: Dictionary = {
             { icon: "shift", title: "Shift Planner", desc: "One-time shifts and weekly templates for every work profile. Confirm real paydays so the paycheck forecast stays honest." },
             { icon: "ocean", title: "Ocean Collection", desc: "Complete focus sessions to collect ocean creatures without affecting timers or history. Turn it off any time." },
             { icon: "export", title: "Your data stays yours", desc: "CSV export is free, local backup is free, and there is no account required. Multi-currency expenses, with no automatic FX conversion." },
+            { icon: "globe", title: "Six languages in the app", desc: "English, French, Chinese, Japanese, Korean, and Spanish — with App Store name and subtitle localizations for Canada, France, Mexico, and more." },
         ],
     },
     pro: {
@@ -503,7 +504,7 @@ export const en: Dictionary = {
         footnote: "Free on the App Store · iPhone, iPad, and Apple Watch · LifeMint Pro lifetime $4.99.",
     },
     credibility: {
-        items: ["Life Ring", "Paycheck forecast", "Records", "iPhone · iPad · Watch", "English · Français · 中文 · 日本語 · 한국어"],
+        items: ["Life Ring", "Paycheck forecast", "Records", "iPhone · iPad · Watch", "EN · FR · ZH · JA · KO · ES"],
     },
     footer: {
         description: "Focus, Earn, Move, and Spend — a Life Ring, Today’s 3, a paycheck forecast, and an Apple Watch companion.",

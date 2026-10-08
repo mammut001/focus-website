@@ -274,6 +274,7 @@ export const fr: Dictionary = {
             { icon: "shift", title: "Planificateur de quarts", desc: "Quarts uniques et modèles hebdomadaires par profil. Confirmez les vraies dates de paie pour une prévision fiable." },
             { icon: "ocean", title: "Collection océan", desc: "Terminez des sessions de focus pour collectionner des créatures océaniques. Désactivable à tout moment." },
             { icon: "export", title: "Vos données restent à vous", desc: "Export CSV gratuit, sauvegarde locale gratuite, aucun compte requis. Dépenses multi-devises, sans conversion automatique." },
+            { icon: "globe", title: "Six langues dans l'app", desc: "Anglais, français, chinois, japonais, coréen et espagnol — avec nom et sous-titre App Store localisés pour le Canada, la France, le Mexique, et plus." },
         ],
     },
     pro: {
@@ -312,7 +313,7 @@ export const fr: Dictionary = {
         footnote: "Gratuit sur l'App Store · iPhone, iPad et Apple Watch · LifeMint Pro à vie 4,99 $.",
     },
     credibility: {
-        items: ["Anneau de vie", "Prévision de paie", "Records", "iPhone · iPad · Watch", "English · Français · 中文 · 日本語 · 한국어"],
+        items: ["Anneau de vie", "Prévision de paie", "Records", "iPhone · iPad · Watch", "EN · FR · ZH · JA · KO · ES"],
     },
     footer: {
         description: "Focus, Revenus, Mouvement et Dépenses — un anneau de vie, Les 3 du jour, une prévision de paie et un compagnon Apple Watch.",
