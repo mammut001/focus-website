@@ -465,7 +465,7 @@ export const en: Dictionary = {
             { icon: "shift", title: "Shift Planner", desc: "One-time shifts and weekly templates for every work profile. Confirm real paydays so the paycheck forecast stays honest." },
             { icon: "ocean", title: "Ocean Collection", desc: "Complete focus sessions to collect ocean creatures without affecting timers or history. Turn it off any time." },
             { icon: "export", title: "Your data stays yours", desc: "CSV export is free, local backup is free, and there is no account required. Multi-currency expenses, with no automatic FX conversion." },
-            { icon: "globe", title: "Six languages in the app", desc: "English, French, Chinese, Japanese, Korean, and Spanish — with App Store name and subtitle localizations for Canada, France, Mexico, and more." },
+            { icon: "globe", title: "Six languages", desc: "The app and this website are available in English, French, Chinese, Japanese, Korean, and Spanish — with App Store name, subtitle, and privacy links localized for Canada, France, Mexico, and more." },
         ],
     },
     pro: {

@@ -1,6 +1,6 @@
 import { BASE_PATH } from './basePath';
 
-export const LOCALES = ['en', 'fr', 'zh', 'ja', 'ko'] as const;
+export const LOCALES = ['en', 'fr', 'zh', 'ja', 'ko', 'es'] as const;
 export type Locale = (typeof LOCALES)[number];
 
 export const SITE_ORIGIN = 'https://mammut001.github.io';
@@ -12,6 +12,14 @@ export const HREFLANG: Record<Locale, string> = {
   zh: 'zh-CN',
   ja: 'ja',
   ko: 'ko',
+  es: 'es',
+};
+
+/** App Store regional tags that share a marketing locale URL. */
+export const HREFLANG_REGIONAL: Record<string, Locale> = {
+  'en-CA': 'en',
+  'fr-CA': 'fr',
+  'es-MX': 'es',
 };
 
 const OG_LOCALE: Record<Locale, string> = {
@@ -20,12 +28,16 @@ const OG_LOCALE: Record<Locale, string> = {
   zh: 'zh_CN',
   ja: 'ja_JP',
   ko: 'ko_KR',
+  es: 'es_MX',
 };
 
 /** Canonical + hreflang alternates for a path under each locale (e.g. '' or '/changelog'). */
 export function localeAlternates(lang: Locale, subpath = '') {
   const languages: Record<string, string> = {};
   for (const l of LOCALES) languages[HREFLANG[l]] = `/${l}${subpath}/`;
+  for (const [tag, locale] of Object.entries(HREFLANG_REGIONAL)) {
+    if (!languages[tag]) languages[tag] = `/${locale}${subpath}/`;
+  }
   languages['x-default'] = `/en${subpath}/`;
   return { canonical: `/${lang}${subpath}/`, languages };
 }

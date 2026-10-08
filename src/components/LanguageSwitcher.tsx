@@ -9,6 +9,7 @@ const languages = [
     { code: 'zh', label: '中文' },
     { code: 'ja', label: '日本語' },
     { code: 'ko', label: '한국어' },
+    { code: 'es', label: 'Español' },
 ];
 
 interface LanguageSwitcherProps {
@@ -42,7 +43,7 @@ export default function LanguageSwitcher({ onLanguageChange, isMobile = false }:
         let newPath: string;
         if (!pathname || pathname === '/' || pathname === '') {
             newPath = `/${langCode}`;
-        } else if (['en', 'zh', 'fr', 'ja', 'ko'].includes(pathname.split('/')[1])) {
+        } else if (['en', 'zh', 'fr', 'ja', 'ko', 'es'].includes(pathname.split('/')[1])) {
             const segments = pathname.split('/');
             segments[1] = langCode;
             newPath = segments.join('/');
@@ -75,7 +76,7 @@ export default function LanguageSwitcher({ onLanguageChange, isMobile = false }:
             {isOpen && (
                 <>
                     <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
-                    <div className={`absolute ${isMobile ? 'left-0' : 'right-0'} top-full mt-2 w-20 py-1 rounded-xl bg-white border border-border shadow-medium z-50 overflow-hidden`}>
+                    <div className={`absolute ${isMobile ? 'left-0' : 'right-0'} top-full mt-2 w-28 py-1 rounded-xl bg-white border border-border shadow-medium z-50 overflow-hidden max-h-64 overflow-y-auto`}>
                         {languages.map((lang) => (
                             <button
                                 key={lang.code}

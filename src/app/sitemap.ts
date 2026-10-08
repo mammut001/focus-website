@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { HREFLANG, LOCALES, SITE_URL } from '@/lib/site';
+import { HREFLANG, HREFLANG_REGIONAL, LOCALES, SITE_URL } from '@/lib/site';
 
 export const dynamic = 'force-static';
 
@@ -14,9 +14,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly' as const,
       priority,
       alternates: {
-        languages: Object.fromEntries(
-          LOCALES.map((l) => [HREFLANG[l], `${SITE_URL}/${l}${path}/`])
-        ),
+        languages: Object.fromEntries([
+          ...LOCALES.map((l) => [HREFLANG[l], `${SITE_URL}/${l}${path}/`]),
+          ...Object.entries(HREFLANG_REGIONAL).map(([tag, locale]) => [
+            tag,
+            `${SITE_URL}/${locale}${path}/`,
+          ]),
+        ]),
       },
     }))
   );

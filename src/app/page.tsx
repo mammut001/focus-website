@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 // Pick the visitor's language before the redirect so /zh and /fr users skip a hop.
-const redirectScript = `(function(){var l=(navigator.languages&&navigator.languages[0]||navigator.language||'en').toLowerCase();var c='en';if(l.indexOf('zh')===0)c='zh';else if(l.indexOf('ja')===0)c='ja';else if(l.indexOf('ko')===0)c='ko';else if(l.indexOf('fr')===0)c='fr';location.replace('${BASE_PATH}/'+c+'/'+location.hash);})();`;
+const redirectScript = `(function(){var l=(navigator.languages&&navigator.languages[0]||navigator.language||'en').toLowerCase();var c='en';if(l.indexOf('zh')===0)c='zh';else if(l.indexOf('ja')===0)c='ja';else if(l.indexOf('ko')===0)c='ko';else if(l.indexOf('es')===0)c='es';else if(l.indexOf('fr')===0)c='fr';location.replace('${BASE_PATH}/'+c+'/'+location.hash);})();`;
 
 export default function RootPage() {
   return (
