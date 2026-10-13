@@ -324,5 +324,7 @@ export const ko: Dictionary = {
         tryDemo: "체험하기",
         changelog: "변경 기록",
         copyright: "© 2026 LifeMint. All rights reserved.",
+        analyticsPrivacy:
+            "이 사이트는 자체 호스팅·쿠키 없는 통계(조회한 페이지, 대략적인 지역, 기기 유형)를 사용합니다. 개인 정보는 수집하지 않으며 제3자와 공유하지 않습니다. ‘추적 금지’가 켜져 있으면 방문을 집계하지 않습니다.",
     },
 };

@@ -1,7 +1,15 @@
 import '../globals.css';
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { getDictionary } from '../dictionaries';
 import { asset } from '@/lib/basePath';
+import {
+    UMAMI_DOMAINS,
+    UMAMI_HOST_URL,
+    UMAMI_SCRIPT_URL,
+    getUmamiWebsiteId,
+    isAnalyticsEnabled,
+} from '@/lib/analytics';
 import { LOCALES, SITE_URL, localeAlternates, ogLocale, type Locale } from '@/lib/site';
 
 export async function generateStaticParams() {
@@ -72,6 +80,16 @@ export default function RootLayout({
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
                 {children}
+                {isAnalyticsEnabled() && (
+                    <Script
+                        src={UMAMI_SCRIPT_URL}
+                        strategy="afterInteractive"
+                        data-website-id={getUmamiWebsiteId()}
+                        data-host-url={UMAMI_HOST_URL}
+                        data-do-not-track="true"
+                        data-domains={UMAMI_DOMAINS}
+                    />
+                )}
             </body>
         </html>
     );

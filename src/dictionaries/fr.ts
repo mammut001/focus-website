@@ -324,5 +324,7 @@ export const fr: Dictionary = {
         tryDemo: "Essayer",
         changelog: "Journal",
         copyright: "© 2026 LifeMint. Tous droits réservés.",
+        analyticsPrivacy:
+            "Ce site utilise des statistiques auto-hébergées, sans cookies (pages consultées, région approximative, type d’appareil). Aucune donnée personnelle n’est collectée ni partagée avec des tiers. Les visites ne sont pas comptées si « Ne pas me pister » est activé.",
     },
 };

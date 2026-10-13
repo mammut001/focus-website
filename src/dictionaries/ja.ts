@@ -324,5 +324,7 @@ export const ja: Dictionary = {
         tryDemo: "試す",
         changelog: "更新履歴",
         copyright: "© 2026 LifeMint. All rights reserved.",
+        analyticsPrivacy:
+            "当サイトは自前ホストの Cookie なしアクセス解析（閲覧ページ、おおよその地域、端末の種類）を利用します。個人情報は収集せず、第三者と共有しません。「追跡拒否」がオンのときはカウントしません。",
     },
 };

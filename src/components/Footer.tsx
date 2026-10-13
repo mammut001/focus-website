@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 import { asset } from '@/lib/basePath';
+import { isAnalyticsEnabled } from '@/lib/analytics';
 
 export default function Footer({ dict }: { dict: Dictionary['footer'] }) {
   const params = useParams();
@@ -50,6 +51,9 @@ export default function Footer({ dict }: { dict: Dictionary['footer'] }) {
             </ul>
           </div>
         </div>
+        {isAnalyticsEnabled() && (
+          <p className="text-xs text-white/30 max-w-2xl mt-8 leading-relaxed">{dict.analyticsPrivacy}</p>
+        )}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-10 pt-6 border-t border-white/10">
           <div className="text-xs text-white/30">{dict.copyright}</div>
           <LanguageSwitcher />
