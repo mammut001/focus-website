@@ -23,7 +23,7 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
         <main className="min-h-screen bg-bg text-text-primary">
             <HashScroll />
             <Navbar dict={dict.navbar} />
-            <Hero dict={dict.hero} />
+            <Hero dict={dict.hero} lang={lang} />
             <ProductCredibility dict={dict.credibility} />
             <LifeRingSection dict={dict.ring} />
             <InteractiveTimerDemo dict={dict.timerDemo} />
@@ -34,7 +34,7 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
             <FeatureExplorer dict={dict.explorer} />
             <SupportingFeatures dict={dict.supporting} />
             <ProSection dict={dict.pro} />
-            <DownloadCTA dict={dict.download} />
+            <DownloadCTA dict={dict.download} lang={lang} />
             <Footer dict={dict.footer} />
         </main>
     );

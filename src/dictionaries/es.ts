@@ -324,5 +324,7 @@ export const es: Dictionary = {
         tryDemo: "Probar",
         changelog: "Novedades",
         copyright: "© 2026 LifeMint. Todos los derechos reservados.",
+        analyticsPrivacy:
+            "Este sitio usa analíticas autoalojadas y sin cookies (páginas vistas, región aproximada, tipo de dispositivo). No se recopila información personal ni se comparte con terceros. Las visitas no se cuentan si «No rastrear» está activado.",
     },
 };

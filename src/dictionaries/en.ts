@@ -188,6 +188,7 @@ export type Dictionary = {
         tryDemo: string;
         changelog: string;
         copyright: string;
+        analyticsPrivacy: string;
     };
 };
 
@@ -515,5 +516,7 @@ export const en: Dictionary = {
         tryDemo: "Try it",
         changelog: "Changelog",
         copyright: "© 2026 LifeMint. All rights reserved.",
+        analyticsPrivacy:
+            "This site uses self-hosted, cookie-free analytics (pages viewed, approximate region, device type). No personal information is collected, and nothing is shared with third parties. Visits are not counted when Do Not Track is on.",
     },
 };

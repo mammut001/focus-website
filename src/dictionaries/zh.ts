@@ -324,5 +324,7 @@ export const zh: Dictionary = {
         tryDemo: "试一试",
         changelog: "更新日志",
         copyright: "© 2026 LifeMint. 保留所有权利。",
+        analyticsPrivacy:
+            "本站使用自托管的统计工具，不使用 Cookie，只记录浏览的页面、大致地区和设备类型，不收集个人信息，也不提供给第三方。浏览器开启“请勿跟踪”时不统计。",
     },
 };
