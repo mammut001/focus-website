@@ -3,8 +3,8 @@
     "id": 146,
     "name": "LifeMint 1.4.6",
     "tag_name": "1.4.6",
-    "published_at": "2026-10-08T12:00:00Z",
-    "body": "LifeMint 1.4.6 expands languages, storefront metadata, and everyday polish.\n\n• Spanish joins English, French, Chinese, Japanese, and Korean in the app — and on lifemint.app at /es/\n• App Store name and subtitle localizations for Canada, France, Mexico, and more — plus updated privacy links for Spanish (Mexico)\n• App Store rating prompts at the right moment (for example after logging a paycheck)\n• Pomodoro completion alerts when a session ends in the background\n• Amount fields accept your keyboard’s comma or period as the decimal separator\n• Earnings hero shows period-over-period changes; comparison opens as a receipt-style sheet\n• Heatmap year view and paywall copy improvements; stability fixes",
+    "published_at": "2026-10-10T12:00:00Z",
+    "body": "LifeMint 1.4.6 is on the App Store with payday, Watch, and language updates.\n\n• Biweekly paydays now follow a fixed anchor date, so your payday countdown stays on a steady 14-day rhythm\n• Apple Watch: see your next payday and this month’s workout check-ins at a glance\n• CSV export and import cover expenses, fixed bills, budgets, and workouts\n• Payday countdown and monthly check-ins refresh more reliably\n\nAlso in this build:\n• Spanish joins English, French, Chinese, Japanese, and Korean in the app — plus /es/ on this website\n• App Store name, subtitle, and privacy links localized for Canada, France, Mexico, and more\n• App Store rating prompts at the right moment (for example after logging a paycheck)\n• Pomodoro completion alerts when a session ends in the background\n• Amount fields accept your keyboard’s comma or period as the decimal separator\n• Earnings hero shows period-over-period changes; comparison opens as a receipt-style sheet\n• Heatmap year view, paywall copy, and stability fixes",
     "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
   },
   {
@@ -12,7 +12,7 @@
     "name": "LifeMint 1.4.5",
     "tag_name": "1.4.5",
     "published_at": "2026-10-05T12:00:00Z",
-    "body": "• Biweekly paydays now follow a fixed anchor date, so your payday countdown stays on a steady 14-day rhythm.\n• Apple Watch: see your next payday and this month's workout check-ins at a glance.\n• CSV export and import now cover expenses, fixed bills, budgets, and workouts.\n• Payday countdown and monthly check-ins now refresh more reliably.",
+    "body": "LifeMint 1.4.5 adds scheduling and monthly expense polish.\n\n• Added shift schedule support\n• Added monthly expense improvements\n• Bug fixes and performance improvements",
     "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
   },
   {
