@@ -1,10 +1,18 @@
 [
   {
+    "id": 147,
+    "name": "LifeMint 1.4.7",
+    "tag_name": "1.4.7",
+    "published_at": "2026-10-19T12:00:00Z",
+    "body": "A clearer view of your time and earnings.\n\n• Monthly Review reminders help you look back before the month ends.\n• Records now show activity mode colours and a daily rhythm chart, with a clearer yearly heatmap summary.\n• Compare earnings across periods in a new animated receipt view. Weekly earnings now include paycheque tips.\n• Choose work dates and the actual paycheque arrival date directly on the calendar, without a preset pay schedule or a 14-day limit. Already reconciled work dates stay grey and locked.\n• Pay schedule settings, forecast cards and predicted-payday reminders have been removed.\n• Receive a Pomodoro completion notification when the timer finishes in the background.\n• Improved decimal entry in amount fields, including comma keyboards.",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
     "id": 146,
     "name": "LifeMint 1.4.6",
     "tag_name": "1.4.6",
     "published_at": "2026-10-10T12:00:00Z",
-    "body": "• Biweekly paydays now follow a fixed anchor date, so your payday countdown stays on a steady 14-day rhythm.\n• Apple Watch: see your next payday and this month's workout check-ins at a glance.\n• CSV export and import now cover expenses, fixed bills, budgets, and workouts.\n• Payday countdown and monthly check-ins now refresh more reliably.",
+    "body": "• LifeMint is now available in Spanish.\n• The comma key now types a decimal point in every amount field, for phones whose region uses a comma.\n• Japanese and Korean: the Pro screen and date headers are fully translated.\n• Clearer amounts when you track more than one currency.\n• Smaller fixes and polish.",
     "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
   },
   {
@@ -12,7 +20,7 @@
     "name": "LifeMint 1.4.5",
     "tag_name": "1.4.5",
     "published_at": "2026-10-05T12:00:00Z",
-    "body": "1. Added shift schedule support\n2. Added monthly expense\n3. Fixed bugs",
+    "body": "• Biweekly paydays now follow a fixed anchor date, so your payday countdown stays on a steady 14-day rhythm.\n• Apple Watch: see your next payday and this month's workout check-ins at a glance.\n• CSV export and import now cover expenses, fixed bills, budgets, and workouts.\n• Payday countdown and monthly check-ins now refresh more reliably.",
     "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
   },
   {
