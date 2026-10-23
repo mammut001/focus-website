@@ -1,5 +1,13 @@
 [
   {
+    "id": 148,
+    "name": "LifeMint 1.4.8",
+    "tag_name": "1.4.8",
+    "published_at": "2026-10-23T12:00:00Z",
+    "body": "• Apple Watch redesign: a glanceable home, quick start, a dedicated Today's 3 page, a full-screen timer, and new complications.\n• Paycheck reconciliation: pick the actual arrival date freely — no pay schedule needed.\n• iPhone Duo support: two panes when open or half-folded, and your running timer and unsaved entries survive every fold.\n• Larger text: titles, buttons and lists no longer break mid-word or cut off.\n• Faster and more stable.",
+    "html_url": "https://apps.apple.com/us/app/focus-mint-focus-timer-study/id6759029810"
+  },
+  {
     "id": 147,
     "name": "LifeMint 1.4.7",
     "tag_name": "1.4.7",
