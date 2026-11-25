@@ -1,28 +1,14 @@
-import { getDictionary } from '@/app/dictionaries';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import ChangelogViewer from '@/components/ChangelogViewer';
-import { localeAlternates, type Locale } from '@/lib/site';
+import type { Metadata } from 'next';
+import MovedRedirect, { movedUrl } from '@/components/MovedRedirect';
+import type { Locale } from '@/lib/site';
 
-export async function generateMetadata({ params: { lang } }: { params: { lang: Locale } }) {
-    const dict = await getDictionary(lang);
+export function generateMetadata({ params: { lang } }: { params: { lang: Locale } }): Metadata {
     return {
-        title: `${dict.changelogPage.title} — LifeMint`,
-        description: dict.changelogPage.description,
-        alternates: localeAlternates(lang, '/changelog'),
+        robots: { index: false, follow: true },
+        alternates: { canonical: movedUrl(`/${lang}/changelog`) },
     };
 }
 
-export default async function ChangelogPage({ params: { lang } }: { params: { lang: Locale } }) {
-    const dict = await getDictionary(lang);
-
-    return (
-         <main className="min-h-screen bg-bg text-text-primary">
-            <Navbar dict={dict.navbar} />
-            <div className="pt-24 pb-20">
-                 <ChangelogViewer dict={dict.changelogPage} />
-            </div>
-            <Footer dict={dict.footer} />
-        </main>
-    );
+export default function ChangelogPage({ params: { lang } }: { params: { lang: Locale } }) {
+    return <MovedRedirect to={movedUrl(`/${lang}/changelog`)} />;
 }

@@ -1,26 +1,24 @@
 import type { Metadata } from 'next';
-import { BASE_PATH } from '@/lib/basePath';
+import { NEW_SITE } from '@/components/MovedRedirect';
 
 export const metadata: Metadata = {
   title: 'LifeMint',
   robots: { index: false, follow: true },
 };
 
-// Pick the visitor's language before the redirect so /zh and /fr users skip a hop.
-const redirectScript = `(function(){var l=(navigator.languages&&navigator.languages[0]||navigator.language||'en').toLowerCase();var c='en';if(l.indexOf('zh')===0)c='zh';else if(l.indexOf('ja')===0)c='ja';else if(l.indexOf('ko')===0)c='ko';else if(l.indexOf('es')===0)c='es';else if(l.indexOf('fr')===0)c='fr';location.replace('${BASE_PATH}/'+c+'/'+location.hash);})();`;
+// The site moved to the cv site, whose /lifemint picks the visitor's language itself.
+const redirectScript = `location.replace(${JSON.stringify(NEW_SITE)}+location.hash);`;
 
 export default function RootPage() {
   return (
     <html lang="en">
       <head>
-        <noscript>
-          <meta httpEquiv="refresh" content={`0; url=${BASE_PATH}/en/`} />
-        </noscript>
-        <link rel="canonical" href={`${BASE_PATH}/en/`} />
+        <link rel="canonical" href={NEW_SITE} />
         <script dangerouslySetInnerHTML={{ __html: redirectScript }} />
+        <meta httpEquiv="refresh" content={`0; url=${NEW_SITE}`} />
       </head>
       <body style={{ background: '#f3f6ef' }}>
-        <a href={`${BASE_PATH}/en/`}>LifeMint</a>
+        <a href={NEW_SITE}>LifeMint</a>
       </body>
     </html>
   );
